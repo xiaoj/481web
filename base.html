@@ -14,9 +14,9 @@
 </head>
 <body>
 	<h1 class="text-center">Neonatal Nurse Assist</h1>
-	<div class="container-fluid">
+	<div class="container-fluid content-container">
 		<div class="row-fluid" id="menu-container">
-			<div class="span8 offset2">
+			<div class="span12">
 				<ul id="menu" class="strong inline text-center">
 					<li><a href="./assist.html">Assist</a></li>
 					<li><a href="./poster.html">Poster</a></li>
@@ -24,14 +24,39 @@
 					<li><a href="./about.html">About Us</a></li>
 				</ul>
 			</div>
-			<div class="row-fluid" id="content-container">
-			</div>
 		</div>
+    <div class="row-fluid assist">
+      <div class="span4" id="assist-menu">
+        <ul id="features">
+          <li id="procedures">Procedures</li>
+          <li id="diagnostic">Diagnostic</li>
+          <li id="nutrition">Nutrition</li>
+          <li id="normal-newborn">Normal Newborn</li>
+          <li id="medication">Medication</li>
+          <li id="labs">Labs</li>
+          <li id="head-to-toe">Head-to-toe</li>
+          <li id="gestational-age">Gestational Age</li>
+          <li id="favorites">Favorites</li>
+        </ul>
+      </div>
+      <div class="span8" id="assist-display">
+        <div id="procedures">Procedures</div>
+        <div id="diagnostic">Diagnostic</div>
+        <div id="nutrition">Nutrition</div>
+        <div id="normal-newborn">Normal Newborn</div>
+        <div id="medication">Medication</div>
+        <div id="labs">Labs</div>
+        <div id="head-to-toe">Head-to-toe</div>
+        <div id="gestational-age">Gestational Age</div>
+        <div id="favorites">Favorites</div>
+      </div>
+    </div>
 	</div>
   <script type="text/javascript">
-    $("#menu a").click(function() {
-        $("#content-container").clear().innerHTML
-        alert("hi");
+    $("#assist-menu li").click(function() {
+      var name = this.id;
+      $("#assist-display").children().hide();
+      $("#assist-display").children("#" + name).show();
     });
   </script>
 </body>
