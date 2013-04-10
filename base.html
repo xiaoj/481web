@@ -40,8 +40,11 @@
         </ul>
       </div>
       <div class="span8" id="assist-display">
-        <div id="procedures">Procedures</div>
-        <div id="diagnostic"><img src="chest_img.jpg" alt="chest_img"></div>
+        <div id="procedures">
+          <p>Proceduce - Intubation</p> 
+          <img src="images\intubation.jpeg" alt="Intubation" width="304" height="228">
+        </div>
+        <div id="diagnostic">Diagnostic</div>
         <div id="nutrition">Nutrition</div>
         <div id="normal-newborn">Normal Newborn</div>
         <div id="medication">Medication</div>
@@ -52,6 +55,7 @@
       </div>
     </div>
 	</div>
+
   <script type="text/javascript">
     $("#assist-menu li").click(function() {
       var name = this.id;
@@ -59,5 +63,14 @@
       $("#assist-display").children("#" + name).show();
     });
   </script>
+
+  <script type="text/javascript">
+    $("#assist-menu li id="procedures").click(function() {
+      var name = this.id;
+      $("#assist-display").children().hide();
+      $("#assist-display").children("#" + name).show();
+    });
+  </script>
+
 </body>
 </html>
