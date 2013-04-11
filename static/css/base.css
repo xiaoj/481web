@@ -18,10 +18,10 @@ h1 {
   width: 100%;
   display: inline;
 }
-#menu a {
+a {
 	color: rgb(108, 108, 108);
 }
-#menu a:hover {
+a:hover {
 	color: rgb(20, 20, 20);
 }
 #menu-container {

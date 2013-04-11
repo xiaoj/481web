@@ -12,6 +12,7 @@
 <link href='./static/css/base.css' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="./static/js/base.js"></script>
+<script type="text/javascript" src="./static/js/bootstrap.js"></script>
 </head>
 <body>
 	<h1 class="text-center">Neonatal Nurse Assist</h1>
@@ -68,7 +69,16 @@
           </form>
         </div>
         <div id="normal-newborn">Normal Newborn</div>
-        <div id="medication">Medication</div>
+        <div id="medication">
+          <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose Medications</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><a tabindex="-1" href="#">A Medicine</a></li>
+              <li><a tabindex="-1" href="#">B Medicine</a></li>
+              <li><a tabindex="-1" href="#">C Medicine</a></li>
+            </ul>
+          </div>
+        </div>
         <div id="labs">Labs</div>
         <div id="head-to-toe">Head-to-toe</div>
         <div id="gestational-age">Gestational Age</div>
