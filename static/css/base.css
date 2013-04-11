@@ -47,3 +47,6 @@ h1 {
 #assist-display div {
   display: none;
 }
+#convert-submit {
+  display: block;
+}

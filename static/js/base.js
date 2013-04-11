@@ -1,0 +1,19 @@
+window.onload = function() {
+  $("#assist-menu li").click(function() {
+    var name = this.id;
+    $("#assist-display").children().hide();
+    $("#assist-display").children("#" + name).show();
+  });
+  $("#converter-pounds").keyup(function() {
+    var pounds = $("#converter-pounds").val();
+    $("#converter-kilos").val(pounds * .453592);
+  });
+  $("#converter-kilos").keyup(function() {
+    var kilos = $("#converter-kilos").val();
+    $("#converter-pounds").val(kilos * 2.20462);
+  });
+  $("#convert-submit").click(function(e) {
+    e.preventDefault();
+    $("#convert-result").text(pounds + " pounds is " + (pounds * .453592) + " Kg");
+  });
+}

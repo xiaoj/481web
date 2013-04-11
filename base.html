@@ -11,6 +11,7 @@
 <link href='./static/css/bootstrap.css' rel='stylesheet' type='text/css'>
 <link href='./static/css/base.css' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./static/js/base.js"></script>
 </head>
 <body>
 	<h1 class="text-center">Neonatal Nurse Assist</h1>
@@ -42,7 +43,19 @@
       <div class="span8" id="assist-display">
         <div id="procedures">Procedures</div>
         <div id="diagnostic">Diagnostic</div>
-        <div id="nutrition">Nutrition</div>
+        <div id="nutrition">
+          <form>
+            <fieldset>
+              <legend>Weight Converter</legend>
+              <label>Pounds
+                <input class="converter-input" id="converter-pounds" type=text placeholder="type weight...">
+              </label>
+              <label>Kilograms
+                <input class="converter-input" id="converter-kilos" type=text placeholder="type weight...">
+              </label>
+            </fieldset>
+          </form>
+        </div>
         <div id="normal-newborn">Normal Newborn</div>
         <div id="medication">Medication</div>
         <div id="labs">Labs</div>
@@ -52,12 +65,5 @@
       </div>
     </div>
 	</div>
-  <script type="text/javascript">
-    $("#assist-menu li").click(function() {
-      var name = this.id;
-      $("#assist-display").children().hide();
-      $("#assist-display").children("#" + name).show();
-    });
-  </script>
 </body>
 </html>
