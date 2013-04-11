@@ -10,6 +10,7 @@ window.onload = function() {
     $("#converter-kilos").val(pounds * .453592);
   });
   $("#converter-kilos").keyup(function() {
+    e.unbind();
     var kilos = $("#converter-kilos").val();
     $("#converter-pounds").val(kilos * 2.20462);
   });
@@ -18,3 +19,5 @@ window.onload = function() {
     $("#convert-result").text(pounds + " pounds is " + (pounds * .453592) + " Kg");
   });
 }
+
+
