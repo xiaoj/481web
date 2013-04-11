@@ -1,3 +1,4 @@
+
 body {
 	font-size: 20px;
 }
@@ -44,9 +45,14 @@ a:hover {
   border: 1px solid rgb(108, 108, 108);
   margin: 6px;
 }
-#assist-display div {
+#assist-display > div {
   display: none;
 }
 #convert-submit {
   display: block;
+}
+
+#electro_img {
+ display: none;
+ height: 350px;
 }

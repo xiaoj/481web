@@ -3,7 +3,10 @@ window.onload = function() {
     var name = this.id;
     $("#assist-display").children().hide();
     $("#assist-display").children("#" + name).show();
-    $("#assist-display").children("#" + name).find("*").show();
+    if(name == "labs"){
+      $("#labs img").hide();
+    }
+    //$("#assist-display").children("#" + name).find("*").show();
   });
   $("#converter-pounds").keyup(function() {
     var pounds = $("#converter-pounds").val();
@@ -18,6 +21,10 @@ window.onload = function() {
     e.preventDefault();
     $("#convert-result").text(pounds + " pounds is " + (pounds * .453592) + " Kg");
   });
+  $("#electro").click(function(){
+    $("#electro_img").show();
+  });
 }
+
 
 
