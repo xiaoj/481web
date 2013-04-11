@@ -3,6 +3,7 @@ window.onload = function() {
     var name = this.id;
     $("#assist-display").children().hide();
     $("#assist-display").children("#" + name).show();
+    $("#assist-display").children("#" + name).find("*").show();
   });
   $("#converter-pounds").keyup(function() {
     var pounds = $("#converter-pounds").val();
