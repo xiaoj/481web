@@ -1,0 +1,103 @@
+{
+  "survey": [
+    {
+      "type": "select_one",
+      "name": "menu",
+      "label": "Main Menu",
+      "_rowNum": 2,
+      "param": "menu"
+    },
+    {
+      "type": "select_one",
+      "name": "procedures",
+      "label": "Procedures",
+      "_rowNum": 3,
+      "param": "procedures"
+    }
+  ],
+  "choices": {
+    "menu": [
+      {
+        "list_name": "menu",
+        "name": "diagnostics",
+        "label": "Diagnostics",
+        "_rowNum": 2
+      },
+      {
+        "list_name": "menu",
+        "name": "procedures",
+        "label": "Procedures",
+        "_rowNum": 3
+      },
+      {
+        "list_name": "menu",
+        "name": "newborn",
+        "label": "Newborn",
+        "_rowNum": 4
+      },
+      {
+        "list_name": "menu",
+        "name": "labtools",
+        "label": "Lab Tools",
+        "_rowNum": 5
+      },
+      {
+        "list_name": "menu",
+        "name": "nutrition",
+        "label": "Nutrition Tools",
+        "_rowNum": 6
+      },
+      {
+        "list_name": "menu",
+        "name": "calculator",
+        "label": "Calculator",
+        "_rowNum": 7
+      }
+    ],
+    "procedures": [
+      {
+        "list_name": "procedures",
+        "name": "intubation",
+        "label": "Intubation",
+        "_rowNum": 8
+      },
+      {
+        "list_name": "procedures",
+        "_rowNum": 9
+      },
+      {
+        "list_name": "procedures",
+        "_rowNum": 10
+      }
+    ]
+  },
+  "prompt_types": [
+    {
+      "name": "breathcounter",
+      "schema": {
+        "type": "integer"
+      },
+      "_rowNum": 2
+    }
+  ],
+  "settings": [
+    {
+      "setting": "form_id",
+      "value": "neonatal",
+      "_rowNum": 2
+    },
+    {
+      "setting": "form_title",
+      "value": "Neonatal",
+      "_rowNum": 3
+    }
+  ],
+  "model": {
+    "menu": {
+      "type": "string"
+    },
+    "procedures": {
+      "type": "string"
+    }
+  }
+}
