@@ -722,6 +722,7 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
         this.$('input:checked').prop('checked', false).change();
     }
 });
+//*** Added below lines to implement auto forward on select one ***//
 promptTypes.select_one = promptTypes.select.extend({
     renderContext: {
         "select_one": true,
@@ -779,6 +780,39 @@ promptTypes.select_one = promptTypes.select.extend({
                 "value": savedValue
             }];
         }
+    }
+});
+promptTypes.menu = promptTypes.select_one.extend({
+    modification: function(evt) {
+        var ctxt = controller.newContext(evt);
+        ctxt.append("prompts." + this.type + ".modification", "px: " + this.promptIdx);
+        var that = this;
+        if(this.withOther) {
+            //This hack is needed to prevent rerendering
+            //causing the other input to loose focus when clicked.
+            if( $(evt.target).val() === 'other' &&
+                $(evt.target).prop('checked') &&
+                //The next two lines determine if the checkbox was already checked.
+                this.renderContext.other &&
+                this.renderContext.other.checked) {
+                return;
+            }
+        }
+        if(this.appearance === 'grid') {
+            //Make selection more reponsive by providing visual feedback before
+            //the template is re-rendered.
+            this.$('.grid-select-item.ui-bar-e').removeClass('ui-bar-e').addClass('ui-bar-c');
+            this.$('input:checked').closest('.grid-select-item').addClass('ui-bar-e');
+        }
+        var formValue = (this.$('form').serializeArray());
+        this.setValue($.extend({}, ctxt, {
+            success: function() {
+                that.updateRenderValue(formValue);
+                that.render();
+                ctxt.success();
+            }
+        }), this.generateSaveValue(formValue));
+        controller.gotoNextScreen(ctxt);
     }
 });
 promptTypes.select_one_with_other = promptTypes.select_one.extend({
