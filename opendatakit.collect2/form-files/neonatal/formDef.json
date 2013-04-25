@@ -4,7 +4,7 @@
       "type": "select_one",
       "name": "menu",
       "label": "Main Menu",
-      "undefined": "vertical",
+      "appearance": "grid",
       "_rowNum": 2,
       "param": "menu"
     },
@@ -46,7 +46,7 @@
     {
       "type": "note",
       "label": "INTUBATION",
-      "undefined": "img/intubation.jpeg",
+      "image": "img/intubation.jpeg",
       "_rowNum": 9
     },
     {
@@ -68,7 +68,7 @@
     {
       "type": "note",
       "label": "LUMBAR",
-      "undefined": "img/lumbar.gif",
+      "image": "img/lumbar.gif",
       "_rowNum": 14
     },
     {
