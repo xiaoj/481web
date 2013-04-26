@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Neonatal Nurse Assist</title>
+<meta name="description" content="Neonatal Nurse Helper">
+<meta name="author" content="Neonatal Team">
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<link href='./static/css/bootstrap.css' rel='stylesheet' type='text/css'>
+<link href='./static/css/base.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="./static/js/base.js"></script>
+<script type="text/javascript" src="./static/js/bootstrap.js"></script>
+</head>
+<body>
+	<h1 class="text-center">Neonatal Nurse Assist</h1>
+	<div class="container-fluid content-container">
+		<div class="row-fluid" id="menu-container">
+			<div class="span12">
+				<ul id="menu" class="strong inline text-center">
+					<li><a href="./assist.html">Assist</a></li>
+					<li><a href="./poster.html" id = "poster">Poster</a></li>
+					<li><a href="./talk.html">Talk</a></li>
+					<li><a href="./about.html">About Us</a></li>
+				</ul>
+			</div>
+		</div>
+    <div class="row-fluid assist">
+      <div class="span4" id="assist-menu">
+        <ul id="features">
+          <li id="procedures">Procedures</li>
+          <li id="diagnostic">Diagnostic</li>
+          <li id="nutrition">Nutrition</li>
+          <li id="normal-newborn">Normal Newborn</li>
+          <li id="medication">Medication</li>
+          <li id="labs">Labs</li>
+          <li id="head-to-toe">Head-to-toe</li>
+          <li id="gestational-age">Gestational Age</li>
+          <li id="favorites">Favorites</li>
+        </ul>
+      </div>
+      <div class="span8" id="assist-display">
+        <div id="procedures">Procedures
+          <hr>
+          <p>Intubation</p> 
+          <img src="images\intubation.jpeg" alt="Intubation">
+        </div>
+        <div id="diagnostic">
+          <img src="chest_img.jpg" alt="chest_img" width="400" height="400">
+        </div>
+        <div id="normal-newborn">Normal Newborn
+          <hr>
+          <p>Ballard Exam</p> 
+          <img src="images/ballard_score.jpg" alt="BallardExam">
+        </div>
+        <div id="nutrition">
+          <form>
+            <fieldset>
+              <legend>Weight Converter</legend>
+              <label>Pounds
+                <input class="converter-input" id="converter-pounds" type=text placeholder="type weight...">
+              </label>
+              <label>Kilograms
+                <input class="converter-input" id="converter-kilos" type=text placeholder="type weight...">
+              </label>
+            </fieldset>
+          </form>
+        </div>
+        <div id="normal-newborn">Normal Newborn</div>
+        <div id="medication">
+          <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose Medications</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><a tabindex="-1" href="#">A Medicine</a></li>
+              <li><a tabindex="-1" href="#">B Medicine</a></li>
+              <li><a tabindex="-1" href="#">C Medicine</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="labs">
+          <div class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose Labs</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><a tabindex="-1" href="#" id = "electro">Electrolytes</a></li>
+              <li><a tabindex="-1" href="#" id = "blood_count">Complete Blood Count</a></li>
+            </ul>
+           </div> 
+           <img src="lab.jpg" alt="electro_img" id = "electro_img">
+        </div>
+        <div id="head-to-toe">Head-to-toe</div>
+        <div id="gestational-age">Gestational Age</div>
+        <div id="favorites">Favorites</div>
+      </div>
+    </div>
+	</div>
+</body>
+</html>
