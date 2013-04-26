@@ -1,17 +1,11 @@
 {
   "survey": [
     {
-      "type": "image_slider",
-      "name": "slidy",
-      "label": "heyhey",
-      "_rowNum": 2
-    },
-    {
       "type": "select_one",
       "name": "menu",
       "label": "Main Menu",
       "appearance": "grid",
-      "_rowNum": 3,
+      "_rowNum": 2,
       "param": "menu"
     },
     {
@@ -19,7 +13,7 @@
       "name": "diagnostic_menu",
       "label": "Diagnostics",
       "condition": "selected(data('menu'), 'diagnostics')",
-      "_rowNum": 4,
+      "_rowNum": 3,
       "param": "diagnostic_menu"
     },
     {
@@ -27,7 +21,7 @@
       "name": "procedures_menu",
       "label": "Procedures",
       "condition": "selected(data('menu'), 'procedures')",
-      "_rowNum": 5,
+      "_rowNum": 4,
       "param": "procedures_menu"
     },
     {
@@ -35,25 +29,36 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "condition": "selected(data('menu'), 'calculators')",
-      "_rowNum": 6,
+      "_rowNum": 5,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('menu'), 'procedures') && selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 8,
+      "_rowNum": 7,
       "prompts": [
         {
           "type": "note",
-          "label": "INTUBATION",
+          "name": "intubation_link",
+          "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
+          "_rowNum": 8
+        },
+        {
+          "type": "note",
+          "name": "intubation_img",
+          "image": "img/intubation.jpeg",
           "_rowNum": 9
         },
         {
           "type": "note",
-          "name": "intubation",
-          "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video</a>",
-          "image": "img/intubation.jpeg",
+          "label": "<b>INTUBATION VIDEO</b>",
           "_rowNum": 10
+        },
+        {
+          "type": "note",
+          "name": "intubation_vdo",
+          "video": "video/testVdo.mp4",
+          "_rowNum": 11
         }
       ]
     },
@@ -62,52 +67,52 @@
       "label": "LUMBAR",
       "condition": "selected(data('menu'), 'procedures') && selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
-      "_rowNum": 13
+      "_rowNum": 15
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators')) && not(selected(data('calculators_menu'), 'weight_converter'))",
-      "_rowNum": 14,
+      "_rowNum": 16,
       "param": "weight_converter_end"
     },
     {
       "type": "label",
-      "_rowNum": 15,
+      "_rowNum": 17,
       "param": "weight_converter"
     },
     {
       "type": "screen",
-      "_rowNum": 16,
+      "_rowNum": 18,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 17
+          "_rowNum": 19
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 18
+          "_rowNum": 20
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 19
+          "_rowNum": 21
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 20
+          "_rowNum": 22
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 22,
+      "_rowNum": 24,
       "param": "weight_converter_end"
     }
   ],
