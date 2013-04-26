@@ -488,6 +488,10 @@ promptTypes.repeat = promptTypes.base.extend({
         //TODO: Notify collect of change of form? Or fire intent to launch new instance of collect?
     }
 });
+promptTypes.image_slider = promptTypes.base.extend({
+  type: "image_slider",
+  templatePath: "templates/image_slider.handlebars"
+});
 promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
     type: "select",
     templatePath: "templates/select.handlebars",
