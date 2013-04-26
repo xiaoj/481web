@@ -332,5 +332,9 @@ return Backbone.View.extend({
         //$contentArea.append(prompt.$el);
         return $page;
     }
+/***
+    $(".createInstance").click();
+    $(".odk-next-btn").click();
+    ***/
 });
 });

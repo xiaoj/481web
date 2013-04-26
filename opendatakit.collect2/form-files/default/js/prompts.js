@@ -809,10 +809,9 @@ promptTypes.menu = promptTypes.select_one.extend({
             success: function() {
                 that.updateRenderValue(formValue);
                 that.render();
-                ctxt.success();
+                controller.gotoNextScreen(ctxt);
             }
         }), this.generateSaveValue(formValue));
-        controller.gotoNextScreen(ctxt);
     }
 });
 promptTypes.select_one_with_other = promptTypes.select_one.extend({
