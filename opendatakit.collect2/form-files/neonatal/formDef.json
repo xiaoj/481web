@@ -39,61 +39,75 @@
       "param": "calculators_menu"
     },
     {
-      "type": "note",
-      "label": "INTUBATION",
-      "image": "img/intubation.jpeg",
-      "_rowNum": 8
+      "type": "screen",
+      "condition": "selected(data('menu'), 'procedures') && selected(data('procedures_menu'), 'intubation')",
+      "_rowNum": 8,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "INTUBATION",
+          "_rowNum": 9
+        },
+        {
+          "type": "note",
+          "name": "intubation",
+          "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video</a>",
+          "image": "img/intubation.jpeg",
+          "_rowNum": 10
+        }
+      ]
     },
     {
       "type": "note",
       "label": "LUMBAR",
+      "condition": "selected(data('menu'), 'procedures') && selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
-      "_rowNum": 10
+      "_rowNum": 13
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators')) && not(selected(data('calculators_menu'), 'weight_converter'))",
-      "_rowNum": 12,
+      "_rowNum": 14,
       "param": "weight_converter_end"
     },
     {
       "type": "label",
-      "_rowNum": 13,
+      "_rowNum": 15,
       "param": "weight_converter"
     },
     {
       "type": "screen",
-      "_rowNum": 14,
+      "_rowNum": 16,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 15
+          "_rowNum": 17
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 16
+          "_rowNum": 18
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 17
+          "_rowNum": 19
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 18
+          "_rowNum": 20
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 20,
+      "_rowNum": 22,
       "param": "weight_converter_end"
     }
   ],
