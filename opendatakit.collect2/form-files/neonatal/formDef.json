@@ -9,111 +9,154 @@
       "param": "menu"
     },
     {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'diagnostics'))",
+      "_rowNum": 3,
+      "param": "diagnostics_end"
+    },
+    {
       "type": "select_one",
       "name": "diagnostic_menu",
       "label": "Diagnostics",
-      "condition": "selected(data('menu'), 'diagnostics')",
-      "_rowNum": 3,
+      "appearance": "grid",
+      "_rowNum": 4,
       "param": "diagnostic_menu"
+    },
+    {
+      "type": "label",
+      "_rowNum": 5,
+      "param": "diagnostics_end"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'procedures'))",
+      "_rowNum": 6,
+      "param": "procedures_end"
     },
     {
       "type": "select_one",
       "name": "procedures_menu",
       "label": "Procedures",
-      "condition": "selected(data('menu'), 'procedures')",
-      "_rowNum": 4,
+      "appearance": "grid",
+      "_rowNum": 7,
       "param": "procedures_menu"
     },
     {
-      "type": "select_one",
-      "name": "calculators_menu",
-      "label": "Calculators",
-      "condition": "selected(data('menu'), 'calculators')",
-      "_rowNum": 5,
-      "param": "calculators_menu"
-    },
-    {
       "type": "screen",
-      "condition": "selected(data('menu'), 'procedures') && selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 7,
+      "condition": "selected(data('procedures_menu'), 'intubation')",
+      "_rowNum": 8,
       "prompts": [
         {
           "type": "note",
           "name": "intubation_link",
           "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
-          "_rowNum": 8
+          "_rowNum": 9
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 9
-        },
-        {
-          "type": "note",
-          "label": "<b>INTUBATION VIDEO</b>",
           "_rowNum": 10
         },
         {
           "type": "note",
-          "name": "intubation_vdo",
-          "video": "video/testVdo.mp4",
+          "label": "<b>INTUBATION VIDEO</b>",
           "_rowNum": 11
+        },
+        {
+          "type": "note",
+          "name": "intubation_vdo",
+          "video": "video/video.mp4",
+          "_rowNum": 12
         }
       ]
     },
     {
       "type": "note",
       "label": "LUMBAR",
-      "condition": "selected(data('menu'), 'procedures') && selected(data('procedures_menu'), 'lumbar')",
+      "condition": "selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
       "_rowNum": 15
     },
     {
-      "type": "goto",
-      "condition": "not(selected(data('menu'), 'calculators')) && not(selected(data('calculators_menu'), 'weight_converter'))",
-      "_rowNum": 16,
-      "param": "weight_converter_end"
+      "type": "select_one",
+      "name": "ballardExam_menu",
+      "label": "Ballard Exam",
+      "condition": "selected(data('procedures_menu'), 'ballardExam')",
+      "appearance": "grid",
+      "_rowNum": 17,
+      "param": "ballardExam_menu"
+    },
+    {
+      "type": "note",
+      "label": "New Exam !!",
+      "condition": "selected(data('ballardExam_menu'), 'newExam')",
+      "_rowNum": 18
+    },
+    {
+      "type": "note",
+      "label": "View Last Exam !!",
+      "condition": "selected(data('ballardExam_menu'), 'saveExam')",
+      "_rowNum": 19
     },
     {
       "type": "label",
-      "_rowNum": 17,
-      "param": "weight_converter"
+      "_rowNum": 20,
+      "param": "procedures_end"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'calculators'))",
+      "_rowNum": 21,
+      "param": "calculators_end"
+    },
+    {
+      "type": "select_one",
+      "name": "calculators_menu",
+      "label": "Calculators",
+      "appearance": "grid",
+      "_rowNum": 22,
+      "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 18,
+      "_rowNum": 23,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 19
+          "_rowNum": 24
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 20
+          "_rowNum": 25
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 21
+          "_rowNum": 26
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 22
+          "_rowNum": 27
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 24,
-      "param": "weight_converter_end"
+      "_rowNum": 29,
+      "param": "calculators_end"
+    },
+    {
+      "type": "note",
+      "label": "THE END!",
+      "_rowNum": 31
     }
   ],
   "calculates": [
@@ -171,6 +214,26 @@
         "name": "lumbar",
         "label": "Lumbar",
         "_rowNum": 6
+      },
+      {
+        "list_name": "procedures_menu",
+        "name": "ballardExam",
+        "label": "Ballard Exam",
+        "_rowNum": 7
+      }
+    ],
+    "ballardExam_menu": [
+      {
+        "list_name": "ballardExam_menu",
+        "name": "newExam",
+        "label": "Start New Exam",
+        "_rowNum": 8
+      },
+      {
+        "list_name": "ballardExam_menu",
+        "name": "saveExam",
+        "label": "View Last Exam",
+        "_rowNum": 9
       }
     ],
     "diagnostic_menu": [
@@ -178,7 +241,7 @@
         "list_name": "diagnostic_menu",
         "name": "head",
         "label": "Head UltraSound",
-        "_rowNum": 7
+        "_rowNum": 10
       }
     ],
     "calculators_menu": [
@@ -186,13 +249,13 @@
         "list_name": "calculators_menu",
         "name": "weight_converter",
         "label": "Weight Converter",
-        "_rowNum": 8
+        "_rowNum": 11
       },
       {
         "list_name": "calculators_menu",
         "name": "weight_loss",
         "label": "Weight Loss Calculator",
-        "_rowNum": 9
+        "_rowNum": 12
       }
     ],
     "kilo_pound": [
@@ -200,13 +263,27 @@
         "list_name": "kilo_pound",
         "name": "kilo",
         "label": "Kilograms",
-        "_rowNum": 11
+        "_rowNum": 14
       },
       {
         "list_name": "kilo_pound",
         "name": "pound",
         "label": "Pounds",
-        "_rowNum": 12
+        "_rowNum": 15
+      }
+    ],
+    "conversionType": [
+      {
+        "list_name": "conversionType",
+        "name": "lbsToKg",
+        "label": "Imperial to metric",
+        "_rowNum": 16
+      },
+      {
+        "list_name": "conversionType",
+        "name": "kgToLbs",
+        "label": "Metric to imperial",
+        "_rowNum": 17
       }
     ]
   },
@@ -230,6 +307,9 @@
       "type": "string"
     },
     "procedures_menu": {
+      "type": "string"
+    },
+    "ballardExam_menu": {
       "type": "string"
     },
     "calculators_menu": {
