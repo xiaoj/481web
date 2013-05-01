@@ -223,7 +223,7 @@
       "param": "medications_end"
     },
     {
-      "type": "lable",
+      "type": "label",
       "_rowNum": 45,
       "param": "medications_begin"
     },
@@ -253,7 +253,7 @@
       "param": "nutritions_end"
     },
     {
-      "type": "lable",
+      "type": "label",
       "_rowNum": 51,
       "param": "nutritions_begin"
     },
