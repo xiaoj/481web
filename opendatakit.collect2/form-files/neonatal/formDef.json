@@ -1,10 +1,9 @@
 {
   "survey": [
     {
-      "type": "image_slider",
-      "name": "slidy",
-      "label": "heyhey",
-      "_rowNum": 2
+      "type": "label",
+      "_rowNum": 2,
+      "param": "back_to_main"
     },
     {
       "type": "select_one",
@@ -15,86 +14,271 @@
       "param": "menu"
     },
     {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'diagnostics'))",
+      "_rowNum": 5,
+      "param": "diagnostics_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('menu'),'diagnostics')",
+      "_rowNum": 6,
+      "param": "diagnostics_begin"
+    },
+    {
+      "type": "label",
+      "_rowNum": 7,
+      "param": "diagnostics_begin"
+    },
+    {
       "type": "select_one",
       "name": "diagnostic_menu",
       "label": "Diagnostics",
-      "condition": "selected(data('menu'), 'diagnostics')",
-      "_rowNum": 4,
+      "appearance": "grid",
+      "_rowNum": 8,
       "param": "diagnostic_menu"
+    },
+    {
+      "type": "note",
+      "label": "Head Ultrasound Reference",
+      "condition": "selected(data('diagnostic_menu'),'head')",
+      "image": "img/head_ultrasound.jpeg",
+      "_rowNum": 9
+    },
+    {
+      "type": "note",
+      "label": "Line Placement",
+      "condition": "selected(data('diagnostic_menu'),'placement')",
+      "_rowNum": 10
+    },
+    {
+      "type": "note",
+      "label": "Chest & Abdominal Xray",
+      "condition": "selected(data('diagnostic_menu'),'xray')",
+      "_rowNum": 11
+    },
+    {
+      "type": "label",
+      "_rowNum": 12,
+      "param": "diagnostics_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('menu'),'procedures')",
+      "_rowNum": 14,
+      "param": "procedures_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'procedures'))",
+      "_rowNum": 15,
+      "param": "procedures_end"
+    },
+    {
+      "type": "label",
+      "_rowNum": 16,
+      "param": "procedures_begin"
     },
     {
       "type": "select_one",
       "name": "procedures_menu",
       "label": "Procedures",
-      "condition": "selected(data('menu'), 'procedures')",
-      "_rowNum": 5,
+      "appearance": "grid",
+      "_rowNum": 17,
       "param": "procedures_menu"
+    },
+    {
+      "type": "screen",
+      "condition": "selected(data('procedures_menu'), 'intubation')",
+      "_rowNum": 18,
+      "prompts": [
+        {
+          "type": "note",
+          "name": "intubation_link",
+          "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
+          "_rowNum": 19
+        },
+        {
+          "type": "note",
+          "name": "intubation_img",
+          "image": "img/intubation.jpeg",
+          "_rowNum": 20
+        },
+        {
+          "type": "note",
+          "label": "<b>INTUBATION VIDEO</b>",
+          "_rowNum": 21
+        },
+        {
+          "type": "note",
+          "name": "intubation_vdo",
+          "video": "video/video.mp4",
+          "_rowNum": 22
+        }
+      ]
+    },
+    {
+      "type": "note",
+      "label": "LUMBAR",
+      "condition": "selected(data('procedures_menu'), 'lumbar')",
+      "image": "img/lumbar.gif",
+      "_rowNum": 24
+    },
+    {
+      "type": "select_one",
+      "name": "ballardExam_menu",
+      "label": "Ballard Exam",
+      "condition": "selected(data('procedures_menu'), 'ballardExam')",
+      "appearance": "grid",
+      "_rowNum": 26,
+      "param": "ballardExam_menu"
+    },
+    {
+      "type": "note",
+      "label": "New Exam !!",
+      "condition": "selected(data('ballardExam_menu'), 'newExam')",
+      "_rowNum": 27
+    },
+    {
+      "type": "note",
+      "label": "View Last Exam !!",
+      "condition": "selected(data('ballardExam_menu'), 'saveExam')",
+      "_rowNum": 28
+    },
+    {
+      "type": "label",
+      "_rowNum": 29,
+      "param": "procedures_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('menu'),'calculators')",
+      "_rowNum": 31,
+      "param": "calculators_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'calculators'))",
+      "_rowNum": 32,
+      "param": "calculators_end"
+    },
+    {
+      "type": "label",
+      "_rowNum": 33,
+      "param": "calculators_begin"
     },
     {
       "type": "select_one",
       "name": "calculators_menu",
       "label": "Calculators",
-      "condition": "selected(data('menu'), 'calculators')",
-      "_rowNum": 6,
+      "appearance": "grid",
+      "_rowNum": 34,
       "param": "calculators_menu"
     },
     {
-      "type": "note",
-      "label": "INTUBATION",
-      "image": "img/intubation.jpeg",
-      "_rowNum": 8
-    },
-    {
-      "type": "note",
-      "label": "LUMBAR",
-      "image": "img/lumbar.gif",
-      "_rowNum": 10
-    },
-    {
-      "type": "goto",
-      "condition": "not(selected(data('menu'), 'calculators')) && not(selected(data('calculators_menu'), 'weight_converter'))",
-      "_rowNum": 12,
-      "param": "weight_converter_end"
-    },
-    {
-      "type": "label",
-      "_rowNum": 13,
-      "param": "weight_converter"
-    },
-    {
       "type": "screen",
-      "_rowNum": 14,
+      "_rowNum": 35,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 15
+          "_rowNum": 36
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 16
+          "_rowNum": 37
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 17
+          "_rowNum": 38
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 18
+          "_rowNum": 39
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 20,
-      "param": "weight_converter_end"
+      "_rowNum": 41,
+      "param": "calculators_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('menu'), 'medications')",
+      "_rowNum": 43,
+      "param": "medications_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('menu'),'medications'))",
+      "_rowNum": 44,
+      "param": "medications_end"
+    },
+    {
+      "type": "label",
+      "_rowNum": 45,
+      "param": "medications_begin"
+    },
+    {
+      "type": "select_one",
+      "name": "medications_menu",
+      "label": "Medications",
+      "appearance": "dropdown",
+      "_rowNum": 46,
+      "param": "medications_menu"
+    },
+    {
+      "type": "label",
+      "_rowNum": 47,
+      "param": "medications_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('menu'), 'nutritions')",
+      "_rowNum": 49,
+      "param": "nutritions_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('menu'),'nutritions'))",
+      "_rowNum": 50,
+      "param": "nutritions_end"
+    },
+    {
+      "type": "label",
+      "_rowNum": 51,
+      "param": "nutritions_begin"
+    },
+    {
+      "type": "select_one",
+      "name": "nutritions_menu",
+      "label": "Nutritions",
+      "appearance": "grid",
+      "_rowNum": 52,
+      "param": "nutritions_menu"
+    },
+    {
+      "type": "note",
+      "label": "Nutrition",
+      "_rowNum": 53
+    },
+    {
+      "type": "label",
+      "_rowNum": 54,
+      "param": "nutritions_end"
+    },
+    {
+      "type": "goto",
+      "_rowNum": 57,
+      "param": "back_to_main"
     }
   ],
   "calculates": [
@@ -138,6 +322,18 @@
         "name": "calculators",
         "label": "All Calculators",
         "_rowNum": 4
+      },
+      {
+        "list_name": "menu",
+        "name": "nutritions",
+        "label": "Nutritions",
+        "_rowNum": 5
+      },
+      {
+        "list_name": "menu",
+        "name": "medications",
+        "label": "Medications",
+        "_rowNum": 6
       }
     ],
     "procedures_menu": [
@@ -145,13 +341,19 @@
         "list_name": "procedures_menu",
         "name": "intubation",
         "label": "Intubation",
-        "_rowNum": 5
+        "_rowNum": 9
       },
       {
         "list_name": "procedures_menu",
         "name": "lumbar",
         "label": "Lumbar",
-        "_rowNum": 6
+        "_rowNum": 10
+      },
+      {
+        "list_name": "procedures_menu",
+        "name": "sample_video",
+        "label": "Watch Video",
+        "_rowNum": 11
       }
     ],
     "diagnostic_menu": [
@@ -159,7 +361,19 @@
         "list_name": "diagnostic_menu",
         "name": "head",
         "label": "Head UltraSound",
-        "_rowNum": 7
+        "_rowNum": 13
+      },
+      {
+        "list_name": "diagnostic_menu",
+        "name": "placement",
+        "label": "Line Placement",
+        "_rowNum": 14
+      },
+      {
+        "list_name": "diagnostic_menu",
+        "name": "xray",
+        "label": "Chest & Abnormal Xray",
+        "_rowNum": 15
       }
     ],
     "calculators_menu": [
@@ -167,13 +381,53 @@
         "list_name": "calculators_menu",
         "name": "weight_converter",
         "label": "Weight Converter",
-        "_rowNum": 8
+        "_rowNum": 16
       },
       {
         "list_name": "calculators_menu",
         "name": "weight_loss",
         "label": "Weight Loss Calculator",
-        "_rowNum": 9
+        "_rowNum": 17
+      }
+    ],
+    "medications_menu": [
+      {
+        "list_name": "medications_menu",
+        "name": "medicine_a",
+        "label": "Medicine_A",
+        "_rowNum": 19
+      },
+      {
+        "list_name": "medications_menu",
+        "name": "medicine_b",
+        "label": "Medicine_B",
+        "_rowNum": 20
+      },
+      {
+        "list_name": "medications_menu",
+        "name": "medicine_c",
+        "label": "Medicine_C",
+        "_rowNum": 21
+      }
+    ],
+    "nutritions_menu": [
+      {
+        "list_name": "nutritions_menu",
+        "name": "weight loss",
+        "label": "Weight Loss Calculators",
+        "_rowNum": 23
+      },
+      {
+        "list_name": "nutritions_menu",
+        "name": "weight converter",
+        "label": "Weight Convertors Calculators",
+        "_rowNum": 24
+      },
+      {
+        "list_name": "nutritions_menu",
+        "name": "glucose",
+        "label": "Glucose Infusion Rate Calculator",
+        "_rowNum": 25
       }
     ],
     "kilo_pound": [
@@ -181,13 +435,13 @@
         "list_name": "kilo_pound",
         "name": "kilo",
         "label": "Kilograms",
-        "_rowNum": 11
+        "_rowNum": 27
       },
       {
         "list_name": "kilo_pound",
         "name": "pound",
         "label": "Pounds",
-        "_rowNum": 12
+        "_rowNum": 28
       }
     ]
   },
@@ -213,6 +467,9 @@
     "procedures_menu": {
       "type": "string"
     },
+    "ballardExam_menu": {
+      "type": "string"
+    },
     "calculators_menu": {
       "type": "string"
     },
@@ -221,6 +478,12 @@
     },
     "weightKilo": {
       "type": "number"
+    },
+    "medications_menu": {
+      "type": "string"
+    },
+    "nutritions_menu": {
+      "type": "string"
     }
   }
 }
