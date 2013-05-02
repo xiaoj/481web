@@ -39,9 +39,13 @@ requirejs.config({
         jqmConfig : 'js/jqmConfig',
         handlebarsHelpers : 'js/handlebarsHelpers',
         formulaFunctions : 'js/formulaFunctions',
-        'jquery-csv' : 'libs/jquery-csv/src/jquery.csv'
+        'jquery-csv' : 'libs/jquery-csv/src/jquery.csv',
+        swipe : 'libs/Swipe/swipe'
     },
     shim: {
+        'swipe': {
+          deps: ['jquery']
+        },
         'jquery': {
             // Slimmer drop-in replacement for jquery
             //These script dependencies should be loaded before loading
@@ -91,7 +95,7 @@ requirejs.config({
 });
 
 requirejs(['jquery', 'mdl','opendatakit', 'database','parsequery',
-                        'jqmobile', 'builder', 'controller',
+                        'jqmobile', 'builder', 'controller', 'swipe',
                         'prompts'/* mix-in additional prompts and support libs here */], 
         function($, mdl,opendatakit,database,parsequery,m,builder,controller,prompts) {
             var ctxt = controller.newStartContext();

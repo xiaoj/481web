@@ -139,6 +139,7 @@ promptTypes.base = Backbone.View.extend({
             that.$el.empty();
             that.$el.append($virtualEl.children());
             that.$el.trigger('create');
+            that.afterRender();
         }
         try {
             $virtualEl.html(this.template(this.renderContext));
@@ -165,7 +166,6 @@ promptTypes.base = Backbone.View.extend({
                 numImagesLoaded = $imagesToLoad.length + 1;
             }
         },1000);
-        this.afterRender();
         return this;
     },
     /**
@@ -488,10 +488,6 @@ promptTypes.repeat = promptTypes.base.extend({
         //TODO: Notify collect of change of form? Or fire intent to launch new instance of collect?
     }
 });
-promptTypes.image_slider = promptTypes.base.extend({
-  type: "image_slider",
-  templatePath: "templates/image_slider.handlebars"
-});
 promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
     type: "select",
     templatePath: "templates/select.handlebars",
@@ -649,12 +645,12 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
     },
     postActivate: function(ctxt) {
         var that = this;
-		var newctxt = $.extend({}, ctxt, {success: function(outcome) {
-			ctxt.append("prompts." + that.type + ".postActivate." + outcome,
-						"px: " + that.promptIdx);
-			that.updateRenderValue(that.parseSaveValue(that.getValue()));
-			ctxt.success();
-		}});
+        var newctxt = $.extend({}, ctxt, {success: function(outcome) {
+          ctxt.append("prompts." + that.type + ".postActivate." + outcome,
+            "px: " + that.promptIdx);
+          that.updateRenderValue(that.parseSaveValue(that.getValue()));
+          ctxt.success();
+        }});
         var populateChoicesViaQuery = function(query, newctxt){
             var queryUri = query.uri();
             if(queryUri.search('//') < 0){
@@ -662,7 +658,6 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
                 //assume the path  is relative to the form directory.
                 queryUri = opendatakit.getCurrentFormPath() + queryUri;
             }
-            
             var ajaxOptions = {
                 "type": 'GET',
                 "url": queryUri,
@@ -674,7 +669,7 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
                 },
                 "error": function(e) {
                     newctxt.append("prompts." + this.type + ".postActivate.error", 
-								"px: " + this.promptIdx + " Error fetching choices");
+                                "px: " + this.promptIdx + " Error fetching choices");
                     //This is a passive error because there could just be a problem
                     //with the content provider/network/remote service rather than with
                     //the form.
@@ -683,12 +678,12 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
                     if(e.statusText) {
                         that.renderContext.passiveError += e.statusText;
                     }
-					// TODO: verify how this error should be handled...
-					newctxt.failure({message: "Error fetching choices via ajax."});
+                    // TODO: verify how this error should be handled...
+                    newctxt.failure({message: "Error fetching choices via ajax."});
                 }
             };
  
-			//TODO: It might also be desireable to make it so queries can refrence
+            //TODO: It might also be desireable to make it so queries can refrence
             //datasheets in the XLSX file.
             var queryUriExt = queryUri.split('.').pop();
             if(queryUriExt === 'csv') {
@@ -698,16 +693,16 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
                         that.renderContext.choices = query.callback($.csv.toObjects(result));
                         newctxt.success("success");
                     },
-					function (err) {
-						newctxt.append("promptType.select.requirejs.failure", err.toString());
-						newctxt.failure({message: "Error fetching choices from csv data."});
-					});
+                    function (err) {
+                        newctxt.append("promptType.select.requirejs.failure", err.toString());
+                        newctxt.failure({message: "Error fetching choices from csv data."});
+                    });
                 };
             }
             
             $.ajax(ajaxOptions);
-		};
-		
+        };
+        
         that.renderContext.passiveError = null;
         if(that.param in that.form.queries) {
             populateChoicesViaQuery(that.form.queries[that.param], newctxt);
@@ -726,7 +721,83 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
         this.$('input:checked').prop('checked', false).change();
     }
 });
-//*** Added below lines to implement auto forward on select one ***//
+//*** Added my own own image_slider ***//
+// This is currently a 'select_one', it is designed to select
+// one and only one image.
+// In order to test image_slider, go to chrome dev tools,
+// hit settings (in the lower right), hit overrides and click
+// "emulate touch events". Then refresh the app, keeping chrome dev tools OPEN.
+// You must do this each new chrome window you open.
+// the confirm button will always be disabled unless an image
+// is selected
+promptTypes.image_slider = promptTypes.select.extend({
+  events: {
+      "click .slider-confirm": "confirmSelect",
+      "taphold .slider-option": "changeSliderOption",
+      "dblclick .slider-option": "changeSliderOption",
+      "click .slider-cancel": "cancelBtn"
+  },
+  cancelBtn: function(evt) {
+      var ctxt = controller.newContext(evt);
+      ctxt.append("prompts." + this.type + ".cancelBtn", "px: " + this.promptIdx);
+      controller.gotoPreviousScreen(ctxt);
+  },
+  changeSliderOption: function(evt) {
+      this.activateConfirmBtn();
+      $(evt.currentTarget).siblings('.slider-option').removeClass('checked');
+      $(evt.currentTarget).addClass("checked");
+  },
+  activateConfirmBtn: function() {
+      var button = $(".slider-confirm");
+      button.find(".ui-btn-text").html("confirm");
+      button.removeClass("ui-disabled");
+  },
+  confirmSelect: function(evt) {
+      var ctxt = controller.newContext(evt);
+      ctxt.append("prompts." + this.type + ".confirmSelect", "px: " + this.promptIdx);
+      var checked = $(evt.currentTarget).parents('form').find(".checked");
+      if (checked != null) {
+        var that = this;
+        var name = checked.attr('value');
+        that.setValue($.extend({}, ctxt, {
+            success: function() {
+                controller.gotoPreviousScreen(ctxt);
+            }
+        }), name);
+      }
+  },
+  postActivate: function(ctxt) {
+      var that = this;
+      var newctxt = $.extend({}, ctxt, {success: function(outcome) {
+        ctxt.append("prompts." + that.type + ".postActivate." + outcome,
+          "px: " + that.promptIdx);
+        //that.updateRenderValue(that.parseSaveValue(that.getValue()));
+        ctxt.success({enableForwardNavigation: false, enableBackNavigation: false});
+      }});
+      that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
+      newctxt.success("image_slider success");
+  },
+  renderContext: {
+      "enableForwardNavigation": false,
+      "enableBackNavigation": false
+  },
+  setSavedValue: function() {
+      // get saved value from database
+      // if not null highlight appropriate option
+      var value = this.getValue();
+      if (value != null) {
+          var option = $(".slider-option[value='" + value +"']");
+          option.addClass("checked");
+          this.activateConfirmBtn();
+      }
+  },
+  afterRender : function() {
+      window.mySwipe = Swipe(document.getElementById('slider'));
+      $.event.special.tap.tapholdThreshold = 400;
+      this.setSavedValue();
+  },
+  templatePath: "templates/image_slider.handlebars"
+});
 promptTypes.select_one = promptTypes.select.extend({
     renderContext: {
         "select_one": true,
@@ -786,6 +857,7 @@ promptTypes.select_one = promptTypes.select.extend({
         }
     }
 });
+//*** Added below lines to implement auto forward on select one ***//
 promptTypes.menu = promptTypes.select_one.extend({
     modification: function(evt) {
         var ctxt = controller.newContext(evt);

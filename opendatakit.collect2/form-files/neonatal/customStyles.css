@@ -1,0 +1,19 @@
+.slider-option.checked > img {
+  border: 6px solid green;
+}
+Styling for swipe plugin
+*/
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}

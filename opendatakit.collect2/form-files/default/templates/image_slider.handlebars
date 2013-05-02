@@ -1,3 +1,27 @@
-<div>
-  Image Slider, oh yeah!
-</div>
+<form>
+  <div id='slider' class='swipe'>
+    <div class='swipe-wrap'>
+      {{#each choices}}
+        <div class="slider-option" value="{{name}}"><img src="{{formDirectory}}{{localize image}}"></div>
+      {{/each}}
+    </div>
+  </div>
+  <a class="slider-confirm ui-disabled ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
+   data-role="button" data-inline="true" data-corners="true" data-shadow="true"
+   data-iconshadow="true" data-wrapperels="span" data-theme="c">
+    <span class="ui-btn-inner ui-btn-corner-all">
+      <span class="ui-btn-text">
+        select a picture
+      </span>
+    </span>
+  </a>
+  <a class="slider-cancel ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
+   data-role="button" data-inline="true" data-corners="true" data-shadow="true"
+   data-iconshadow="true" data-wrapperels="span" data-theme="c">
+    <span class="ui-btn-inner ui-btn-corner-all">
+      <span class="ui-btn-text">
+        cancel
+      </span>
+    </span>
+  </a>
+</form>
