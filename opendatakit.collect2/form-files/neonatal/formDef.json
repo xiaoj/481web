@@ -58,19 +58,60 @@
       "_rowNum": 11
     },
     {
-      "type": "menu",
-      "name": "ballard_menu1",
-      "label": "Ballard Exam",
+      "type": "screen",
       "condition": "selected(data('diagnostic_menu'), 'ballardExam')",
       "_rowNum": 12,
-      "param": "ballard_menu1"
+      "prompts": [
+        {
+          "type": "menu",
+          "name": "ballard_menu1",
+          "label": "Ballard Exam",
+          "_rowNum": 13,
+          "param": "ballard_menu1"
+        },
+        {
+          "type": "note",
+          "label": "Posture Score: {{calculates.postureScore}}",
+          "_rowNum": 14
+        },
+        {
+          "type": "note",
+          "label": "Square Window Score: {{calculates.squareScore}}",
+          "_rowNum": 15
+        },
+        {
+          "type": "note",
+          "label": "Arm Recoil Score: {{calculates.armScore}}",
+          "_rowNum": 16
+        },
+        {
+          "type": "note",
+          "label": "Popiteal Angle Score: {{calculates.poplitealScore}}",
+          "_rowNum": 17
+        },
+        {
+          "type": "note",
+          "label": "Scarf Sign Score: {{calculates.scarfScore}}",
+          "_rowNum": 18
+        },
+        {
+          "type": "note",
+          "label": "Heel to Ear Score: {{calculates.heelScore}}",
+          "_rowNum": 19
+        },
+        {
+          "type": "note",
+          "label": "Total NM Score: {{calculates.totalNMScore}}",
+          "_rowNum": 20
+        }
+      ]
     },
     {
       "type": "image_slider",
       "name": "posture_slider",
       "label": "Choose Posture",
       "condition": "selected(data('ballard_menu1'), 'posture')",
-      "_rowNum": 13,
+      "_rowNum": 22,
       "param": "posture_slider"
     },
     {
@@ -78,7 +119,7 @@
       "name": "square_slider",
       "label": "Choose Square Window",
       "condition": "selected(data('ballard_menu1'), 'square')",
-      "_rowNum": 14,
+      "_rowNum": 23,
       "param": "square_slider"
     },
     {
@@ -86,23 +127,23 @@
       "name": "arm_slider",
       "label": "Choose Arm Recoil",
       "condition": "selected(data('ballard_menu1'), 'arm')",
-      "_rowNum": 15,
+      "_rowNum": 24,
       "param": "arm_slider"
     },
     {
       "type": "image_slider",
-      "name": "propliteal_slider",
-      "label": "Choose Propliteal Angle",
-      "condition": "selected(data('ballard_menu1'), 'propliteal')",
-      "_rowNum": 16,
-      "param": "propliteal_slider"
+      "name": "popliteal_slider",
+      "label": "Choose Popliteal Angle",
+      "condition": "selected(data('ballard_menu1'), 'popliteal')",
+      "_rowNum": 25,
+      "param": "popliteal_slider"
     },
     {
       "type": "image_slider",
       "name": "scarf_slider",
       "label": "Choose Scarf Sign",
       "condition": "selected(data('ballard_menu1'), 'scarf')",
-      "_rowNum": 17,
+      "_rowNum": 26,
       "param": "scarf_slider"
     },
     {
@@ -110,29 +151,29 @@
       "name": "heel_slider",
       "label": "Choose Heel to Ear",
       "condition": "selected(data('ballard_menu1'), 'heel')",
-      "_rowNum": 18,
+      "_rowNum": 27,
       "param": "heel_slider"
     },
     {
       "type": "label",
-      "_rowNum": 19,
+      "_rowNum": 28,
       "param": "diagnostics_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'procedures')",
-      "_rowNum": 21,
+      "_rowNum": 30,
       "param": "procedures_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'procedures'))",
-      "_rowNum": 22,
+      "_rowNum": 31,
       "param": "procedures_end"
     },
     {
       "type": "label",
-      "_rowNum": 23,
+      "_rowNum": 32,
       "param": "procedures_begin"
     },
     {
@@ -140,36 +181,36 @@
       "name": "procedures_menu",
       "label": "Procedures",
       "appearance": "grid",
-      "_rowNum": 24,
+      "_rowNum": 33,
       "param": "procedures_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 25,
+      "_rowNum": 34,
       "prompts": [
         {
           "type": "note",
           "name": "intubation_link",
           "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
-          "_rowNum": 26
+          "_rowNum": 35
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 27
+          "_rowNum": 36
         },
         {
           "type": "note",
           "label": "<b>INTUBATION VIDEO</b>",
-          "_rowNum": 28
+          "_rowNum": 37
         },
         {
           "type": "note",
           "name": "intubation_vdo",
           "video": "video/video.mp4",
-          "_rowNum": 29
+          "_rowNum": 38
         }
       ]
     },
@@ -178,28 +219,28 @@
       "label": "LUMBAR",
       "condition": "selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
-      "_rowNum": 31
+      "_rowNum": 40
     },
     {
       "type": "label",
-      "_rowNum": 32,
+      "_rowNum": 41,
       "param": "procedures_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'calculators')",
-      "_rowNum": 34,
+      "_rowNum": 43,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 35,
+      "_rowNum": 44,
       "param": "calculators_end"
     },
     {
       "type": "label",
-      "_rowNum": 36,
+      "_rowNum": 45,
       "param": "calculators_begin"
     },
     {
@@ -207,59 +248,59 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 37,
+      "_rowNum": 46,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 38,
+      "_rowNum": 47,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 39
+          "_rowNum": 48
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 40
+          "_rowNum": 49
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 41
+          "_rowNum": 50
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 42
+          "_rowNum": 51
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 44,
+      "_rowNum": 53,
       "param": "calculators_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 46,
+      "_rowNum": 55,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 47,
+      "_rowNum": 56,
       "param": "medications_end"
     },
     {
       "type": "label",
-      "_rowNum": 48,
+      "_rowNum": 57,
       "param": "medications_begin"
     },
     {
@@ -267,29 +308,29 @@
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
-      "_rowNum": 49,
+      "_rowNum": 58,
       "param": "medications_menu"
     },
     {
       "type": "label",
-      "_rowNum": 50,
+      "_rowNum": 59,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 52,
+      "_rowNum": 61,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 53,
+      "_rowNum": 62,
       "param": "nutritions_end"
     },
     {
       "type": "label",
-      "_rowNum": 54,
+      "_rowNum": 63,
       "param": "nutritions_begin"
     },
     {
@@ -297,22 +338,22 @@
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 55,
+      "_rowNum": 64,
       "param": "nutritions_menu"
     },
     {
       "type": "note",
       "label": "Nutrition",
-      "_rowNum": 56
+      "_rowNum": 65
     },
     {
       "type": "label",
-      "_rowNum": 57,
+      "_rowNum": 66,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 60,
+      "_rowNum": 69,
       "param": "back_to_main"
     }
   ],
@@ -336,6 +377,41 @@
       "name": "weightLossKgPerc",
       "calculation": "(calculates.weightLossKg() * 100.0 / data('birthWeightKg')).toFixed(2)",
       "_rowNum": 5
+    },
+    {
+      "name": "postureScore",
+      "calculation": "(function() {\n  switch (data('posture_slider')) { \n    case('posture0'):\n      return 0;\n    case('posture1'):\n      return 1;\n    case('posture2'):\n      return 2;\n    case('posture3'):\n      return 3;\n   case('posture4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 6
+    },
+    {
+      "name": "squareScore",
+      "calculation": "(function() {\n  switch (data('square_slider')) { \n    case('square_window-1'):\n      return -1;\n    case('square_window0'):\n      return 0;\n    case('square_window1'):\n      return 1;\n    case('square_window2'):\n      return 2;\n    case('square_window3'):\n      return 3;\n   case('square_window4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 7
+    },
+    {
+      "name": "armScore",
+      "calculation": "(function() {\n  switch (data('arm_slider')) { \n    case('arm_recoil0'):\n      return 0;\n    case('arm_recoil1'):\n      return 1;\n    case('arm_recoil2'):\n      return 2;\n    case('arm_recoil3'):\n      return 3;\n   case('arm_recoil4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 8
+    },
+    {
+      "name": "poplitealScore",
+      "calculation": "(function() {\n  switch (data('popliteal_slider')) { \n    case('popliteal-1'):\n      return -1;\n    case('popliteal0'):\n      return 0;\n    case('popliteal1'):\n      return 1;\n    case('popliteal2'):\n      return 2;\n    case('popliteal3'):\n      return 3;\n   case('popliteal4'):\n      return 4;  \n   case('popliteal5'):\n      return 5;  \n  }\n}())",
+      "_rowNum": 9
+    },
+    {
+      "name": "scarfScore",
+      "calculation": "(function() {\n  switch (data('scarf_slider')) { \n    case('scarf_sign-1'):\n      return -1;\n    case('scarf_sign0'):\n      return 0;\n    case('scarf_sign1'):\n      return 1;\n    case('scarf_sign2'):\n      return 2;\n    case('scarf_sign3'):\n      return 3;\n   case('scarf_sign4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 10
+    },
+    {
+      "name": "heelScore",
+      "calculation": "(function() {\n  switch (data('heel_slider')) { \n    case('heel_to_ear-1'):\n      return -1;\n    case('heel_to_ear0'):\n      return 0;\n    case('heel_to_ear1'):\n      return 1;\n    case('heel_to_ear2'):\n      return 2;\n    case('heel_to_ear3'):\n      return 3;\n   case('heel_to_ear4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 11
+    },
+    {
+      "name": "totalNMScore",
+      "calculation": "calculates.postureScore() + calculates.squareScore() + calculates.armScore() + calculates.poplitealScore() + calculates.scarfScore() + calculates.heelScore()",
+      "_rowNum": 12
     }
   ],
   "choices": {
@@ -506,7 +582,7 @@
       },
       {
         "list_name": "ballard_menu1",
-        "name": "propliteal",
+        "name": "popliteal",
         "label": "Popliteal Angle",
         "_rowNum": 35
       },
@@ -625,47 +701,47 @@
         "_rowNum": 56
       }
     ],
-    "propliteal_slider": [
+    "popliteal_slider": [
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal-1",
-        "image": "img/ballard/propliteal-1.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal-1",
+        "image": "img/ballard/popliteal-1.png",
         "_rowNum": 58
       },
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal0",
-        "image": "img/ballard/propliteal0.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal0",
+        "image": "img/ballard/popliteal0.png",
         "_rowNum": 59
       },
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal1",
-        "image": "img/ballard/propliteal1.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal1",
+        "image": "img/ballard/popliteal1.png",
         "_rowNum": 60
       },
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal2",
-        "image": "img/ballard/propliteal2.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal2",
+        "image": "img/ballard/popliteal2.png",
         "_rowNum": 61
       },
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal3",
-        "image": "img/ballard/propliteal3.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal3",
+        "image": "img/ballard/popliteal3.png",
         "_rowNum": 62
       },
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal4",
-        "image": "img/ballard/propliteal4.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal4",
+        "image": "img/ballard/popliteal4.png",
         "_rowNum": 63
       },
       {
-        "list_name": "propliteal_slider",
-        "name": "propliteal5",
-        "image": "img/ballard/propliteal5.png",
+        "list_name": "popliteal_slider",
+        "name": "popliteal5",
+        "image": "img/ballard/popliteal5.png",
         "_rowNum": 64
       }
     ],
@@ -793,7 +869,7 @@
     "arm_slider": {
       "type": "string"
     },
-    "propliteal_slider": {
+    "popliteal_slider": {
       "type": "string"
     },
     "scarf_slider": {
