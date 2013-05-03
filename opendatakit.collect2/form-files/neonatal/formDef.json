@@ -82,6 +82,38 @@
       "param": "square_slider"
     },
     {
+      "type": "image_slider",
+      "name": "arm_slider",
+      "label": "Choose Arm Recoil",
+      "condition": "selected(data('ballard_menu1'), 'arm')",
+      "_rowNum": 15,
+      "param": "arm_slider"
+    },
+    {
+      "type": "image_slider",
+      "name": "propliteal_slider",
+      "label": "Choose Propliteal Angle",
+      "condition": "selected(data('ballard_menu1'), 'propliteal')",
+      "_rowNum": 16,
+      "param": "propliteal_slider"
+    },
+    {
+      "type": "image_slider",
+      "name": "scarf_slider",
+      "label": "Choose Scarf Sign",
+      "condition": "selected(data('ballard_menu1'), 'scarf')",
+      "_rowNum": 17,
+      "param": "scarf_slider"
+    },
+    {
+      "type": "image_slider",
+      "name": "heel_slider",
+      "label": "Choose Heel to Ear",
+      "condition": "selected(data('ballard_menu1'), 'heel')",
+      "_rowNum": 18,
+      "param": "heel_slider"
+    },
+    {
       "type": "label",
       "_rowNum": 19,
       "param": "diagnostics_end"
@@ -474,7 +506,7 @@
       },
       {
         "list_name": "ballard_menu1",
-        "name": "popliteal",
+        "name": "propliteal",
         "label": "Popliteal Angle",
         "_rowNum": 35
       },
@@ -522,6 +554,196 @@
         "image": "img/ballard/posture4.png",
         "_rowNum": 43
       }
+    ],
+    "square_slider": [
+      {
+        "list_name": "square_slider",
+        "name": "square_window-1",
+        "image": "img/ballard/square_window-1.png",
+        "_rowNum": 45
+      },
+      {
+        "list_name": "square_slider",
+        "name": "square_window0",
+        "image": "img/ballard/square_window0.png",
+        "_rowNum": 46
+      },
+      {
+        "list_name": "square_slider",
+        "name": "square_window1",
+        "image": "img/ballard/square_window1.png",
+        "_rowNum": 47
+      },
+      {
+        "list_name": "square_slider",
+        "name": "square_window2",
+        "image": "img/ballard/square_window2.png",
+        "_rowNum": 48
+      },
+      {
+        "list_name": "square_slider",
+        "name": "square_window3",
+        "image": "img/ballard/square_window3.png",
+        "_rowNum": 49
+      },
+      {
+        "list_name": "square_slider",
+        "name": "square_window4",
+        "image": "img/ballard/square_window4.png",
+        "_rowNum": 50
+      }
+    ],
+    "arm_slider": [
+      {
+        "list_name": "arm_slider",
+        "name": "arm_recoil0",
+        "image": "img/ballard/arm_recoil0.png",
+        "_rowNum": 52
+      },
+      {
+        "list_name": "arm_slider",
+        "name": "arm_recoil1",
+        "image": "img/ballard/arm_recoil1.png",
+        "_rowNum": 53
+      },
+      {
+        "list_name": "arm_slider",
+        "name": "arm_recoil2",
+        "image": "img/ballard/arm_recoil2.png",
+        "_rowNum": 54
+      },
+      {
+        "list_name": "arm_slider",
+        "name": "arm_recoil3",
+        "image": "img/ballard/arm_recoil3.png",
+        "_rowNum": 55
+      },
+      {
+        "list_name": "arm_slider",
+        "name": "arm_recoil4",
+        "image": "img/ballard/arm_recoil4.png",
+        "_rowNum": 56
+      }
+    ],
+    "propliteal_slider": [
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal-1",
+        "image": "img/ballard/propliteal-1.png",
+        "_rowNum": 58
+      },
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal0",
+        "image": "img/ballard/propliteal0.png",
+        "_rowNum": 59
+      },
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal1",
+        "image": "img/ballard/propliteal1.png",
+        "_rowNum": 60
+      },
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal2",
+        "image": "img/ballard/propliteal2.png",
+        "_rowNum": 61
+      },
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal3",
+        "image": "img/ballard/propliteal3.png",
+        "_rowNum": 62
+      },
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal4",
+        "image": "img/ballard/propliteal4.png",
+        "_rowNum": 63
+      },
+      {
+        "list_name": "propliteal_slider",
+        "name": "propliteal5",
+        "image": "img/ballard/propliteal5.png",
+        "_rowNum": 64
+      }
+    ],
+    "scarf_slider": [
+      {
+        "list_name": "scarf_slider",
+        "name": "scarf_sign-1",
+        "image": "img/ballard/scarf_sign-1.png",
+        "_rowNum": 66
+      },
+      {
+        "list_name": "scarf_slider",
+        "name": "scarf_sign0",
+        "image": "img/ballard/scarf_sign0.png",
+        "_rowNum": 67
+      },
+      {
+        "list_name": "scarf_slider",
+        "name": "scarf_sign1",
+        "image": "img/ballard/scarf_sign1.png",
+        "_rowNum": 68
+      },
+      {
+        "list_name": "scarf_slider",
+        "name": "scarf_sign2",
+        "image": "img/ballard/scarf_sign2.png",
+        "_rowNum": 69
+      },
+      {
+        "list_name": "scarf_slider",
+        "name": "scarf_sign3",
+        "image": "img/ballard/scarf_sign3.png",
+        "_rowNum": 70
+      },
+      {
+        "list_name": "scarf_slider",
+        "name": "scarf_sign4",
+        "image": "img/ballard/scarf_sign4.png",
+        "_rowNum": 71
+      }
+    ],
+    "heel_slider": [
+      {
+        "list_name": "heel_slider",
+        "name": "heel_to_ear-1",
+        "image": "img/ballard/heel_to_ear-1.png",
+        "_rowNum": 73
+      },
+      {
+        "list_name": "heel_slider",
+        "name": "heel_to_ear0",
+        "image": "img/ballard/heel_to_ear0.png",
+        "_rowNum": 74
+      },
+      {
+        "list_name": "heel_slider",
+        "name": "heel_to_ear1",
+        "image": "img/ballard/heel_to_ear1.png",
+        "_rowNum": 75
+      },
+      {
+        "list_name": "heel_slider",
+        "name": "heel_to_ear2",
+        "image": "img/ballard/heel_to_ear2.png",
+        "_rowNum": 76
+      },
+      {
+        "list_name": "heel_slider",
+        "name": "heel_to_ear3",
+        "image": "img/ballard/heel_to_ear3.png",
+        "_rowNum": 77
+      },
+      {
+        "list_name": "heel_slider",
+        "name": "heel_to_ear4",
+        "image": "img/ballard/heel_to_ear4.png",
+        "_rowNum": 78
+      }
     ]
   },
   "settings": [
@@ -559,6 +781,18 @@
       "type": "string"
     },
     "square_slider": {
+      "type": "string"
+    },
+    "arm_slider": {
+      "type": "string"
+    },
+    "propliteal_slider": {
+      "type": "string"
+    },
+    "scarf_slider": {
+      "type": "string"
+    },
+    "heel_slider": {
       "type": "string"
     },
     "procedures_menu": {
