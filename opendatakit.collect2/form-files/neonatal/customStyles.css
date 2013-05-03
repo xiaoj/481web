@@ -1,6 +1,10 @@
 .slider-option.checked > img {
   border: 6px solid green;
 }
+#slider img {
+  width: 500px;
+  height: auto;
+}
 Styling for swipe plugin
 */
 .swipe {
