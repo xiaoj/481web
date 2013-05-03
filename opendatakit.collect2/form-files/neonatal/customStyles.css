@@ -2,7 +2,7 @@
   border: 6px solid green;
 }
 #slider img {
-  width: 500px;
+  width: 100%;
   height: auto;
 }
 Styling for swipe plugin
