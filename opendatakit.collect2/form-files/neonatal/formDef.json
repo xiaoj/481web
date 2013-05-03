@@ -58,25 +58,49 @@
       "_rowNum": 11
     },
     {
-      "type": "label",
+      "type": "select_one",
+      "name": "ballard_menu1",
+      "label": "Ballard Exam",
+      "condition": "selected(data('diagnostic_menu'), 'ballardExam')",
       "_rowNum": 12,
+      "param": "ballard_menu1"
+    },
+    {
+      "type": "image_slider",
+      "name": "posture_slider",
+      "label": "Choose Posture",
+      "condition": "selected(data('ballard_menu1'), 'posture')",
+      "_rowNum": 13,
+      "param": "posture_slider"
+    },
+    {
+      "type": "image_slider",
+      "name": "square_slider",
+      "label": "Choose Square Window",
+      "condition": "selected(data('ballard_menu1'), 'square')",
+      "_rowNum": 14,
+      "param": "square_slider"
+    },
+    {
+      "type": "label",
+      "_rowNum": 19,
       "param": "diagnostics_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'procedures')",
-      "_rowNum": 14,
+      "_rowNum": 21,
       "param": "procedures_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'procedures'))",
-      "_rowNum": 15,
+      "_rowNum": 22,
       "param": "procedures_end"
     },
     {
       "type": "label",
-      "_rowNum": 16,
+      "_rowNum": 23,
       "param": "procedures_begin"
     },
     {
@@ -84,36 +108,36 @@
       "name": "procedures_menu",
       "label": "Procedures",
       "appearance": "grid",
-      "_rowNum": 17,
+      "_rowNum": 24,
       "param": "procedures_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 18,
+      "_rowNum": 25,
       "prompts": [
         {
           "type": "note",
           "name": "intubation_link",
           "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
-          "_rowNum": 19
+          "_rowNum": 26
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 20
+          "_rowNum": 27
         },
         {
           "type": "note",
           "label": "<b>INTUBATION VIDEO</b>",
-          "_rowNum": 21
+          "_rowNum": 28
         },
         {
           "type": "note",
           "name": "intubation_vdo",
           "video": "video/video.mp4",
-          "_rowNum": 22
+          "_rowNum": 29
         }
       ]
     },
@@ -122,49 +146,28 @@
       "label": "LUMBAR",
       "condition": "selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
-      "_rowNum": 24
-    },
-    {
-      "type": "select_one",
-      "name": "ballardExam_menu",
-      "label": "Ballard Exam",
-      "condition": "selected(data('procedures_menu'), 'ballardExam')",
-      "appearance": "grid",
-      "_rowNum": 26,
-      "param": "ballardExam_menu"
-    },
-    {
-      "type": "note",
-      "label": "New Exam !!",
-      "condition": "selected(data('ballardExam_menu'), 'newExam')",
-      "_rowNum": 27
-    },
-    {
-      "type": "note",
-      "label": "View Last Exam !!",
-      "condition": "selected(data('ballardExam_menu'), 'saveExam')",
-      "_rowNum": 28
+      "_rowNum": 31
     },
     {
       "type": "label",
-      "_rowNum": 29,
+      "_rowNum": 32,
       "param": "procedures_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'calculators')",
-      "_rowNum": 31,
+      "_rowNum": 34,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 32,
+      "_rowNum": 35,
       "param": "calculators_end"
     },
     {
       "type": "label",
-      "_rowNum": 33,
+      "_rowNum": 36,
       "param": "calculators_begin"
     },
     {
@@ -172,59 +175,59 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 34,
+      "_rowNum": 37,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 35,
+      "_rowNum": 38,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 36
+          "_rowNum": 39
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 37
+          "_rowNum": 40
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 38
+          "_rowNum": 41
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 39
+          "_rowNum": 42
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 41,
+      "_rowNum": 44,
       "param": "calculators_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 43,
+      "_rowNum": 46,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 44,
+      "_rowNum": 47,
       "param": "medications_end"
     },
     {
       "type": "label",
-      "_rowNum": 45,
+      "_rowNum": 48,
       "param": "medications_begin"
     },
     {
@@ -232,29 +235,29 @@
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
-      "_rowNum": 46,
+      "_rowNum": 49,
       "param": "medications_menu"
     },
     {
       "type": "label",
-      "_rowNum": 47,
+      "_rowNum": 50,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 49,
+      "_rowNum": 52,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 50,
+      "_rowNum": 53,
       "param": "nutritions_end"
     },
     {
       "type": "label",
-      "_rowNum": 51,
+      "_rowNum": 54,
       "param": "nutritions_begin"
     },
     {
@@ -262,22 +265,22 @@
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 52,
+      "_rowNum": 55,
       "param": "nutritions_menu"
     },
     {
       "type": "note",
       "label": "Nutrition",
-      "_rowNum": 53
+      "_rowNum": 56
     },
     {
       "type": "label",
-      "_rowNum": 54,
+      "_rowNum": 57,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 57,
+      "_rowNum": 60,
       "param": "back_to_main"
     }
   ],
@@ -374,6 +377,12 @@
         "name": "xray",
         "label": "Chest & Abnormal Xray",
         "_rowNum": 15
+      },
+      {
+        "list_name": "diagnostic_menu",
+        "name": "ballardExam",
+        "label": "Ballard Exam",
+        "_rowNum": 16
       }
     ],
     "calculators_menu": [
@@ -381,13 +390,13 @@
         "list_name": "calculators_menu",
         "name": "weight_converter",
         "label": "Weight Converter",
-        "_rowNum": 16
+        "_rowNum": 18
       },
       {
         "list_name": "calculators_menu",
         "name": "weight_loss",
         "label": "Weight Loss Calculator",
-        "_rowNum": 17
+        "_rowNum": 19
       }
     ],
     "medications_menu": [
@@ -395,19 +404,19 @@
         "list_name": "medications_menu",
         "name": "medicine_a",
         "label": "Medicine_A",
-        "_rowNum": 19
+        "_rowNum": 21
       },
       {
         "list_name": "medications_menu",
         "name": "medicine_b",
         "label": "Medicine_B",
-        "_rowNum": 20
+        "_rowNum": 22
       },
       {
         "list_name": "medications_menu",
         "name": "medicine_c",
         "label": "Medicine_C",
-        "_rowNum": 21
+        "_rowNum": 23
       }
     ],
     "nutritions_menu": [
@@ -415,19 +424,19 @@
         "list_name": "nutritions_menu",
         "name": "weight loss",
         "label": "Weight Loss Calculators",
-        "_rowNum": 23
+        "_rowNum": 25
       },
       {
         "list_name": "nutritions_menu",
         "name": "weight converter",
         "label": "Weight Convertors Calculators",
-        "_rowNum": 24
+        "_rowNum": 26
       },
       {
         "list_name": "nutritions_menu",
         "name": "glucose",
         "label": "Glucose Infusion Rate Calculator",
-        "_rowNum": 25
+        "_rowNum": 27
       }
     ],
     "kilo_pound": [
@@ -435,13 +444,83 @@
         "list_name": "kilo_pound",
         "name": "kilo",
         "label": "Kilograms",
-        "_rowNum": 27
+        "_rowNum": 29
       },
       {
         "list_name": "kilo_pound",
         "name": "pound",
         "label": "Pounds",
-        "_rowNum": 28
+        "_rowNum": 30
+      }
+    ],
+    "ballard_menu1": [
+      {
+        "list_name": "ballard_menu1",
+        "name": "posture",
+        "label": "Posture",
+        "_rowNum": 32
+      },
+      {
+        "list_name": "ballard_menu1",
+        "name": "square",
+        "label": "Square Window",
+        "_rowNum": 33
+      },
+      {
+        "list_name": "ballard_menu1",
+        "name": "arm",
+        "label": "Arm Recoil",
+        "_rowNum": 34
+      },
+      {
+        "list_name": "ballard_menu1",
+        "name": "popliteal",
+        "label": "Popliteal Angle",
+        "_rowNum": 35
+      },
+      {
+        "list_name": "ballard_menu1",
+        "name": "scarf",
+        "label": "Scarf Sign",
+        "_rowNum": 36
+      },
+      {
+        "list_name": "ballard_menu1",
+        "name": "heel",
+        "label": "Heel to Ear",
+        "_rowNum": 37
+      }
+    ],
+    "posture_slider": [
+      {
+        "list_name": "posture_slider",
+        "name": "posture0",
+        "image": "img/ballard/posture0.png",
+        "_rowNum": 39
+      },
+      {
+        "list_name": "posture_slider",
+        "name": "posture1",
+        "image": "img/ballard/posture1.png",
+        "_rowNum": 40
+      },
+      {
+        "list_name": "posture_slider",
+        "name": "posture2",
+        "image": "img/ballard/posture2.png",
+        "_rowNum": 41
+      },
+      {
+        "list_name": "posture_slider",
+        "name": "posture3",
+        "image": "img/ballard/posture3.png",
+        "_rowNum": 42
+      },
+      {
+        "list_name": "posture_slider",
+        "name": "posture4",
+        "image": "img/ballard/posture4.png",
+        "_rowNum": 43
       }
     ]
   },
@@ -457,6 +536,15 @@
       "_rowNum": 3
     }
   ],
+  "prompt_types": [
+    {
+      "name": "image_slider",
+      "schema": {
+        "type": "string"
+      },
+      "_rowNum": 2
+    }
+  ],
   "model": {
     "menu": {
       "type": "string"
@@ -464,10 +552,16 @@
     "diagnostic_menu": {
       "type": "string"
     },
-    "procedures_menu": {
+    "ballard_menu1": {
       "type": "string"
     },
-    "ballardExam_menu": {
+    "posture_slider": {
+      "type": "string"
+    },
+    "square_slider": {
+      "type": "string"
+    },
+    "procedures_menu": {
       "type": "string"
     },
     "calculators_menu": {
