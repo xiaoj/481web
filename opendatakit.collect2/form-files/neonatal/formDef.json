@@ -6,7 +6,7 @@
       "param": "back_to_main"
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "menu",
       "label": "Main Menu",
       "appearance": "grid",
@@ -31,7 +31,7 @@
       "param": "diagnostics_begin"
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "diagnostic_menu",
       "label": "Diagnostics",
       "appearance": "grid",
@@ -58,7 +58,7 @@
       "_rowNum": 11
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "ballard_menu1",
       "label": "Ballard Exam",
       "condition": "selected(data('diagnostic_menu'), 'ballardExam')",
@@ -136,7 +136,7 @@
       "param": "procedures_begin"
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "procedures_menu",
       "label": "Procedures",
       "appearance": "grid",
@@ -203,7 +203,7 @@
       "param": "calculators_begin"
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
@@ -263,7 +263,7 @@
       "param": "medications_begin"
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
@@ -293,7 +293,7 @@
       "param": "nutritions_begin"
     },
     {
-      "type": "select_one",
+      "type": "menu",
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
@@ -765,6 +765,13 @@
         "type": "string"
       },
       "_rowNum": 2
+    },
+    {
+      "name": "menu",
+      "schema": {
+        "type": "string"
+      },
+      "_rowNum": 3
     }
   ],
   "model": {

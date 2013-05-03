@@ -97,7 +97,7 @@ return Backbone.View.extend({
             hasTranslations: (locales.length > 1),
             showHeader: true,
             showFooter: false,
-            enableForwardNavigation: true,
+            enableForwardNavigation: false,
             enableBackNavigation: true,
             enableNavigation: true
             // enableNavigation -- defaults to true; false to disable everything...

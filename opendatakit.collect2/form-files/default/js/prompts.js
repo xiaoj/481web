@@ -301,7 +301,8 @@ promptTypes.opening = promptTypes.base.extend({
             return;
         }
         that.renderContext.instanceName = instanceName;
-        ctxt.success({enableBackNavigation: false});
+        /*** explicitly set forward navigation to true ***/
+        ctxt.success({enableBackNavigation: false, enableForwardNavigation: true});
     },
     renderContext: {
         headerImg: requirejs.toUrl('img/form_logo.png'),
@@ -859,6 +860,18 @@ promptTypes.select_one = promptTypes.select.extend({
 });
 //*** Added below lines to implement auto forward on select one ***//
 promptTypes.menu = promptTypes.select_one.extend({
+    postActivate: function(ctxt) {
+        var that = this;
+        var newctxt = $.extend({}, ctxt, {success: function(outcome) {
+          ctxt.append("prompts." + that.type + ".postActivate." + outcome,
+            "px: " + that.promptIdx);
+          that.updateRenderValue(that.parseSaveValue(that.getValue()));
+          ctxt.success({enableForwardNavigation: false, enableBackNavigation: true});
+        }});
+        that.renderContext.passiveError = null;
+        that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
+        newctxt.success("menu success");
+    },
     modification: function(evt) {
         var ctxt = controller.newContext(evt);
         ctxt.append("prompts." + this.type + ".modification", "px: " + this.promptIdx);
