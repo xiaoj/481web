@@ -865,7 +865,7 @@ promptTypes.menu = promptTypes.select_one.extend({
         var newctxt = $.extend({}, ctxt, {success: function(outcome) {
           ctxt.append("prompts." + that.type + ".postActivate." + outcome,
             "px: " + that.promptIdx);
-          that.updateRenderValue(that.parseSaveValue(that.getValue()));
+          that.updateRenderValue(false);  // call with false to 'forget' previous selection
           ctxt.success({enableForwardNavigation: false, enableBackNavigation: true});
         }});
         that.renderContext.passiveError = null;

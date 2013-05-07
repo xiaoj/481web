@@ -14,18 +14,6 @@
       "param": "menu"
     },
     {
-      "type": "goto",
-      "condition": "not(selected(data('menu'), 'diagnostics'))",
-      "_rowNum": 5,
-      "param": "diagnostics_end"
-    },
-    {
-      "type": "goto",
-      "condition": "selected(data('menu'),'diagnostics')",
-      "_rowNum": 6,
-      "param": "diagnostics_begin"
-    },
-    {
       "type": "label",
       "_rowNum": 7,
       "param": "diagnostics_begin"
@@ -58,60 +46,27 @@
       "_rowNum": 11
     },
     {
-      "type": "screen",
+      "type": "menu",
+      "name": "ballard_menu0",
+      "label": "Ballard Exam",
       "condition": "selected(data('diagnostic_menu'), 'ballardExam')",
       "_rowNum": 12,
-      "prompts": [
-        {
-          "type": "menu",
-          "name": "ballard_menu1",
-          "label": "Ballard Exam",
-          "_rowNum": 13,
-          "param": "ballard_menu1"
-        },
-        {
-          "type": "note",
-          "label": "Posture Score: {{calculates.postureScore}}",
-          "_rowNum": 14
-        },
-        {
-          "type": "note",
-          "label": "Square Window Score: {{calculates.squareScore}}",
-          "_rowNum": 15
-        },
-        {
-          "type": "note",
-          "label": "Arm Recoil Score: {{calculates.armScore}}",
-          "_rowNum": 16
-        },
-        {
-          "type": "note",
-          "label": "Popiteal Angle Score: {{calculates.poplitealScore}}",
-          "_rowNum": 17
-        },
-        {
-          "type": "note",
-          "label": "Scarf Sign Score: {{calculates.scarfScore}}",
-          "_rowNum": 18
-        },
-        {
-          "type": "note",
-          "label": "Heel to Ear Score: {{calculates.heelScore}}",
-          "_rowNum": 19
-        },
-        {
-          "type": "note",
-          "label": "Total NM Score: {{calculates.totalNMScore}}",
-          "_rowNum": 20
-        }
-      ]
+      "param": "ballard_menu0"
+    },
+    {
+      "type": "menu",
+      "name": "ballard_menu1",
+      "label": "Ballard Exam - Neuromuscular",
+      "condition": "selected(data('ballard_menu0'), 'neuromuscular')",
+      "_rowNum": 13,
+      "param": "ballard_menu1"
     },
     {
       "type": "image_slider",
       "name": "posture_slider",
       "label": "Choose Posture",
       "condition": "selected(data('ballard_menu1'), 'posture')",
-      "_rowNum": 22,
+      "_rowNum": 14,
       "param": "posture_slider"
     },
     {
@@ -119,7 +74,7 @@
       "name": "square_slider",
       "label": "Choose Square Window",
       "condition": "selected(data('ballard_menu1'), 'square')",
-      "_rowNum": 23,
+      "_rowNum": 15,
       "param": "square_slider"
     },
     {
@@ -127,7 +82,7 @@
       "name": "arm_slider",
       "label": "Choose Arm Recoil",
       "condition": "selected(data('ballard_menu1'), 'arm')",
-      "_rowNum": 24,
+      "_rowNum": 16,
       "param": "arm_slider"
     },
     {
@@ -135,7 +90,7 @@
       "name": "popliteal_slider",
       "label": "Choose Popliteal Angle",
       "condition": "selected(data('ballard_menu1'), 'popliteal')",
-      "_rowNum": 25,
+      "_rowNum": 17,
       "param": "popliteal_slider"
     },
     {
@@ -143,7 +98,7 @@
       "name": "scarf_slider",
       "label": "Choose Scarf Sign",
       "condition": "selected(data('ballard_menu1'), 'scarf')",
-      "_rowNum": 26,
+      "_rowNum": 18,
       "param": "scarf_slider"
     },
     {
@@ -151,29 +106,177 @@
       "name": "heel_slider",
       "label": "Choose Heel to Ear",
       "condition": "selected(data('ballard_menu1'), 'heel')",
-      "_rowNum": 27,
+      "_rowNum": 19,
       "param": "heel_slider"
     },
     {
+      "type": "menu",
+      "name": "ballard_menu2",
+      "label": "Ballard Exam - Physical",
+      "condition": "selected(data('ballard_menu0'), 'physical')",
+      "_rowNum": 20,
+      "param": "ballard_menu2"
+    },
+    {
+      "type": "select_one",
+      "name": "skin_menu",
+      "label": "Choose Skin Score",
+      "condition": "selected(data('ballard_menu2'), 'skin')",
+      "_rowNum": 21,
+      "param": "skin_menu"
+    },
+    {
+      "type": "select_one",
+      "name": "lanugo_menu",
+      "label": "Choose Lanugo Score",
+      "condition": "selected(data('ballard_menu2'), 'lanugo')",
+      "_rowNum": 22,
+      "param": "lanugo_menu"
+    },
+    {
+      "type": "select_one",
+      "name": "plantar_menu",
+      "label": "Choose Plantar Surface Score",
+      "condition": "selected(data('ballard_menu2'), 'plantar')",
+      "_rowNum": 23,
+      "param": "plantar_menu"
+    },
+    {
+      "type": "select_one",
+      "name": "breast_menu",
+      "label": "Choose Breast Score",
+      "condition": "selected(data('ballard_menu2'), 'breast')",
+      "_rowNum": 24,
+      "param": "breast_menu"
+    },
+    {
+      "type": "select_one",
+      "name": "eye_ear_menu",
+      "label": "Choose Eye/Ear Score",
+      "condition": "selected(data('ballard_menu2'), 'eye_ear')",
+      "_rowNum": 25,
+      "param": "eye_ear_menu"
+    },
+    {
+      "type": "select_one",
+      "name": "genitals_menu",
+      "label": "Choose Genitals Score",
+      "condition": "selected(data('ballard_menu2'), 'genitals')",
+      "_rowNum": 26,
+      "param": "genitals_menu"
+    },
+    {
+      "type": "screen",
+      "condition": "selected(data('ballard_menu0'), 'final_ballard_score')",
+      "_rowNum": 27,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "<h2>Neuromuscular Score</h2>",
+          "_rowNum": 28
+        },
+        {
+          "type": "note",
+          "label": "Posture Score: {{calculates.postureScore}}",
+          "_rowNum": 29
+        },
+        {
+          "type": "note",
+          "label": "Square Window Score: {{calculates.squareScore}}",
+          "_rowNum": 30
+        },
+        {
+          "type": "note",
+          "label": "Arm Recoil Score: {{calculates.armScore}}",
+          "_rowNum": 31
+        },
+        {
+          "type": "note",
+          "label": "Popiteal Angle Score: {{calculates.poplitealScore}}",
+          "_rowNum": 32
+        },
+        {
+          "type": "note",
+          "label": "Scarf Sign Score: {{calculates.scarfScore}}",
+          "_rowNum": 33
+        },
+        {
+          "type": "note",
+          "label": "Heel to Ear Score: {{calculates.heelScore}}",
+          "_rowNum": 34
+        },
+        {
+          "type": "note",
+          "label": "Total NM Score: {{calculates.totalNMScore}}",
+          "_rowNum": 35
+        },
+        {
+          "type": "note",
+          "label": "<h2>Physical Score</h2>",
+          "_rowNum": 36
+        },
+        {
+          "type": "note",
+          "label": "Skin Score: {{calculates.skinScore}}",
+          "_rowNum": 37
+        },
+        {
+          "type": "note",
+          "label": "Lanugo Score: {{calculates.lanugoScore}}",
+          "_rowNum": 38
+        },
+        {
+          "type": "note",
+          "label": "Plantar Surface Score: {{calculates.surfaceScore}}",
+          "_rowNum": 39
+        },
+        {
+          "type": "note",
+          "label": "Breast Score: {{calculates.breastScore}}",
+          "_rowNum": 40
+        },
+        {
+          "type": "note",
+          "label": "Eye/Ear Score: {{calculates.earEyeScore}}",
+          "_rowNum": 41
+        },
+        {
+          "type": "note",
+          "label": "Genitals Score: {{calculates.genitalsScore}}",
+          "_rowNum": 42
+        },
+        {
+          "type": "note",
+          "label": "Total Physical Score: {{calculates.totalPhysicalScore}}",
+          "_rowNum": 43
+        },
+        {
+          "type": "note",
+          "label": "<h2>Total Score {{calculates.totalBallardScore}}</h2>",
+          "_rowNum": 44
+        }
+      ]
+    },
+    {
       "type": "label",
-      "_rowNum": 28,
+      "_rowNum": 46,
       "param": "diagnostics_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'procedures')",
-      "_rowNum": 30,
+      "_rowNum": 48,
       "param": "procedures_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'procedures'))",
-      "_rowNum": 31,
+      "_rowNum": 49,
       "param": "procedures_end"
     },
     {
       "type": "label",
-      "_rowNum": 32,
+      "_rowNum": 50,
       "param": "procedures_begin"
     },
     {
@@ -181,36 +284,36 @@
       "name": "procedures_menu",
       "label": "Procedures",
       "appearance": "grid",
-      "_rowNum": 33,
+      "_rowNum": 51,
       "param": "procedures_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 34,
+      "_rowNum": 52,
       "prompts": [
         {
           "type": "note",
           "name": "intubation_link",
           "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
-          "_rowNum": 35
+          "_rowNum": 53
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 36
+          "_rowNum": 54
         },
         {
           "type": "note",
           "label": "<b>INTUBATION VIDEO</b>",
-          "_rowNum": 37
+          "_rowNum": 55
         },
         {
           "type": "note",
           "name": "intubation_vdo",
           "video": "video/video.mp4",
-          "_rowNum": 38
+          "_rowNum": 56
         }
       ]
     },
@@ -219,28 +322,28 @@
       "label": "LUMBAR",
       "condition": "selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
-      "_rowNum": 40
+      "_rowNum": 58
     },
     {
       "type": "label",
-      "_rowNum": 41,
+      "_rowNum": 59,
       "param": "procedures_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'calculators')",
-      "_rowNum": 43,
+      "_rowNum": 61,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 44,
+      "_rowNum": 62,
       "param": "calculators_end"
     },
     {
       "type": "label",
-      "_rowNum": 45,
+      "_rowNum": 63,
       "param": "calculators_begin"
     },
     {
@@ -248,59 +351,59 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 46,
+      "_rowNum": 64,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 47,
+      "_rowNum": 65,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 48
+          "_rowNum": 66
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 49
+          "_rowNum": 67
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 50
+          "_rowNum": 68
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 51
+          "_rowNum": 69
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 53,
+      "_rowNum": 71,
       "param": "calculators_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 55,
+      "_rowNum": 73,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 56,
+      "_rowNum": 74,
       "param": "medications_end"
     },
     {
       "type": "label",
-      "_rowNum": 57,
+      "_rowNum": 75,
       "param": "medications_begin"
     },
     {
@@ -308,29 +411,29 @@
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
-      "_rowNum": 58,
+      "_rowNum": 76,
       "param": "medications_menu"
     },
     {
       "type": "label",
-      "_rowNum": 59,
+      "_rowNum": 77,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 61,
+      "_rowNum": 79,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 62,
+      "_rowNum": 80,
       "param": "nutritions_end"
     },
     {
       "type": "label",
-      "_rowNum": 63,
+      "_rowNum": 81,
       "param": "nutritions_begin"
     },
     {
@@ -338,22 +441,22 @@
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 64,
+      "_rowNum": 82,
       "param": "nutritions_menu"
     },
     {
       "type": "note",
       "label": "Nutrition",
-      "_rowNum": 65
+      "_rowNum": 83
     },
     {
       "type": "label",
-      "_rowNum": 66,
+      "_rowNum": 84,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 69,
+      "_rowNum": 87,
       "param": "back_to_main"
     }
   ],
@@ -412,6 +515,46 @@
       "name": "totalNMScore",
       "calculation": "calculates.postureScore() + calculates.squareScore() + calculates.armScore() + calculates.poplitealScore() + calculates.scarfScore() + calculates.heelScore()",
       "_rowNum": 12
+    },
+    {
+      "name": "skinScore",
+      "calculation": "(function() {\n  switch (data('skin_menu')) { \n    case('skin-1'):\n      return -1;\n    case('skin0'):\n      return 0;\n    case('skin1'):\n      return 1;\n    case('skin2'):\n      return 2;\n    case('skin3'):\n      return 3;\n   case('skin4'):\n      return 4;  \n   case('skin5'):\n      return 5;  \n  }\n}())",
+      "_rowNum": 13
+    },
+    {
+      "name": "lanugoScore",
+      "calculation": "(function() {\n  switch (data('lanugo_menu')) { \n    case('lanugo-1'):\n      return -1;\n    case('lanugo0'):\n      return 0;\n    case('lanugo1'):\n      return 1;\n    case('lanugo2'):\n      return 2;\n    case('lanugo3'):\n      return 3;\n   case('lanugo4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 14
+    },
+    {
+      "name": "plantarScore",
+      "calculation": "(function() {\n  switch (data('plantar_menu')) { \n    case('plantar-2'):\n      return -2;\n    case('plantar-1'):\n      return -1;\n    case('plantar0'):\n      return 0;\n    case('plantar1'):\n      return 1;\n    case('plantar2'):\n      return 2;\n    case('plantar3'):\n      return 3;\n   case('plantar4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 15
+    },
+    {
+      "name": "breastScore",
+      "calculation": "(function() {\n  switch (data('breast_menu')) { \n    case('breast-1'):\n      return -1;\n    case('breast0'):\n      return 0;\n    case('breast1'):\n      return 1;\n    case('breast2'):\n      return 2;\n    case('breast3'):\n      return 3;\n   case('breast4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 16
+    },
+    {
+      "name": "earEyeScore",
+      "calculation": "(function() {\n  switch (data('ear_eye_menu')) { \n   case('ear_eye-2'):\n      return -2;  \n    case('ear_eye-1'):\n      return -1;\n    case('ear_eye0'):\n      return 0;\n    case('ear_eye1'):\n      return 1;\n    case('ear_eye2'):\n      return 2;\n    case('ear_eye3'):\n      return 3;\n   case('ear_eye4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 17
+    },
+    {
+      "name": "genitalsScore",
+      "calculation": "(function() {\n  switch (data('genitals_menu')) { \n    case('genitals-1'):\n      return -1;\n    case('genitals0'):\n      return 0;\n    case('genitals1'):\n      return 1;\n    case('genitals2'):\n      return 2;\n    case('genitals3'):\n      return 3;\n   case('genitals4'):\n      return 4;  \n  }\n}())",
+      "_rowNum": 18
+    },
+    {
+      "name": "totalPhysicalScore",
+      "calculation": "calculates.skinScore() + calculates.lanugoScore() + calculates.plantarScore() + calculates.breastScore() + calculates.earEyeScore() + calculates.genitalsScore()",
+      "_rowNum": 19
+    },
+    {
+      "name": "totalBallardScore",
+      "calculation": "calculates.totalNMScore() + calculates.totalPhysicalScore()",
+      "_rowNum": 20
     }
   ],
   "choices": {
@@ -561,42 +704,62 @@
         "_rowNum": 30
       }
     ],
+    "ballard_menu0": [
+      {
+        "list_name": "ballard_menu0",
+        "name": "neuromuscular",
+        "label": "Neuromuscular",
+        "_rowNum": 32
+      },
+      {
+        "list_name": "ballard_menu0",
+        "name": "physical",
+        "label": "Physical",
+        "_rowNum": 33
+      },
+      {
+        "list_name": "ballard_menu0",
+        "name": "final_ballard_score",
+        "label": "Final Score",
+        "_rowNum": 34
+      }
+    ],
     "ballard_menu1": [
       {
         "list_name": "ballard_menu1",
         "name": "posture",
         "label": "Posture",
-        "_rowNum": 32
+        "_rowNum": 36
       },
       {
         "list_name": "ballard_menu1",
         "name": "square",
         "label": "Square Window",
-        "_rowNum": 33
+        "_rowNum": 37
       },
       {
         "list_name": "ballard_menu1",
         "name": "arm",
         "label": "Arm Recoil",
-        "_rowNum": 34
+        "_rowNum": 38
       },
       {
         "list_name": "ballard_menu1",
         "name": "popliteal",
         "label": "Popliteal Angle",
-        "_rowNum": 35
+        "_rowNum": 39
       },
       {
         "list_name": "ballard_menu1",
         "name": "scarf",
         "label": "Scarf Sign",
-        "_rowNum": 36
+        "_rowNum": 40
       },
       {
         "list_name": "ballard_menu1",
         "name": "heel",
         "label": "Heel to Ear",
-        "_rowNum": 37
+        "_rowNum": 41
       }
     ],
     "posture_slider": [
@@ -604,31 +767,31 @@
         "list_name": "posture_slider",
         "name": "posture0",
         "image": "img/ballard/posture0.png",
-        "_rowNum": 39
+        "_rowNum": 43
       },
       {
         "list_name": "posture_slider",
         "name": "posture1",
         "image": "img/ballard/posture1.png",
-        "_rowNum": 40
+        "_rowNum": 44
       },
       {
         "list_name": "posture_slider",
         "name": "posture2",
         "image": "img/ballard/posture2.png",
-        "_rowNum": 41
+        "_rowNum": 45
       },
       {
         "list_name": "posture_slider",
         "name": "posture3",
         "image": "img/ballard/posture3.png",
-        "_rowNum": 42
+        "_rowNum": 46
       },
       {
         "list_name": "posture_slider",
         "name": "posture4",
         "image": "img/ballard/posture4.png",
-        "_rowNum": 43
+        "_rowNum": 47
       }
     ],
     "square_slider": [
@@ -636,37 +799,37 @@
         "list_name": "square_slider",
         "name": "square_window-1",
         "image": "img/ballard/square_window-1.png",
-        "_rowNum": 45
+        "_rowNum": 49
       },
       {
         "list_name": "square_slider",
         "name": "square_window0",
         "image": "img/ballard/square_window0.png",
-        "_rowNum": 46
+        "_rowNum": 50
       },
       {
         "list_name": "square_slider",
         "name": "square_window1",
         "image": "img/ballard/square_window1.png",
-        "_rowNum": 47
+        "_rowNum": 51
       },
       {
         "list_name": "square_slider",
         "name": "square_window2",
         "image": "img/ballard/square_window2.png",
-        "_rowNum": 48
+        "_rowNum": 52
       },
       {
         "list_name": "square_slider",
         "name": "square_window3",
         "image": "img/ballard/square_window3.png",
-        "_rowNum": 49
+        "_rowNum": 53
       },
       {
         "list_name": "square_slider",
         "name": "square_window4",
         "image": "img/ballard/square_window4.png",
-        "_rowNum": 50
+        "_rowNum": 54
       }
     ],
     "arm_slider": [
@@ -674,31 +837,31 @@
         "list_name": "arm_slider",
         "name": "arm_recoil0",
         "image": "img/ballard/arm_recoil0.png",
-        "_rowNum": 52
+        "_rowNum": 56
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil1",
         "image": "img/ballard/arm_recoil1.png",
-        "_rowNum": 53
+        "_rowNum": 57
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil2",
         "image": "img/ballard/arm_recoil2.png",
-        "_rowNum": 54
+        "_rowNum": 58
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil3",
         "image": "img/ballard/arm_recoil3.png",
-        "_rowNum": 55
+        "_rowNum": 59
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil4",
         "image": "img/ballard/arm_recoil4.png",
-        "_rowNum": 56
+        "_rowNum": 60
       }
     ],
     "popliteal_slider": [
@@ -706,43 +869,43 @@
         "list_name": "popliteal_slider",
         "name": "popliteal-1",
         "image": "img/ballard/popliteal-1.png",
-        "_rowNum": 58
+        "_rowNum": 62
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal0",
         "image": "img/ballard/popliteal0.png",
-        "_rowNum": 59
+        "_rowNum": 63
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal1",
         "image": "img/ballard/popliteal1.png",
-        "_rowNum": 60
+        "_rowNum": 64
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal2",
         "image": "img/ballard/popliteal2.png",
-        "_rowNum": 61
+        "_rowNum": 65
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal3",
         "image": "img/ballard/popliteal3.png",
-        "_rowNum": 62
+        "_rowNum": 66
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal4",
         "image": "img/ballard/popliteal4.png",
-        "_rowNum": 63
+        "_rowNum": 67
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal5",
         "image": "img/ballard/popliteal5.png",
-        "_rowNum": 64
+        "_rowNum": 68
       }
     ],
     "scarf_slider": [
@@ -750,37 +913,37 @@
         "list_name": "scarf_slider",
         "name": "scarf_sign-1",
         "image": "img/ballard/scarf_sign-1.png",
-        "_rowNum": 66
+        "_rowNum": 70
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign0",
         "image": "img/ballard/scarf_sign0.png",
-        "_rowNum": 67
+        "_rowNum": 71
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign1",
         "image": "img/ballard/scarf_sign1.png",
-        "_rowNum": 68
+        "_rowNum": 72
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign2",
         "image": "img/ballard/scarf_sign2.png",
-        "_rowNum": 69
+        "_rowNum": 73
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign3",
         "image": "img/ballard/scarf_sign3.png",
-        "_rowNum": 70
+        "_rowNum": 74
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign4",
         "image": "img/ballard/scarf_sign4.png",
-        "_rowNum": 71
+        "_rowNum": 75
       }
     ],
     "heel_slider": [
@@ -788,37 +951,321 @@
         "list_name": "heel_slider",
         "name": "heel_to_ear-1",
         "image": "img/ballard/heel_to_ear-1.png",
-        "_rowNum": 73
+        "_rowNum": 77
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear0",
         "image": "img/ballard/heel_to_ear0.png",
-        "_rowNum": 74
+        "_rowNum": 78
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear1",
         "image": "img/ballard/heel_to_ear1.png",
-        "_rowNum": 75
+        "_rowNum": 79
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear2",
         "image": "img/ballard/heel_to_ear2.png",
-        "_rowNum": 76
+        "_rowNum": 80
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear3",
         "image": "img/ballard/heel_to_ear3.png",
-        "_rowNum": 77
+        "_rowNum": 81
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear4",
         "image": "img/ballard/heel_to_ear4.png",
-        "_rowNum": 78
+        "_rowNum": 82
+      }
+    ],
+    "ballard_menu2": [
+      {
+        "list_name": "ballard_menu2",
+        "name": "skin",
+        "label": "Skin",
+        "_rowNum": 84
+      },
+      {
+        "list_name": "ballard_menu2",
+        "name": "lanugo",
+        "label": "Lanugo",
+        "_rowNum": 85
+      },
+      {
+        "list_name": "ballard_menu2",
+        "name": "plantar",
+        "label": "Plantar Surface",
+        "_rowNum": 86
+      },
+      {
+        "list_name": "ballard_menu2",
+        "name": "breast",
+        "label": "Breast",
+        "_rowNum": 87
+      },
+      {
+        "list_name": "ballard_menu2",
+        "name": "eye_ear",
+        "label": "Eye/Ear",
+        "_rowNum": 88
+      },
+      {
+        "list_name": "ballard_menu2",
+        "name": "genitals",
+        "label": "Genitals",
+        "_rowNum": 89
+      }
+    ],
+    "skin_menu": [
+      {
+        "list_name": "skin_menu",
+        "name": "skin-1",
+        "label": "sticky, friable, transparent",
+        "_rowNum": 91
+      },
+      {
+        "list_name": "skin_menu",
+        "name": "skin0",
+        "label": "gelatinour, red, translucent",
+        "_rowNum": 92
+      },
+      {
+        "list_name": "skin_menu",
+        "name": "skin1",
+        "label": "smooth, pink, visible veins",
+        "_rowNum": 93
+      },
+      {
+        "list_name": "skin_menu",
+        "name": "skin2",
+        "label": "superficial peeling &/or rash, few veins",
+        "_rowNum": 94
+      },
+      {
+        "list_name": "skin_menu",
+        "name": "skin3",
+        "label": "cracking, pale areas, rare veins",
+        "_rowNum": 95
+      },
+      {
+        "list_name": "skin_menu",
+        "name": "skin4",
+        "label": "parchment, deep cracking, no vessels",
+        "_rowNum": 96
+      },
+      {
+        "list_name": "skin_menu",
+        "name": "skin5",
+        "label": "leathery, cracked, wrinkled",
+        "_rowNum": 97
+      }
+    ],
+    "lanugo_menu": [
+      {
+        "list_name": "lanugo_menu",
+        "name": "lanugo-1",
+        "label": "none",
+        "_rowNum": 99
+      },
+      {
+        "list_name": "lanugo_menu",
+        "name": "lanugo0",
+        "label": "sparse",
+        "_rowNum": 100
+      },
+      {
+        "list_name": "lanugo_menu",
+        "name": "lanugo1",
+        "label": "abundant",
+        "_rowNum": 101
+      },
+      {
+        "list_name": "lanugo_menu",
+        "name": "lanugo2",
+        "label": "thinning",
+        "_rowNum": 102
+      },
+      {
+        "list_name": "lanugo_menu",
+        "name": "lanugo3",
+        "label": "bald areas",
+        "_rowNum": 103
+      },
+      {
+        "list_name": "lanugo_menu",
+        "name": "lanugo4",
+        "label": "mostly bald",
+        "_rowNum": 104
+      }
+    ],
+    "plantar_menu": [
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar-2",
+        "label": "heel-toe < 40 mm",
+        "_rowNum": 106
+      },
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar-1",
+        "label": "heel-toe 40-50 mm",
+        "_rowNum": 107
+      },
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar0",
+        "label": "> 50 mm, no crease",
+        "_rowNum": 108
+      },
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar1",
+        "label": "faint red marks",
+        "_rowNum": 109
+      },
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar2",
+        "label": "anterior transverse crease only",
+        "_rowNum": 110
+      },
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar3",
+        "label": "creases ant. 2/3",
+        "_rowNum": 111
+      },
+      {
+        "list_name": "plantar_menu",
+        "name": "plantar4",
+        "label": "creases over entire sole",
+        "_rowNum": 112
+      }
+    ],
+    "breast_menu": [
+      {
+        "list_name": "breast_menu",
+        "name": "breast-1",
+        "label": "imperceptible",
+        "_rowNum": 114
+      },
+      {
+        "list_name": "breast_menu",
+        "name": "breast0",
+        "label": "barely perceptible",
+        "_rowNum": 115
+      },
+      {
+        "list_name": "breast_menu",
+        "name": "breast1",
+        "label": "flat areola, no bud",
+        "_rowNum": 116
+      },
+      {
+        "list_name": "breast_menu",
+        "name": "breast2",
+        "label": "stippled areola, 1-2 mm bud",
+        "_rowNum": 117
+      },
+      {
+        "list_name": "breast_menu",
+        "name": "breast3",
+        "label": "raised areola, 3-4 mm bud",
+        "_rowNum": 118
+      },
+      {
+        "list_name": "breast_menu",
+        "name": "breast4",
+        "label": "full areola, 5-10 mm bud",
+        "_rowNum": 119
+      }
+    ],
+    "eye_ear_menu": [
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear-2",
+        "label": "lids fused tightly",
+        "_rowNum": 121
+      },
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear-1",
+        "label": "lids fused loosely",
+        "_rowNum": 122
+      },
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear0",
+        "label": "lids open, pinna flat, stays folded",
+        "_rowNum": 123
+      },
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear1",
+        "label": "sl. curved pinna, soft, slow recoil",
+        "_rowNum": 124
+      },
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear2",
+        "label": "well-curved pinna, soft but ready recoil",
+        "_rowNum": 125
+      },
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear3",
+        "label": "formed & firm, instant recoil",
+        "_rowNum": 126
+      },
+      {
+        "list_name": "eye_ear_menu",
+        "name": "eye_ear4",
+        "label": "thick cartilage, ear stiff",
+        "_rowNum": 127
+      }
+    ],
+    "genitals_menu": [
+      {
+        "list_name": "genitals_menu",
+        "name": "genitals-1",
+        "label": "male: scrotum flat, smooth\nfemale: clitoris prominent & labia flat",
+        "_rowNum": 129
+      },
+      {
+        "list_name": "genitals_menu",
+        "name": "genitals0",
+        "label": "male: scrotum empty, faint rugae\nfemale: prominent clitoris & small labia minora",
+        "_rowNum": 130
+      },
+      {
+        "list_name": "genitals_menu",
+        "name": "genitals1",
+        "label": "male: testes in upper canal rare rugae\nfemale: prominent clitoris & enlarging minor",
+        "_rowNum": 131
+      },
+      {
+        "list_name": "genitals_menu",
+        "name": "genitals2",
+        "label": "male: testes descending, few rugae\nfemale: majora & minora equally prominent",
+        "_rowNum": 132
+      },
+      {
+        "list_name": "genitals_menu",
+        "name": "genitals3",
+        "label": "male: testes down, good rugae\nfemale: majora large, minora small",
+        "_rowNum": 133
+      },
+      {
+        "list_name": "genitals_menu",
+        "name": "genitals4",
+        "label": "male: testes pendulous, deep rugae\nfemale: majora cover clitoris & minora",
+        "_rowNum": 134
       }
     ]
   },
@@ -857,6 +1304,9 @@
     "diagnostic_menu": {
       "type": "string"
     },
+    "ballard_menu0": {
+      "type": "string"
+    },
     "ballard_menu1": {
       "type": "string"
     },
@@ -876,6 +1326,27 @@
       "type": "string"
     },
     "heel_slider": {
+      "type": "string"
+    },
+    "ballard_menu2": {
+      "type": "string"
+    },
+    "skin_menu": {
+      "type": "string"
+    },
+    "lanugo_menu": {
+      "type": "string"
+    },
+    "plantar_menu": {
+      "type": "string"
+    },
+    "breast_menu": {
+      "type": "string"
+    },
+    "eye_ear_menu": {
+      "type": "string"
+    },
+    "genitals_menu": {
       "type": "string"
     },
     "procedures_menu": {
