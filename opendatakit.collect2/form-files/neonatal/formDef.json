@@ -14,6 +14,18 @@
       "param": "menu"
     },
     {
+      "type": "goto",
+      "condition": "not(selected(data('menu'), 'diagnostics'))",
+      "_rowNum": 5,
+      "param": "diagnostics_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('menu'),'diagnostics')",
+      "_rowNum": 6,
+      "param": "diagnostics_begin"
+    },
+    {
       "type": "label",
       "_rowNum": 7,
       "param": "diagnostics_begin"
@@ -54,11 +66,27 @@
       "param": "ballard_menu0"
     },
     {
+      "type": "goto",
+      "condition": "not(selected(data('ballard_menu0'), 'neuromuscular'))",
+      "_rowNum": 13,
+      "param": "neuromuscular_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('ballard_menu0'), 'neuromuscular')",
+      "_rowNum": 14,
+      "param": "neuromuscular_begin"
+    },
+    {
+      "type": "label",
+      "_rowNum": 15,
+      "param": "neuromuscular_begin"
+    },
+    {
       "type": "menu",
       "name": "ballard_menu1",
       "label": "Ballard Exam - Neuromuscular",
-      "condition": "selected(data('ballard_menu0'), 'neuromuscular')",
-      "_rowNum": 13,
+      "_rowNum": 16,
       "param": "ballard_menu1"
     },
     {
@@ -66,7 +94,7 @@
       "name": "posture_slider",
       "label": "Choose Posture",
       "condition": "selected(data('ballard_menu1'), 'posture')",
-      "_rowNum": 14,
+      "_rowNum": 17,
       "param": "posture_slider"
     },
     {
@@ -74,7 +102,7 @@
       "name": "square_slider",
       "label": "Choose Square Window",
       "condition": "selected(data('ballard_menu1'), 'square')",
-      "_rowNum": 15,
+      "_rowNum": 18,
       "param": "square_slider"
     },
     {
@@ -82,7 +110,7 @@
       "name": "arm_slider",
       "label": "Choose Arm Recoil",
       "condition": "selected(data('ballard_menu1'), 'arm')",
-      "_rowNum": 16,
+      "_rowNum": 19,
       "param": "arm_slider"
     },
     {
@@ -90,7 +118,7 @@
       "name": "popliteal_slider",
       "label": "Choose Popliteal Angle",
       "condition": "selected(data('ballard_menu1'), 'popliteal')",
-      "_rowNum": 17,
+      "_rowNum": 20,
       "param": "popliteal_slider"
     },
     {
@@ -98,7 +126,7 @@
       "name": "scarf_slider",
       "label": "Choose Scarf Sign",
       "condition": "selected(data('ballard_menu1'), 'scarf')",
-      "_rowNum": 18,
+      "_rowNum": 21,
       "param": "scarf_slider"
     },
     {
@@ -106,15 +134,36 @@
       "name": "heel_slider",
       "label": "Choose Heel to Ear",
       "condition": "selected(data('ballard_menu1'), 'heel')",
-      "_rowNum": 19,
+      "_rowNum": 22,
       "param": "heel_slider"
+    },
+    {
+      "type": "label",
+      "_rowNum": 23,
+      "param": "neuromuscular_end"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('ballard_menu0'), 'physical'))",
+      "_rowNum": 24,
+      "param": "physical_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('ballard_menu0'), 'physical')",
+      "_rowNum": 25,
+      "param": "physical_begin"
+    },
+    {
+      "type": "label",
+      "_rowNum": 26,
+      "param": "physical_begin"
     },
     {
       "type": "menu",
       "name": "ballard_menu2",
       "label": "Ballard Exam - Physical",
-      "condition": "selected(data('ballard_menu0'), 'physical')",
-      "_rowNum": 20,
+      "_rowNum": 27,
       "param": "ballard_menu2"
     },
     {
@@ -122,7 +171,7 @@
       "name": "skin_menu",
       "label": "Choose Skin Score",
       "condition": "selected(data('ballard_menu2'), 'skin')",
-      "_rowNum": 21,
+      "_rowNum": 28,
       "param": "skin_menu"
     },
     {
@@ -130,7 +179,7 @@
       "name": "lanugo_menu",
       "label": "Choose Lanugo Score",
       "condition": "selected(data('ballard_menu2'), 'lanugo')",
-      "_rowNum": 22,
+      "_rowNum": 29,
       "param": "lanugo_menu"
     },
     {
@@ -138,7 +187,7 @@
       "name": "plantar_menu",
       "label": "Choose Plantar Surface Score",
       "condition": "selected(data('ballard_menu2'), 'plantar')",
-      "_rowNum": 23,
+      "_rowNum": 30,
       "param": "plantar_menu"
     },
     {
@@ -146,7 +195,7 @@
       "name": "breast_menu",
       "label": "Choose Breast Score",
       "condition": "selected(data('ballard_menu2'), 'breast')",
-      "_rowNum": 24,
+      "_rowNum": 31,
       "param": "breast_menu"
     },
     {
@@ -154,7 +203,7 @@
       "name": "eye_ear_menu",
       "label": "Choose Eye/Ear Score",
       "condition": "selected(data('ballard_menu2'), 'eye_ear')",
-      "_rowNum": 25,
+      "_rowNum": 32,
       "param": "eye_ear_menu"
     },
     {
@@ -162,121 +211,126 @@
       "name": "genitals_menu",
       "label": "Choose Genitals Score",
       "condition": "selected(data('ballard_menu2'), 'genitals')",
-      "_rowNum": 26,
+      "_rowNum": 33,
       "param": "genitals_menu"
+    },
+    {
+      "type": "label",
+      "_rowNum": 34,
+      "param": "physical_end"
     },
     {
       "type": "screen",
       "condition": "selected(data('ballard_menu0'), 'final_ballard_score')",
-      "_rowNum": 27,
+      "_rowNum": 35,
       "prompts": [
         {
           "type": "note",
           "label": "<h2>Neuromuscular Score</h2>",
-          "_rowNum": 28
-        },
-        {
-          "type": "note",
-          "label": "Posture Score: {{calculates.postureScore}}",
-          "_rowNum": 29
-        },
-        {
-          "type": "note",
-          "label": "Square Window Score: {{calculates.squareScore}}",
-          "_rowNum": 30
-        },
-        {
-          "type": "note",
-          "label": "Arm Recoil Score: {{calculates.armScore}}",
-          "_rowNum": 31
-        },
-        {
-          "type": "note",
-          "label": "Popiteal Angle Score: {{calculates.poplitealScore}}",
-          "_rowNum": 32
-        },
-        {
-          "type": "note",
-          "label": "Scarf Sign Score: {{calculates.scarfScore}}",
-          "_rowNum": 33
-        },
-        {
-          "type": "note",
-          "label": "Heel to Ear Score: {{calculates.heelScore}}",
-          "_rowNum": 34
-        },
-        {
-          "type": "note",
-          "label": "Total NM Score: {{calculates.totalNMScore}}",
-          "_rowNum": 35
-        },
-        {
-          "type": "note",
-          "label": "<h2>Physical Score</h2>",
           "_rowNum": 36
         },
         {
           "type": "note",
-          "label": "Skin Score: {{calculates.skinScore}}",
+          "label": "Posture Score: {{calculates.postureScore}}",
           "_rowNum": 37
         },
         {
           "type": "note",
-          "label": "Lanugo Score: {{calculates.lanugoScore}}",
+          "label": "Square Window Score: {{calculates.squareScore}}",
           "_rowNum": 38
         },
         {
           "type": "note",
-          "label": "Plantar Surface Score: {{calculates.surfaceScore}}",
+          "label": "Arm Recoil Score: {{calculates.armScore}}",
           "_rowNum": 39
         },
         {
           "type": "note",
-          "label": "Breast Score: {{calculates.breastScore}}",
+          "label": "Popiteal Angle Score: {{calculates.poplitealScore}}",
           "_rowNum": 40
         },
         {
           "type": "note",
-          "label": "Eye/Ear Score: {{calculates.earEyeScore}}",
+          "label": "Scarf Sign Score: {{calculates.scarfScore}}",
           "_rowNum": 41
         },
         {
           "type": "note",
-          "label": "Genitals Score: {{calculates.genitalsScore}}",
+          "label": "Heel to Ear Score: {{calculates.heelScore}}",
           "_rowNum": 42
         },
         {
           "type": "note",
-          "label": "Total Physical Score: {{calculates.totalPhysicalScore}}",
+          "label": "Total NM Score: {{calculates.totalNMScore}}",
           "_rowNum": 43
         },
         {
           "type": "note",
-          "label": "<h2>Total Score {{calculates.totalBallardScore}}</h2>",
+          "label": "<h2>Physical Score</h2>",
           "_rowNum": 44
+        },
+        {
+          "type": "note",
+          "label": "Skin Score: {{calculates.skinScore}}",
+          "_rowNum": 45
+        },
+        {
+          "type": "note",
+          "label": "Lanugo Score: {{calculates.lanugoScore}}",
+          "_rowNum": 46
+        },
+        {
+          "type": "note",
+          "label": "Plantar Surface Score: {{calculates.surfaceScore}}",
+          "_rowNum": 47
+        },
+        {
+          "type": "note",
+          "label": "Breast Score: {{calculates.breastScore}}",
+          "_rowNum": 48
+        },
+        {
+          "type": "note",
+          "label": "Eye/Ear Score: {{calculates.earEyeScore}}",
+          "_rowNum": 49
+        },
+        {
+          "type": "note",
+          "label": "Genitals Score: {{calculates.genitalsScore}}",
+          "_rowNum": 50
+        },
+        {
+          "type": "note",
+          "label": "Total Physical Score: {{calculates.totalPhysicalScore}}",
+          "_rowNum": 51
+        },
+        {
+          "type": "note",
+          "label": "<h2>Total Score {{calculates.totalBallardScore}}</h2>",
+          "_rowNum": 52
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 46,
+      "_rowNum": 54,
       "param": "diagnostics_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'procedures')",
-      "_rowNum": 48,
+      "_rowNum": 56,
       "param": "procedures_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'procedures'))",
-      "_rowNum": 49,
+      "_rowNum": 57,
       "param": "procedures_end"
     },
     {
       "type": "label",
-      "_rowNum": 50,
+      "_rowNum": 58,
       "param": "procedures_begin"
     },
     {
@@ -284,36 +338,36 @@
       "name": "procedures_menu",
       "label": "Procedures",
       "appearance": "grid",
-      "_rowNum": 51,
+      "_rowNum": 59,
       "param": "procedures_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 52,
+      "_rowNum": 60,
       "prompts": [
         {
           "type": "note",
           "name": "intubation_link",
           "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
-          "_rowNum": 53
+          "_rowNum": 61
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 54
+          "_rowNum": 62
         },
         {
           "type": "note",
           "label": "<b>INTUBATION VIDEO</b>",
-          "_rowNum": 55
+          "_rowNum": 63
         },
         {
           "type": "note",
           "name": "intubation_vdo",
           "video": "video/video.mp4",
-          "_rowNum": 56
+          "_rowNum": 64
         }
       ]
     },
@@ -322,28 +376,28 @@
       "label": "LUMBAR",
       "condition": "selected(data('procedures_menu'), 'lumbar')",
       "image": "img/lumbar.gif",
-      "_rowNum": 58
+      "_rowNum": 66
     },
     {
       "type": "label",
-      "_rowNum": 59,
+      "_rowNum": 67,
       "param": "procedures_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'),'calculators')",
-      "_rowNum": 61,
+      "_rowNum": 69,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 62,
+      "_rowNum": 70,
       "param": "calculators_end"
     },
     {
       "type": "label",
-      "_rowNum": 63,
+      "_rowNum": 71,
       "param": "calculators_begin"
     },
     {
@@ -351,59 +405,59 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 64,
+      "_rowNum": 72,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 65,
+      "_rowNum": 73,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 66
+          "_rowNum": 74
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 67
+          "_rowNum": 75
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 68
+          "_rowNum": 76
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 69
+          "_rowNum": 77
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 71,
+      "_rowNum": 79,
       "param": "calculators_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 73,
+      "_rowNum": 81,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 74,
+      "_rowNum": 82,
       "param": "medications_end"
     },
     {
       "type": "label",
-      "_rowNum": 75,
+      "_rowNum": 83,
       "param": "medications_begin"
     },
     {
@@ -411,29 +465,29 @@
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
-      "_rowNum": 76,
+      "_rowNum": 84,
       "param": "medications_menu"
     },
     {
       "type": "label",
-      "_rowNum": 77,
+      "_rowNum": 85,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 79,
+      "_rowNum": 87,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 80,
+      "_rowNum": 88,
       "param": "nutritions_end"
     },
     {
       "type": "label",
-      "_rowNum": 81,
+      "_rowNum": 89,
       "param": "nutritions_begin"
     },
     {
@@ -441,22 +495,22 @@
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 82,
+      "_rowNum": 90,
       "param": "nutritions_menu"
     },
     {
       "type": "note",
       "label": "Nutrition",
-      "_rowNum": 83
+      "_rowNum": 91
     },
     {
       "type": "label",
-      "_rowNum": 84,
+      "_rowNum": 92,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 87,
+      "_rowNum": 95,
       "param": "back_to_main"
     }
   ],
