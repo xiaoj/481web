@@ -14,6 +14,7 @@
       "param": "menu"
     },
     {
+      "comments": "Diagnostics",
       "type": "goto",
       "condition": "not(selected(data('menu'), 'diagnostics'))",
       "_rowNum": 5,
@@ -281,7 +282,7 @@
         },
         {
           "type": "note",
-          "label": "Plantar Surface Score: {{calculates.surfaceScore}}",
+          "label": "Plantar Surface Score: {{calculates.plantarScore}}",
           "_rowNum": 47
         },
         {
@@ -317,6 +318,7 @@
       "param": "diagnostics_end"
     },
     {
+      "comments": "Procedure",
       "type": "goto",
       "condition": "selected(data('menu'),'procedures')",
       "_rowNum": 56,
@@ -349,55 +351,279 @@
         {
           "type": "note",
           "name": "intubation_link",
-          "label": "<a href=\"http://www.youtube.com/watch?v=z7sog1n4Rgo\">Go to intubation video on Youtube</a>",
+          "label": "<a href=\"http://www.youtube.com/watch?v=6PjvTsxwX5k\">Go to intubation video on Youtube</a>",
           "_rowNum": 61
+        },
+        {
+          "type": "note",
+          "label": "<b><font size=\"12\" color=\"Gray\">Procedure Steps</font> </b>",
+          "_rowNum": 62
+        },
+        {
+          "type": "note",
+          "label": "<b>1.Position the neonate: “sniffing position”</b>",
+          "_rowNum": 63
+        },
+        {
+          "type": "note",
+          "label": "<b>2.Open laryngoscope and hold in left hand.</b>",
+          "_rowNum": 64
+        },
+        {
+          "type": "note",
+          "label": "<b>3.Preoxygenate</b>",
+          "_rowNum": 65
+        },
+        {
+          "type": "note",
+          "label": "<b>4.Open mouth and insert laryngoscope</b>",
+          "_rowNum": 66
+        },
+        {
+          "type": "note",
+          "label": "<b>5.Lift laryngoscope in the direction of the handle (to visualize the glottis)</b>",
+          "_rowNum": 67
+        },
+        {
+          "type": "note",
+          "label": "<b>6.Visualize the glottis</b>",
+          "_rowNum": 68
+        },
+        {
+          "type": "note",
+          "label": "<blockquote>  The laryngoscope should be placed beyond the base of the tongue and before the epiglottis, or beyond the epiglottis and gently compressing the epiglottis against the base of the tongue.</blockquote>",
+          "_rowNum": 69
+        },
+        {
+          "type": "note",
+          "label": "<blockquote>  Lift the laryngoscope in the direction that the blade is pointing in order to bring the glottis into view. Cricoid pressure may also be helpful, and can be applied by the little finger of the hand holding the laryngoscope.</blockquote>",
+          "_rowNum": 70
+        },
+        {
+          "type": "note",
+          "label": "<blockquote>  Do not lever the laryngoscope against the infant’s gums.</blockquote>",
+          "_rowNum": 71
+        },
+        {
+          "type": "note",
+          "label": "<blockquote>  As well as lifting the laryngoscope, you may also provide cricoid pressure with your little finger, or ask an assistant to do this for you.</blockquote>",
+          "_rowNum": 72
+        },
+        {
+          "type": "note",
+          "label": "<b>7.Insert the Endotracheal Tube</b>",
+          "_rowNum": 73
+        },
+        {
+          "type": "note",
+          "label": "<li>  ET tube length estimated by the<b> rule of six</b></li>",
+          "_rowNum": 74
+        },
+        {
+          "type": "note",
+          "label": "<li>  If inserted orally, it should be (6 + weight) cm from the lip.</li>",
+          "_rowNum": 75
+        },
+        {
+          "type": "note",
+          "label": "<li>  If inserted nasally, using a McGill's forceps, it should be (6 + (1.5 x weight)) cm from the nares.</li>",
+          "_rowNum": 76
+        },
+        {
+          "type": "note",
+          "label": "<b>8.Remove Introducer</b>",
+          "_rowNum": 77
+        },
+        {
+          "type": "note",
+          "label": "<b>9.Verify Tube Placement</b>",
+          "_rowNum": 78
+        },
+        {
+          "type": "note",
+          "label": "<ol><li>Look for symmetrical chest rise.</li><li>Increasing heart rate.</li><li>Watch ETT going through the cords.</li><li>Colorimeter change change to yellow reflects exhaled carbon dioxide.</li><li>Auscultate for bilateral air entry.</li><li>Chest X-Ray.<img src=\"img/procedureXray.jpeg\" alt=\"Chest Xray\" height=\"42\" width=\"42\"></li><li>See misting on inner surface of ETT.</li></ol>",
+          "_rowNum": 79
+        },
+        {
+          "type": "note",
+          "_rowNum": 80
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 62
+          "_rowNum": 82
         },
         {
           "type": "note",
           "label": "<b>INTUBATION VIDEO</b>",
-          "_rowNum": 63
+          "_rowNum": 83
         },
         {
           "type": "note",
-          "name": "intubation_vdo",
           "video": "video/video.mp4",
-          "_rowNum": 64
+          "_rowNum": 84
         }
       ]
     },
     {
-      "type": "note",
-      "label": "LUMBAR",
-      "condition": "selected(data('procedures_menu'), 'lumbar')",
-      "image": "img/lumbar.gif",
-      "_rowNum": 66
+      "type": "goto",
+      "condition": "selected(data('procedures_menu'),'lumbar')",
+      "_rowNum": 87,
+      "param": "procedure_lumbar_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('procedures_menu'), 'lumbar'))",
+      "_rowNum": 88,
+      "param": "procedure_lumbar_end"
     },
     {
       "type": "label",
-      "_rowNum": 67,
+      "_rowNum": 89,
+      "param": "procedure_lumbar_begin"
+    },
+    {
+      "type": "note",
+      "label": "lumbar",
+      "_rowNum": 90
+    },
+    {
+      "type": "label",
+      "_rowNum": 91,
+      "param": "procedure_lumbar_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('procedures_menu'), 'sample_video')",
+      "_rowNum": 93,
+      "param": "procedure_video_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('procedures_menu'), 'sample_video'))",
+      "_rowNum": 94,
+      "param": "procedure_video_end"
+    },
+    {
+      "type": "label",
+      "_rowNum": 95,
+      "param": "procedure_video_begin"
+    },
+    {
+      "type": "menu",
+      "name": "procedure_video_menu",
+      "appearance": "grid",
+      "_rowNum": 97,
+      "param": "procedure_video_menu"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('procedure_video_menu'), 'intubation2')",
+      "_rowNum": 98,
+      "param": "intubation2_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('procedure_video_menu'), 'intubation2'))",
+      "_rowNum": 99,
+      "param": "intubation2_end"
+    },
+    {
+      "type": "label",
+      "_rowNum": 100,
+      "param": "intubation2_begin"
+    },
+    {
+      "type": "screen",
+      "_rowNum": 101,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "<a href=\"http://www.youtube.com/watch?v=0VGiBwyfuNI\">intubation2</a>",
+          "_rowNum": 102
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "_rowNum": 104,
+      "param": "intubation2_end"
+    },
+    {
+      "type": "goto",
+      "condition": "selected(data('procedure_video_menu'), 'intubation1')",
+      "_rowNum": 105,
+      "param": "intubation1_begin"
+    },
+    {
+      "type": "goto",
+      "condition": "not(selected(data('procedure_video_menu'), 'intubation1'))",
+      "_rowNum": 106,
+      "param": "intubation1_end"
+    },
+    {
+      "type": "note",
+      "label": "<b>107</b>",
+      "_rowNum": 107
+    },
+    {
+      "type": "label",
+      "_rowNum": 108,
+      "param": "intubation1_begin"
+    },
+    {
+      "type": "screen",
+      "_rowNum": 109,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "<a href=\"http://www.youtube.com/watch?v=6PjvTsxwX5k\">intubation1</a>",
+          "_rowNum": 110
+        }
+      ]
+    },
+    {
+      "type": "label",
+      "_rowNum": 113,
+      "param": "intubation1_end"
+    },
+    {
+      "type": "note",
+      "label": "<b>114</b>",
+      "_rowNum": 114
+    },
+    {
+      "type": "label",
+      "_rowNum": 115,
+      "param": "procedure_video_end"
+    },
+    {
+      "type": "note",
+      "label": "<b>116</b>",
+      "_rowNum": 116
+    },
+    {
+      "type": "label",
+      "_rowNum": 117,
       "param": "procedures_end"
     },
     {
       "type": "goto",
-      "condition": "selected(data('menu'),'calculators')",
-      "_rowNum": 69,
+      "condition": "selected(data('menu'), 'calculators')",
+      "_rowNum": 119,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 70,
+      "_rowNum": 120,
       "param": "calculators_end"
     },
     {
+      "comments": "Calculator",
       "type": "label",
-      "_rowNum": 71,
+      "_rowNum": 121,
       "param": "calculators_begin"
     },
     {
@@ -405,59 +631,180 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 72,
+      "_rowNum": 122,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 73,
+      "condition": "selected(data('calculators_menu'),'weight_converter')",
+      "_rowNum": 123,
       "prompts": [
         {
+          "type": "note",
+          "label": "Weight Converter",
+          "_rowNum": 124
+        },
+        {
+          "type": "select_one",
+          "name": "conversion_type",
+          "label": "Conversion type",
+          "appearance": "dropdown",
+          "_rowNum": 125,
+          "param": "conversion_type"
+        },
+        {
+          "type": "screen",
+          "name": "defaultConversionType",
+          "condition": "not(selected(data('conversion_type'),'kgToLb')) && not(selected(data('conversion_type'),'lbToKg'))",
+          "_rowNum": 126,
+          "prompts": [
+            {
+              "type": "decimal",
+              "name": "default_weightKilo",
+              "label": "Enter weight (kg):",
+              "_rowNum": 127
+            },
+            {
+              "type": "note",
+              "label": "<p>Baby weight is: {{calculates.default_convertToPound}} pounds</p>",
+              "condition": "data('default_weightKilo')",
+              "_rowNum": 128
+            }
+          ]
+        },
+        {
+          "type": "screen",
+          "condition": "selected(data('conversion_type'),'kgToLb')",
+          "_rowNum": 130,
+          "prompts": [
+            {
+              "type": "decimal",
+              "name": "weightKilo",
+              "label": "Enter weight (kg):",
+              "_rowNum": 131
+            },
+            {
+              "type": "note",
+              "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
+              "condition": "data('weightKilo')",
+              "_rowNum": 132
+            }
+          ]
+        },
+        {
+          "type": "screen",
+          "condition": "selected(data('conversion_type'),'lbToKg')",
+          "_rowNum": 134,
+          "prompts": [
+            {
+              "type": "decimal",
+              "name": "weightPound",
+              "label": "Enter weight (lbs):",
+              "_rowNum": 135
+            },
+            {
+              "type": "note",
+              "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
+              "condition": "data('weightPound')",
+              "_rowNum": 136
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "screen",
+      "condition": "selected(data('calculators_menu'),'weight_loss')",
+      "_rowNum": 139,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "Weight Loss Calculator",
+          "_rowNum": 140
+        },
+        {
           "type": "decimal",
-          "name": "weightPound",
-          "label": "Enter weight in pounds:",
-          "_rowNum": 74
+          "name": "birthW",
+          "label": "Enter birth weigh (g):",
+          "_rowNum": 141
+        },
+        {
+          "type": "decimal",
+          "name": "currW",
+          "label": "Enter current weight (g):",
+          "_rowNum": 142
         },
         {
           "type": "note",
-          "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
-          "condition": "data('weightPound')",
-          "_rowNum": 75
-        },
-        {
-          "type": "decimal",
-          "name": "weightKilo",
-          "label": "Enter weight in kilograms:",
-          "_rowNum": 76
+          "label": "<p>Baby Weight Lost:</p>",
+          "condition": "data('birthW') && data('currW')",
+          "_rowNum": 143
         },
         {
           "type": "note",
-          "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
-          "condition": "data('weightKilo')",
-          "_rowNum": 77
+          "label": "<p>{{calculates.weightLoss}} g</p>",
+          "condition": "data('birthW') && data('currW')",
+          "_rowNum": 144
+        },
+        {
+          "type": "note",
+          "label": "<p>{{calculates.weightLossPerc}} %</p>",
+          "condition": "data('birthW') && data('currW')",
+          "_rowNum": 145
+        }
+      ]
+    },
+    {
+      "type": "screen",
+      "condition": "selected(data('calculators_menu'),'glucose_cal')",
+      "_rowNum": 147,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "Glucose Infusion Rate Calculator",
+          "_rowNum": 148
+        },
+        {
+          "type": "decimal",
+          "name": "totalFluid",
+          "label": "Total fluids (mL)",
+          "_rowNum": 149
+        },
+        {
+          "type": "decimal",
+          "name": "dextrosePerc",
+          "label": "Dextrose percentage (%)",
+          "_rowNum": 150
+        },
+        {
+          "type": "note",
+          "label": "<p>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</p>",
+          "condition": "data('totalFluid') && data('dextrosePerc')",
+          "_rowNum": 151
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 79,
+      "_rowNum": 153,
       "param": "calculators_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 81,
+      "_rowNum": 155,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 82,
+      "_rowNum": 156,
       "param": "medications_end"
     },
     {
+      "comments": "Medication",
       "type": "label",
-      "_rowNum": 83,
+      "_rowNum": 157,
       "param": "medications_begin"
     },
     {
@@ -465,52 +812,198 @@
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
-      "_rowNum": 84,
+      "_rowNum": 158,
       "param": "medications_menu"
     },
     {
       "type": "label",
-      "_rowNum": 85,
+      "_rowNum": 159,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 87,
+      "_rowNum": 161,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 88,
+      "_rowNum": 162,
       "param": "nutritions_end"
     },
     {
+      "comments": "Nutrition",
       "type": "label",
-      "_rowNum": 89,
+      "_rowNum": 163,
       "param": "nutritions_begin"
     },
     {
       "type": "menu",
-      "name": "nutritions_menu",
+      "name": "calculators_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 90,
-      "param": "nutritions_menu"
+      "_rowNum": 164,
+      "param": "calculators_menu"
     },
     {
-      "type": "note",
-      "label": "Nutrition",
-      "_rowNum": 91
+      "type": "screen",
+      "condition": "selected(data('calculators_menu'),'weight_converter')",
+      "_rowNum": 165,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "Weight Converter",
+          "_rowNum": 166
+        },
+        {
+          "type": "select_one",
+          "name": "conversion_type",
+          "label": "Conversion type",
+          "appearance": "dropdown",
+          "_rowNum": 167,
+          "param": "conversion_type"
+        },
+        {
+          "type": "screen",
+          "name": "defaultConversionType",
+          "condition": "not(selected(data('conversion_type'),'kgToLb')) && not(selected(data('conversion_type'),'lbToKg'))",
+          "_rowNum": 168,
+          "prompts": [
+            {
+              "type": "decimal",
+              "name": "default_weightKilo",
+              "label": "Enter weight (kg):",
+              "_rowNum": 169
+            },
+            {
+              "type": "note",
+              "label": "<p>Baby weight is: {{calculates.default_convertToPound}} pounds</p>",
+              "condition": "data('default_weightKilo')",
+              "_rowNum": 170
+            }
+          ]
+        },
+        {
+          "type": "screen",
+          "condition": "selected(data('conversion_type'),'kgToLb')",
+          "_rowNum": 172,
+          "prompts": [
+            {
+              "type": "decimal",
+              "name": "weightKilo",
+              "label": "Enter weight (kg):",
+              "_rowNum": 173
+            },
+            {
+              "type": "note",
+              "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
+              "condition": "data('weightKilo')",
+              "_rowNum": 174
+            }
+          ]
+        },
+        {
+          "type": "screen",
+          "condition": "selected(data('conversion_type'),'lbToKg')",
+          "_rowNum": 176,
+          "prompts": [
+            {
+              "type": "decimal",
+              "name": "weightPound",
+              "label": "Enter weight (lbs):",
+              "_rowNum": 177
+            },
+            {
+              "type": "note",
+              "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
+              "condition": "data('weightPound')",
+              "_rowNum": 178
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "screen",
+      "condition": "selected(data('calculators_menu'),'weight_loss')",
+      "_rowNum": 181,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "Weight Loss Calculator",
+          "_rowNum": 182
+        },
+        {
+          "type": "decimal",
+          "name": "birthW",
+          "label": "Enter birth weigh (g):",
+          "_rowNum": 183
+        },
+        {
+          "type": "decimal",
+          "name": "currW",
+          "label": "Enter current weight (g):",
+          "_rowNum": 184
+        },
+        {
+          "type": "note",
+          "label": "<p>Baby Weight Lost:</p>",
+          "condition": "data('birthW') && data('currW')",
+          "_rowNum": 185
+        },
+        {
+          "type": "note",
+          "label": "<p>{{calculates.weightLoss}} g</p>",
+          "condition": "data('birthW') && data('currW')",
+          "_rowNum": 186
+        },
+        {
+          "type": "note",
+          "label": "<p>{{calculates.weightLossPerc}} %</p>",
+          "condition": "data('birthW') && data('currW')",
+          "_rowNum": 187
+        }
+      ]
+    },
+    {
+      "type": "screen",
+      "condition": "selected(data('calculators_menu'),'glucose_cal')",
+      "_rowNum": 189,
+      "prompts": [
+        {
+          "type": "note",
+          "label": "Glucose Infusion Rate Calculator",
+          "_rowNum": 190
+        },
+        {
+          "type": "decimal",
+          "name": "totalFluid",
+          "label": "Total fluids (mL)",
+          "_rowNum": 191
+        },
+        {
+          "type": "decimal",
+          "name": "dextrosePerc",
+          "label": "Dextrose percentage (%)",
+          "_rowNum": 192
+        },
+        {
+          "type": "note",
+          "label": "<p>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</p>",
+          "condition": "data('totalFluid') && data('dextrosePerc')",
+          "_rowNum": 193
+        }
+      ]
     },
     {
       "type": "label",
-      "_rowNum": 92,
+      "_rowNum": 195,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 95,
+      "_rowNum": 198,
       "param": "back_to_main"
     }
   ],
@@ -526,89 +1019,99 @@
       "_rowNum": 3
     },
     {
-      "name": "weightLossKg",
-      "calculation": "data('currentWeightKg') - data('birthWeightKg')",
+      "name": "default_convertToPound",
+      "calculation": "(data('default_weightKilo')*2.20462).toFixed(2)",
       "_rowNum": 4
     },
     {
-      "name": "weightLossKgPerc",
-      "calculation": "(calculates.weightLossKg() * 100.0 / data('birthWeightKg')).toFixed(2)",
+      "name": "weightLoss",
+      "calculation": "data('birthW') - data('currW')",
       "_rowNum": 5
+    },
+    {
+      "name": "weightLossPerc",
+      "calculation": "(calculates.weightLoss()*100.0/data('birthW')).toFixed(2)",
+      "_rowNum": 6
+    },
+    {
+      "name": "glucoseCal",
+      "calculation": "(data('totalFluid')*(data('dextrosePerc')/100)/144).toFixed(2)",
+      "_rowNum": 7
     },
     {
       "name": "postureScore",
       "calculation": "(function() {\n  switch (data('posture_slider')) { \n    case('posture0'):\n      return 0;\n    case('posture1'):\n      return 1;\n    case('posture2'):\n      return 2;\n    case('posture3'):\n      return 3;\n   case('posture4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 6
+      "_rowNum": 9
     },
     {
       "name": "squareScore",
       "calculation": "(function() {\n  switch (data('square_slider')) { \n    case('square_window-1'):\n      return -1;\n    case('square_window0'):\n      return 0;\n    case('square_window1'):\n      return 1;\n    case('square_window2'):\n      return 2;\n    case('square_window3'):\n      return 3;\n   case('square_window4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 7
+      "_rowNum": 10
     },
     {
       "name": "armScore",
       "calculation": "(function() {\n  switch (data('arm_slider')) { \n    case('arm_recoil0'):\n      return 0;\n    case('arm_recoil1'):\n      return 1;\n    case('arm_recoil2'):\n      return 2;\n    case('arm_recoil3'):\n      return 3;\n   case('arm_recoil4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 8
+      "_rowNum": 11
     },
     {
       "name": "poplitealScore",
       "calculation": "(function() {\n  switch (data('popliteal_slider')) { \n    case('popliteal-1'):\n      return -1;\n    case('popliteal0'):\n      return 0;\n    case('popliteal1'):\n      return 1;\n    case('popliteal2'):\n      return 2;\n    case('popliteal3'):\n      return 3;\n   case('popliteal4'):\n      return 4;  \n   case('popliteal5'):\n      return 5;  \n  }\n}())",
-      "_rowNum": 9
+      "_rowNum": 12
     },
     {
       "name": "scarfScore",
       "calculation": "(function() {\n  switch (data('scarf_slider')) { \n    case('scarf_sign-1'):\n      return -1;\n    case('scarf_sign0'):\n      return 0;\n    case('scarf_sign1'):\n      return 1;\n    case('scarf_sign2'):\n      return 2;\n    case('scarf_sign3'):\n      return 3;\n   case('scarf_sign4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 10
+      "_rowNum": 13
     },
     {
       "name": "heelScore",
       "calculation": "(function() {\n  switch (data('heel_slider')) { \n    case('heel_to_ear-1'):\n      return -1;\n    case('heel_to_ear0'):\n      return 0;\n    case('heel_to_ear1'):\n      return 1;\n    case('heel_to_ear2'):\n      return 2;\n    case('heel_to_ear3'):\n      return 3;\n   case('heel_to_ear4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 11
+      "_rowNum": 14
     },
     {
       "name": "totalNMScore",
       "calculation": "calculates.postureScore() + calculates.squareScore() + calculates.armScore() + calculates.poplitealScore() + calculates.scarfScore() + calculates.heelScore()",
-      "_rowNum": 12
+      "_rowNum": 15
     },
     {
       "name": "skinScore",
       "calculation": "(function() {\n  switch (data('skin_menu')) { \n    case('skin-1'):\n      return -1;\n    case('skin0'):\n      return 0;\n    case('skin1'):\n      return 1;\n    case('skin2'):\n      return 2;\n    case('skin3'):\n      return 3;\n   case('skin4'):\n      return 4;  \n   case('skin5'):\n      return 5;  \n  }\n}())",
-      "_rowNum": 13
+      "_rowNum": 16
     },
     {
       "name": "lanugoScore",
       "calculation": "(function() {\n  switch (data('lanugo_menu')) { \n    case('lanugo-1'):\n      return -1;\n    case('lanugo0'):\n      return 0;\n    case('lanugo1'):\n      return 1;\n    case('lanugo2'):\n      return 2;\n    case('lanugo3'):\n      return 3;\n   case('lanugo4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 14
+      "_rowNum": 17
     },
     {
       "name": "plantarScore",
       "calculation": "(function() {\n  switch (data('plantar_menu')) { \n    case('plantar-2'):\n      return -2;\n    case('plantar-1'):\n      return -1;\n    case('plantar0'):\n      return 0;\n    case('plantar1'):\n      return 1;\n    case('plantar2'):\n      return 2;\n    case('plantar3'):\n      return 3;\n   case('plantar4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 15
+      "_rowNum": 18
     },
     {
       "name": "breastScore",
       "calculation": "(function() {\n  switch (data('breast_menu')) { \n    case('breast-1'):\n      return -1;\n    case('breast0'):\n      return 0;\n    case('breast1'):\n      return 1;\n    case('breast2'):\n      return 2;\n    case('breast3'):\n      return 3;\n   case('breast4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 16
+      "_rowNum": 19
     },
     {
       "name": "earEyeScore",
       "calculation": "(function() {\n  switch (data('ear_eye_menu')) { \n   case('ear_eye-2'):\n      return -2;  \n    case('ear_eye-1'):\n      return -1;\n    case('ear_eye0'):\n      return 0;\n    case('ear_eye1'):\n      return 1;\n    case('ear_eye2'):\n      return 2;\n    case('ear_eye3'):\n      return 3;\n   case('ear_eye4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 17
+      "_rowNum": 20
     },
     {
       "name": "genitalsScore",
       "calculation": "(function() {\n  switch (data('genitals_menu')) { \n    case('genitals-1'):\n      return -1;\n    case('genitals0'):\n      return 0;\n    case('genitals1'):\n      return 1;\n    case('genitals2'):\n      return 2;\n    case('genitals3'):\n      return 3;\n   case('genitals4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 18
+      "_rowNum": 21
     },
     {
       "name": "totalPhysicalScore",
       "calculation": "calculates.skinScore() + calculates.lanugoScore() + calculates.plantarScore() + calculates.breastScore() + calculates.earEyeScore() + calculates.genitalsScore()",
-      "_rowNum": 19
+      "_rowNum": 22
     },
     {
       "name": "totalBallardScore",
       "calculation": "calculates.totalNMScore() + calculates.totalPhysicalScore()",
-      "_rowNum": 20
+      "_rowNum": 23
     }
   ],
   "choices": {
@@ -702,6 +1205,26 @@
         "name": "weight_loss",
         "label": "Weight Loss Calculator",
         "_rowNum": 19
+      },
+      {
+        "list_name": "calculators_menu",
+        "name": "glucose_cal",
+        "label": "Glucose Infusion Rate Calculator",
+        "_rowNum": 20
+      }
+    ],
+    "conversion_type": [
+      {
+        "list_name": "conversion_type",
+        "name": "kgToLb",
+        "label": "Metric to imperial",
+        "_rowNum": 21
+      },
+      {
+        "list_name": "conversion_type",
+        "name": "lbToKg",
+        "label": "Imperial to metric",
+        "_rowNum": 22
       }
     ],
     "medications_menu": [
@@ -709,39 +1232,39 @@
         "list_name": "medications_menu",
         "name": "medicine_a",
         "label": "Medicine_A",
-        "_rowNum": 21
+        "_rowNum": 24
       },
       {
         "list_name": "medications_menu",
         "name": "medicine_b",
         "label": "Medicine_B",
-        "_rowNum": 22
+        "_rowNum": 25
       },
       {
         "list_name": "medications_menu",
         "name": "medicine_c",
         "label": "Medicine_C",
-        "_rowNum": 23
+        "_rowNum": 26
       }
     ],
     "nutritions_menu": [
       {
         "list_name": "nutritions_menu",
-        "name": "weight loss",
-        "label": "Weight Loss Calculators",
-        "_rowNum": 25
+        "name": "weight_converter",
+        "label": "Weight Converter",
+        "_rowNum": 28
       },
       {
         "list_name": "nutritions_menu",
-        "name": "weight converter",
-        "label": "Weight Convertors Calculators",
-        "_rowNum": 26
+        "name": "weight_loss",
+        "label": "Weight Loss Calculator",
+        "_rowNum": 29
       },
       {
         "list_name": "nutritions_menu",
-        "name": "glucose",
+        "name": "glucose_cal",
         "label": "Glucose Infusion Rate Calculator",
-        "_rowNum": 27
+        "_rowNum": 30
       }
     ],
     "kilo_pound": [
@@ -749,13 +1272,13 @@
         "list_name": "kilo_pound",
         "name": "kilo",
         "label": "Kilograms",
-        "_rowNum": 29
+        "_rowNum": 32
       },
       {
         "list_name": "kilo_pound",
         "name": "pound",
         "label": "Pounds",
-        "_rowNum": 30
+        "_rowNum": 33
       }
     ],
     "ballard_menu0": [
@@ -763,19 +1286,19 @@
         "list_name": "ballard_menu0",
         "name": "neuromuscular",
         "label": "Neuromuscular",
-        "_rowNum": 32
+        "_rowNum": 35
       },
       {
         "list_name": "ballard_menu0",
         "name": "physical",
         "label": "Physical",
-        "_rowNum": 33
+        "_rowNum": 36
       },
       {
         "list_name": "ballard_menu0",
         "name": "final_ballard_score",
         "label": "Final Score",
-        "_rowNum": 34
+        "_rowNum": 37
       }
     ],
     "ballard_menu1": [
@@ -783,37 +1306,37 @@
         "list_name": "ballard_menu1",
         "name": "posture",
         "label": "Posture",
-        "_rowNum": 36
+        "_rowNum": 39
       },
       {
         "list_name": "ballard_menu1",
         "name": "square",
         "label": "Square Window",
-        "_rowNum": 37
+        "_rowNum": 40
       },
       {
         "list_name": "ballard_menu1",
         "name": "arm",
         "label": "Arm Recoil",
-        "_rowNum": 38
+        "_rowNum": 41
       },
       {
         "list_name": "ballard_menu1",
         "name": "popliteal",
         "label": "Popliteal Angle",
-        "_rowNum": 39
+        "_rowNum": 42
       },
       {
         "list_name": "ballard_menu1",
         "name": "scarf",
         "label": "Scarf Sign",
-        "_rowNum": 40
+        "_rowNum": 43
       },
       {
         "list_name": "ballard_menu1",
         "name": "heel",
         "label": "Heel to Ear",
-        "_rowNum": 41
+        "_rowNum": 44
       }
     ],
     "posture_slider": [
@@ -821,31 +1344,31 @@
         "list_name": "posture_slider",
         "name": "posture0",
         "image": "img/ballard/posture0.png",
-        "_rowNum": 43
+        "_rowNum": 46
       },
       {
         "list_name": "posture_slider",
         "name": "posture1",
         "image": "img/ballard/posture1.png",
-        "_rowNum": 44
+        "_rowNum": 47
       },
       {
         "list_name": "posture_slider",
         "name": "posture2",
         "image": "img/ballard/posture2.png",
-        "_rowNum": 45
+        "_rowNum": 48
       },
       {
         "list_name": "posture_slider",
         "name": "posture3",
         "image": "img/ballard/posture3.png",
-        "_rowNum": 46
+        "_rowNum": 49
       },
       {
         "list_name": "posture_slider",
         "name": "posture4",
         "image": "img/ballard/posture4.png",
-        "_rowNum": 47
+        "_rowNum": 50
       }
     ],
     "square_slider": [
@@ -853,37 +1376,37 @@
         "list_name": "square_slider",
         "name": "square_window-1",
         "image": "img/ballard/square_window-1.png",
-        "_rowNum": 49
+        "_rowNum": 52
       },
       {
         "list_name": "square_slider",
         "name": "square_window0",
         "image": "img/ballard/square_window0.png",
-        "_rowNum": 50
+        "_rowNum": 53
       },
       {
         "list_name": "square_slider",
         "name": "square_window1",
         "image": "img/ballard/square_window1.png",
-        "_rowNum": 51
+        "_rowNum": 54
       },
       {
         "list_name": "square_slider",
         "name": "square_window2",
         "image": "img/ballard/square_window2.png",
-        "_rowNum": 52
+        "_rowNum": 55
       },
       {
         "list_name": "square_slider",
         "name": "square_window3",
         "image": "img/ballard/square_window3.png",
-        "_rowNum": 53
+        "_rowNum": 56
       },
       {
         "list_name": "square_slider",
         "name": "square_window4",
         "image": "img/ballard/square_window4.png",
-        "_rowNum": 54
+        "_rowNum": 57
       }
     ],
     "arm_slider": [
@@ -891,31 +1414,31 @@
         "list_name": "arm_slider",
         "name": "arm_recoil0",
         "image": "img/ballard/arm_recoil0.png",
-        "_rowNum": 56
+        "_rowNum": 59
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil1",
         "image": "img/ballard/arm_recoil1.png",
-        "_rowNum": 57
+        "_rowNum": 60
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil2",
         "image": "img/ballard/arm_recoil2.png",
-        "_rowNum": 58
+        "_rowNum": 61
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil3",
         "image": "img/ballard/arm_recoil3.png",
-        "_rowNum": 59
+        "_rowNum": 62
       },
       {
         "list_name": "arm_slider",
         "name": "arm_recoil4",
         "image": "img/ballard/arm_recoil4.png",
-        "_rowNum": 60
+        "_rowNum": 63
       }
     ],
     "popliteal_slider": [
@@ -923,43 +1446,43 @@
         "list_name": "popliteal_slider",
         "name": "popliteal-1",
         "image": "img/ballard/popliteal-1.png",
-        "_rowNum": 62
+        "_rowNum": 65
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal0",
         "image": "img/ballard/popliteal0.png",
-        "_rowNum": 63
+        "_rowNum": 66
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal1",
         "image": "img/ballard/popliteal1.png",
-        "_rowNum": 64
+        "_rowNum": 67
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal2",
         "image": "img/ballard/popliteal2.png",
-        "_rowNum": 65
+        "_rowNum": 68
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal3",
         "image": "img/ballard/popliteal3.png",
-        "_rowNum": 66
+        "_rowNum": 69
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal4",
         "image": "img/ballard/popliteal4.png",
-        "_rowNum": 67
+        "_rowNum": 70
       },
       {
         "list_name": "popliteal_slider",
         "name": "popliteal5",
         "image": "img/ballard/popliteal5.png",
-        "_rowNum": 68
+        "_rowNum": 71
       }
     ],
     "scarf_slider": [
@@ -967,37 +1490,37 @@
         "list_name": "scarf_slider",
         "name": "scarf_sign-1",
         "image": "img/ballard/scarf_sign-1.png",
-        "_rowNum": 70
+        "_rowNum": 73
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign0",
         "image": "img/ballard/scarf_sign0.png",
-        "_rowNum": 71
+        "_rowNum": 74
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign1",
         "image": "img/ballard/scarf_sign1.png",
-        "_rowNum": 72
+        "_rowNum": 75
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign2",
         "image": "img/ballard/scarf_sign2.png",
-        "_rowNum": 73
+        "_rowNum": 76
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign3",
         "image": "img/ballard/scarf_sign3.png",
-        "_rowNum": 74
+        "_rowNum": 77
       },
       {
         "list_name": "scarf_slider",
         "name": "scarf_sign4",
         "image": "img/ballard/scarf_sign4.png",
-        "_rowNum": 75
+        "_rowNum": 78
       }
     ],
     "heel_slider": [
@@ -1005,37 +1528,37 @@
         "list_name": "heel_slider",
         "name": "heel_to_ear-1",
         "image": "img/ballard/heel_to_ear-1.png",
-        "_rowNum": 77
+        "_rowNum": 80
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear0",
         "image": "img/ballard/heel_to_ear0.png",
-        "_rowNum": 78
+        "_rowNum": 81
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear1",
         "image": "img/ballard/heel_to_ear1.png",
-        "_rowNum": 79
+        "_rowNum": 82
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear2",
         "image": "img/ballard/heel_to_ear2.png",
-        "_rowNum": 80
+        "_rowNum": 83
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear3",
         "image": "img/ballard/heel_to_ear3.png",
-        "_rowNum": 81
+        "_rowNum": 84
       },
       {
         "list_name": "heel_slider",
         "name": "heel_to_ear4",
         "image": "img/ballard/heel_to_ear4.png",
-        "_rowNum": 82
+        "_rowNum": 85
       }
     ],
     "ballard_menu2": [
@@ -1043,37 +1566,37 @@
         "list_name": "ballard_menu2",
         "name": "skin",
         "label": "Skin",
-        "_rowNum": 84
+        "_rowNum": 87
       },
       {
         "list_name": "ballard_menu2",
         "name": "lanugo",
         "label": "Lanugo",
-        "_rowNum": 85
+        "_rowNum": 88
       },
       {
         "list_name": "ballard_menu2",
         "name": "plantar",
         "label": "Plantar Surface",
-        "_rowNum": 86
+        "_rowNum": 89
       },
       {
         "list_name": "ballard_menu2",
         "name": "breast",
         "label": "Breast",
-        "_rowNum": 87
+        "_rowNum": 90
       },
       {
         "list_name": "ballard_menu2",
         "name": "eye_ear",
         "label": "Eye/Ear",
-        "_rowNum": 88
+        "_rowNum": 91
       },
       {
         "list_name": "ballard_menu2",
         "name": "genitals",
         "label": "Genitals",
-        "_rowNum": 89
+        "_rowNum": 92
       }
     ],
     "skin_menu": [
@@ -1081,43 +1604,43 @@
         "list_name": "skin_menu",
         "name": "skin-1",
         "label": "sticky, friable, transparent",
-        "_rowNum": 91
+        "_rowNum": 94
       },
       {
         "list_name": "skin_menu",
         "name": "skin0",
         "label": "gelatinour, red, translucent",
-        "_rowNum": 92
+        "_rowNum": 95
       },
       {
         "list_name": "skin_menu",
         "name": "skin1",
         "label": "smooth, pink, visible veins",
-        "_rowNum": 93
+        "_rowNum": 96
       },
       {
         "list_name": "skin_menu",
         "name": "skin2",
         "label": "superficial peeling &/or rash, few veins",
-        "_rowNum": 94
+        "_rowNum": 97
       },
       {
         "list_name": "skin_menu",
         "name": "skin3",
         "label": "cracking, pale areas, rare veins",
-        "_rowNum": 95
+        "_rowNum": 98
       },
       {
         "list_name": "skin_menu",
         "name": "skin4",
         "label": "parchment, deep cracking, no vessels",
-        "_rowNum": 96
+        "_rowNum": 99
       },
       {
         "list_name": "skin_menu",
         "name": "skin5",
         "label": "leathery, cracked, wrinkled",
-        "_rowNum": 97
+        "_rowNum": 100
       }
     ],
     "lanugo_menu": [
@@ -1125,37 +1648,37 @@
         "list_name": "lanugo_menu",
         "name": "lanugo-1",
         "label": "none",
-        "_rowNum": 99
+        "_rowNum": 102
       },
       {
         "list_name": "lanugo_menu",
         "name": "lanugo0",
         "label": "sparse",
-        "_rowNum": 100
+        "_rowNum": 103
       },
       {
         "list_name": "lanugo_menu",
         "name": "lanugo1",
         "label": "abundant",
-        "_rowNum": 101
+        "_rowNum": 104
       },
       {
         "list_name": "lanugo_menu",
         "name": "lanugo2",
         "label": "thinning",
-        "_rowNum": 102
+        "_rowNum": 105
       },
       {
         "list_name": "lanugo_menu",
         "name": "lanugo3",
         "label": "bald areas",
-        "_rowNum": 103
+        "_rowNum": 106
       },
       {
         "list_name": "lanugo_menu",
         "name": "lanugo4",
         "label": "mostly bald",
-        "_rowNum": 104
+        "_rowNum": 107
       }
     ],
     "plantar_menu": [
@@ -1163,43 +1686,43 @@
         "list_name": "plantar_menu",
         "name": "plantar-2",
         "label": "heel-toe < 40 mm",
-        "_rowNum": 106
+        "_rowNum": 109
       },
       {
         "list_name": "plantar_menu",
         "name": "plantar-1",
         "label": "heel-toe 40-50 mm",
-        "_rowNum": 107
+        "_rowNum": 110
       },
       {
         "list_name": "plantar_menu",
         "name": "plantar0",
         "label": "> 50 mm, no crease",
-        "_rowNum": 108
+        "_rowNum": 111
       },
       {
         "list_name": "plantar_menu",
         "name": "plantar1",
         "label": "faint red marks",
-        "_rowNum": 109
+        "_rowNum": 112
       },
       {
         "list_name": "plantar_menu",
         "name": "plantar2",
         "label": "anterior transverse crease only",
-        "_rowNum": 110
+        "_rowNum": 113
       },
       {
         "list_name": "plantar_menu",
         "name": "plantar3",
         "label": "creases ant. 2/3",
-        "_rowNum": 111
+        "_rowNum": 114
       },
       {
         "list_name": "plantar_menu",
         "name": "plantar4",
         "label": "creases over entire sole",
-        "_rowNum": 112
+        "_rowNum": 115
       }
     ],
     "breast_menu": [
@@ -1207,37 +1730,37 @@
         "list_name": "breast_menu",
         "name": "breast-1",
         "label": "imperceptible",
-        "_rowNum": 114
+        "_rowNum": 117
       },
       {
         "list_name": "breast_menu",
         "name": "breast0",
         "label": "barely perceptible",
-        "_rowNum": 115
+        "_rowNum": 118
       },
       {
         "list_name": "breast_menu",
         "name": "breast1",
         "label": "flat areola, no bud",
-        "_rowNum": 116
+        "_rowNum": 119
       },
       {
         "list_name": "breast_menu",
         "name": "breast2",
         "label": "stippled areola, 1-2 mm bud",
-        "_rowNum": 117
+        "_rowNum": 120
       },
       {
         "list_name": "breast_menu",
         "name": "breast3",
         "label": "raised areola, 3-4 mm bud",
-        "_rowNum": 118
+        "_rowNum": 121
       },
       {
         "list_name": "breast_menu",
         "name": "breast4",
         "label": "full areola, 5-10 mm bud",
-        "_rowNum": 119
+        "_rowNum": 122
       }
     ],
     "eye_ear_menu": [
@@ -1245,43 +1768,43 @@
         "list_name": "eye_ear_menu",
         "name": "eye_ear-2",
         "label": "lids fused tightly",
-        "_rowNum": 121
+        "_rowNum": 124
       },
       {
         "list_name": "eye_ear_menu",
         "name": "eye_ear-1",
         "label": "lids fused loosely",
-        "_rowNum": 122
+        "_rowNum": 125
       },
       {
         "list_name": "eye_ear_menu",
         "name": "eye_ear0",
         "label": "lids open, pinna flat, stays folded",
-        "_rowNum": 123
+        "_rowNum": 126
       },
       {
         "list_name": "eye_ear_menu",
         "name": "eye_ear1",
         "label": "sl. curved pinna, soft, slow recoil",
-        "_rowNum": 124
+        "_rowNum": 127
       },
       {
         "list_name": "eye_ear_menu",
         "name": "eye_ear2",
         "label": "well-curved pinna, soft but ready recoil",
-        "_rowNum": 125
+        "_rowNum": 128
       },
       {
         "list_name": "eye_ear_menu",
         "name": "eye_ear3",
         "label": "formed & firm, instant recoil",
-        "_rowNum": 126
+        "_rowNum": 129
       },
       {
         "list_name": "eye_ear_menu",
         "name": "eye_ear4",
         "label": "thick cartilage, ear stiff",
-        "_rowNum": 127
+        "_rowNum": 130
       }
     ],
     "genitals_menu": [
@@ -1289,37 +1812,51 @@
         "list_name": "genitals_menu",
         "name": "genitals-1",
         "label": "male: scrotum flat, smooth\nfemale: clitoris prominent & labia flat",
-        "_rowNum": 129
+        "_rowNum": 132
       },
       {
         "list_name": "genitals_menu",
         "name": "genitals0",
         "label": "male: scrotum empty, faint rugae\nfemale: prominent clitoris & small labia minora",
-        "_rowNum": 130
+        "_rowNum": 133
       },
       {
         "list_name": "genitals_menu",
         "name": "genitals1",
         "label": "male: testes in upper canal rare rugae\nfemale: prominent clitoris & enlarging minor",
-        "_rowNum": 131
+        "_rowNum": 134
       },
       {
         "list_name": "genitals_menu",
         "name": "genitals2",
         "label": "male: testes descending, few rugae\nfemale: majora & minora equally prominent",
-        "_rowNum": 132
+        "_rowNum": 135
       },
       {
         "list_name": "genitals_menu",
         "name": "genitals3",
         "label": "male: testes down, good rugae\nfemale: majora large, minora small",
-        "_rowNum": 133
+        "_rowNum": 136
       },
       {
         "list_name": "genitals_menu",
         "name": "genitals4",
         "label": "male: testes pendulous, deep rugae\nfemale: majora cover clitoris & minora",
-        "_rowNum": 134
+        "_rowNum": 137
+      }
+    ],
+    "procedure_video_menu": [
+      {
+        "list_name": "procedure_video_menu",
+        "name": "intubation1",
+        "label": "Intubation Video 1",
+        "_rowNum": 139
+      },
+      {
+        "list_name": "procedure_video_menu",
+        "name": "intubation2",
+        "label": "Intubation Video 2",
+        "_rowNum": 140
       }
     ]
   },
@@ -1406,19 +1943,37 @@
     "procedures_menu": {
       "type": "string"
     },
+    "procedure_video_menu": {
+      "type": "string"
+    },
     "calculators_menu": {
       "type": "string"
     },
-    "weightPound": {
+    "conversion_type": {
+      "type": "string"
+    },
+    "default_weightKilo": {
       "type": "number"
     },
     "weightKilo": {
       "type": "number"
     },
-    "medications_menu": {
-      "type": "string"
+    "weightPound": {
+      "type": "number"
     },
-    "nutritions_menu": {
+    "birthW": {
+      "type": "number"
+    },
+    "currW": {
+      "type": "number"
+    },
+    "totalFluid": {
+      "type": "number"
+    },
+    "dextrosePerc": {
+      "type": "number"
+    },
+    "medications_menu": {
       "type": "string"
     }
   }
