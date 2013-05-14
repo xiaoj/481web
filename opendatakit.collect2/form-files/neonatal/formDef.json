@@ -64,24 +64,9 @@
       "_rowNum": 12,
       "prompts": [
         {
-          "type": "menu",
-          "name": "ballard_menu1",
-          "label": "Ballard Exam - Neuromuscular",
-          "_rowNum": 13,
-          "param": "ballard_menu1"
-        },
-        {
-          "type": "menu",
-          "name": "ballard_menu2",
-          "label": "Ballard Exam - Physical",
-          "_rowNum": 14,
-          "param": "ballard_menu2"
-        },
-        {
-          "comments": "Total Score",
           "type": "note",
-          "label": "<h2>Neuromuscular Score</h2>\n<ul>\n<li>Posture Score: {{calculates.postureScore}}</li>\n<li>Square Window Score: {{calculates.squareScore}}</li>\n<li>Arm Recoil Score: {{calculates.armScore}}</li>\n<li>Popiteal Angle Score: {{calculates.poplitealScore}}</li>\n<li>Scarf Sign Score: {{calculates.scarfScore}}</li>\n<li>Heel to Ear Score: {{calculates.heelScore}}</li>\n<li>Total NM Score: {{calculates.totalNMScore}}</li>\n</ul>\n<h2>Physical Score</h2>\n<ul>\n<li>Skin Score: {{calculates.skinScore}}</li>\n<li>Lanugo Score: {{calculates.lanugoScore}}</li>\n<li>Plantar Surface Score: {{calculates.plantarScore}}</li>\n<li>Breast Score: {{calculates.breastScore}}</li>\n<li>Eye/Ear Score: {{calculates.eyeEarScore}}</li>\n<li>Genitals Score: {{calculates.genitalsScore}}</li>\n<li>Total Physical Score: {{calculates.totalPhysicalScore}}</li>\n</ul>\n<h2>Total Score {{calculates.totalBallardScore}}</h2>",
-          "_rowNum": 15
+          "templatePath": "templates/ballard_exam.handlebar",
+          "_rowNum": 13
         }
       ]
     },
@@ -90,7 +75,7 @@
       "name": "posture_slider",
       "label": "Choose Posture",
       "condition": "selected(data('ballard_menu1'), 'posture')",
-      "_rowNum": 17,
+      "_rowNum": 15,
       "param": "posture_slider"
     },
     {
@@ -98,7 +83,7 @@
       "name": "square_slider",
       "label": "Choose Square Window",
       "condition": "selected(data('ballard_menu1'), 'square')",
-      "_rowNum": 18,
+      "_rowNum": 16,
       "param": "square_slider"
     },
     {
@@ -106,7 +91,7 @@
       "name": "arm_slider",
       "label": "Choose Arm Recoil",
       "condition": "selected(data('ballard_menu1'), 'arm')",
-      "_rowNum": 19,
+      "_rowNum": 17,
       "param": "arm_slider"
     },
     {
@@ -114,7 +99,7 @@
       "name": "popliteal_slider",
       "label": "Choose Popliteal Angle",
       "condition": "selected(data('ballard_menu1'), 'popliteal')",
-      "_rowNum": 20,
+      "_rowNum": 18,
       "param": "popliteal_slider"
     },
     {
@@ -122,7 +107,7 @@
       "name": "scarf_slider",
       "label": "Choose Scarf Sign",
       "condition": "selected(data('ballard_menu1'), 'scarf')",
-      "_rowNum": 21,
+      "_rowNum": 19,
       "param": "scarf_slider"
     },
     {
@@ -130,7 +115,7 @@
       "name": "heel_slider",
       "label": "Choose Heel to Ear",
       "condition": "selected(data('ballard_menu1'), 'heel')",
-      "_rowNum": 22,
+      "_rowNum": 20,
       "param": "heel_slider"
     },
     {
@@ -138,7 +123,7 @@
       "name": "skin_menu",
       "label": "Choose Skin Score",
       "condition": "selected(data('ballard_menu2'), 'skin')",
-      "_rowNum": 23,
+      "_rowNum": 21,
       "param": "skin_menu"
     },
     {
@@ -146,7 +131,7 @@
       "name": "lanugo_menu",
       "label": "Choose Lanugo Score",
       "condition": "selected(data('ballard_menu2'), 'lanugo')",
-      "_rowNum": 24,
+      "_rowNum": 22,
       "param": "lanugo_menu"
     },
     {
@@ -154,7 +139,7 @@
       "name": "plantar_menu",
       "label": "Choose Plantar Surface Score",
       "condition": "selected(data('ballard_menu2'), 'plantar')",
-      "_rowNum": 25,
+      "_rowNum": 23,
       "param": "plantar_menu"
     },
     {
@@ -162,7 +147,7 @@
       "name": "breast_menu",
       "label": "Choose Breast Score",
       "condition": "selected(data('ballard_menu2'), 'breast')",
-      "_rowNum": 26,
+      "_rowNum": 24,
       "param": "breast_menu"
     },
     {
@@ -170,7 +155,7 @@
       "name": "eye_ear_menu",
       "label": "Choose Eye/Ear Score",
       "condition": "selected(data('ballard_menu2'), 'eye_ear')",
-      "_rowNum": 27,
+      "_rowNum": 25,
       "param": "eye_ear_menu"
     },
     {
@@ -178,30 +163,30 @@
       "name": "genitals_menu",
       "label": "Choose Genitals Score",
       "condition": "selected(data('ballard_menu2'), 'genitals')",
-      "_rowNum": 28,
+      "_rowNum": 26,
       "param": "genitals_menu"
     },
     {
       "type": "label",
-      "_rowNum": 29,
+      "_rowNum": 27,
       "param": "diagnostics_end"
     },
     {
       "comments": "Procedure",
       "type": "goto",
       "condition": "selected(data('menu'),'procedures')",
-      "_rowNum": 31,
+      "_rowNum": 29,
       "param": "procedures_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'procedures'))",
-      "_rowNum": 32,
+      "_rowNum": 30,
       "param": "procedures_end"
     },
     {
       "type": "label",
-      "_rowNum": 33,
+      "_rowNum": 31,
       "param": "procedures_begin"
     },
     {
@@ -209,290 +194,290 @@
       "name": "procedures_menu",
       "label": "Procedures",
       "appearance": "grid",
-      "_rowNum": 34,
+      "_rowNum": 32,
       "param": "procedures_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'intubation')",
-      "_rowNum": 35,
+      "_rowNum": 33,
       "prompts": [
         {
           "type": "note",
           "name": "intubation_link",
           "label": "<a href=\"http://www.youtube.com/watch?v=6PjvTsxwX5k\">Go to intubation video on Youtube</a>",
-          "_rowNum": 36
+          "_rowNum": 34
         },
         {
           "type": "note",
           "label": "<b><font size=\"12\" color=\"Gray\">Procedure Steps</font> </b>",
-          "_rowNum": 37
+          "_rowNum": 35
         },
         {
           "type": "note",
           "label": "<b>1.Position the neonate: “sniffing position”</b>",
-          "_rowNum": 38
+          "_rowNum": 36
         },
         {
           "type": "note",
           "label": "<b>2.Open laryngoscope and hold in left hand.</b>",
-          "_rowNum": 39
+          "_rowNum": 37
         },
         {
           "type": "note",
           "label": "<b>3.Preoxygenate</b>",
-          "_rowNum": 40
+          "_rowNum": 38
         },
         {
           "type": "note",
           "label": "<b>4.Open mouth and insert laryngoscope</b>",
-          "_rowNum": 41
+          "_rowNum": 39
         },
         {
           "type": "note",
           "label": "<b>5.Lift laryngoscope in the direction of the handle (to visualize the glottis)</b>",
-          "_rowNum": 42
+          "_rowNum": 40
         },
         {
           "type": "note",
           "label": "<b>6.Visualize the glottis</b>",
-          "_rowNum": 43
+          "_rowNum": 41
         },
         {
           "type": "note",
           "label": "<blockquote>  The laryngoscope should be placed beyond the base of the tongue and before the epiglottis, or beyond the epiglottis and gently compressing the epiglottis against the base of the tongue.</blockquote>",
-          "_rowNum": 44
+          "_rowNum": 42
         },
         {
           "type": "note",
           "label": "<blockquote>  Lift the laryngoscope in the direction that the blade is pointing in order to bring the glottis into view. Cricoid pressure may also be helpful, and can be applied by the little finger of the hand holding the laryngoscope.</blockquote>",
-          "_rowNum": 45
+          "_rowNum": 43
         },
         {
           "type": "note",
           "label": "<blockquote>  Do not lever the laryngoscope against the infant’s gums.</blockquote>",
-          "_rowNum": 46
+          "_rowNum": 44
         },
         {
           "type": "note",
           "label": "<blockquote>  As well as lifting the laryngoscope, you may also provide cricoid pressure with your little finger, or ask an assistant to do this for you.</blockquote>",
-          "_rowNum": 47
+          "_rowNum": 45
         },
         {
           "type": "note",
           "label": "<b>7.Insert the Endotracheal Tube</b>",
-          "_rowNum": 48
+          "_rowNum": 46
         },
         {
           "type": "note",
           "label": "<li>  ET tube length estimated by the<b> rule of six</b></li>",
-          "_rowNum": 49
+          "_rowNum": 47
         },
         {
           "type": "note",
           "label": "<li>  If inserted orally, it should be (6 + weight) cm from the lip.</li>",
-          "_rowNum": 50
+          "_rowNum": 48
         },
         {
           "type": "note",
           "label": "<li>  If inserted nasally, using a McGill's forceps, it should be (6 + (1.5 x weight)) cm from the nares.</li>",
-          "_rowNum": 51
+          "_rowNum": 49
         },
         {
           "type": "note",
           "label": "<b>8.Remove Introducer</b>",
-          "_rowNum": 52
+          "_rowNum": 50
         },
         {
           "type": "note",
           "label": "<b>9.Verify Tube Placement</b>",
-          "_rowNum": 53
+          "_rowNum": 51
         },
         {
           "type": "note",
           "label": "<ol><li>Look for symmetrical chest rise.</li><li>Increasing heart rate.</li><li>Watch ETT going through the cords.</li><li>Colorimeter change change to yellow reflects exhaled carbon dioxide.</li><li>Auscultate for bilateral air entry.</li><li>Chest X-Ray.<img src=\"img/procedureXray.jpeg\" alt=\"Chest Xray\" height=\"42\" width=\"42\"></li><li>See misting on inner surface of ETT.</li></ol>",
-          "_rowNum": 54
+          "_rowNum": 52
         },
         {
           "type": "note",
-          "_rowNum": 55
+          "_rowNum": 53
         },
         {
           "type": "note",
           "name": "intubation_img",
           "image": "img/intubation.jpeg",
-          "_rowNum": 57
+          "_rowNum": 55
         },
         {
           "type": "note",
           "label": "<b>INTUBATION VIDEO</b>",
-          "_rowNum": 58
+          "_rowNum": 56
         },
         {
           "type": "note",
           "video": "video/video.mp4",
-          "_rowNum": 59
+          "_rowNum": 57
         }
       ]
     },
     {
       "type": "goto",
       "condition": "selected(data('procedures_menu'),'lumbar')",
-      "_rowNum": 62,
+      "_rowNum": 60,
       "param": "procedure_lumbar_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('procedures_menu'), 'lumbar'))",
-      "_rowNum": 63,
+      "_rowNum": 61,
       "param": "procedure_lumbar_end"
     },
     {
       "type": "label",
-      "_rowNum": 64,
+      "_rowNum": 62,
       "param": "procedure_lumbar_begin"
     },
     {
       "type": "note",
       "label": "lumbar",
-      "_rowNum": 65
+      "_rowNum": 63
     },
     {
       "type": "label",
-      "_rowNum": 66,
+      "_rowNum": 64,
       "param": "procedure_lumbar_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('procedures_menu'), 'sample_video')",
-      "_rowNum": 68,
+      "_rowNum": 66,
       "param": "procedure_video_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('procedures_menu'), 'sample_video'))",
-      "_rowNum": 69,
+      "_rowNum": 67,
       "param": "procedure_video_end"
     },
     {
       "type": "label",
-      "_rowNum": 70,
+      "_rowNum": 68,
       "param": "procedure_video_begin"
     },
     {
       "type": "menu",
       "name": "procedure_video_menu",
       "appearance": "grid",
-      "_rowNum": 72,
+      "_rowNum": 70,
       "param": "procedure_video_menu"
     },
     {
       "type": "goto",
       "condition": "selected(data('procedure_video_menu'), 'intubation2')",
-      "_rowNum": 73,
+      "_rowNum": 71,
       "param": "intubation2_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('procedure_video_menu'), 'intubation2'))",
-      "_rowNum": 74,
+      "_rowNum": 72,
       "param": "intubation2_end"
     },
     {
       "type": "label",
-      "_rowNum": 75,
+      "_rowNum": 73,
       "param": "intubation2_begin"
     },
     {
       "type": "screen",
-      "_rowNum": 76,
+      "_rowNum": 74,
       "prompts": [
         {
           "type": "note",
           "label": "<a href=\"http://www.youtube.com/watch?v=0VGiBwyfuNI\">intubation2</a>",
-          "_rowNum": 77
+          "_rowNum": 75
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 79,
+      "_rowNum": 77,
       "param": "intubation2_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('procedure_video_menu'), 'intubation1')",
-      "_rowNum": 80,
+      "_rowNum": 78,
       "param": "intubation1_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('procedure_video_menu'), 'intubation1'))",
-      "_rowNum": 81,
+      "_rowNum": 79,
       "param": "intubation1_end"
     },
     {
       "type": "note",
       "label": "<b>107</b>",
-      "_rowNum": 82
+      "_rowNum": 80
     },
     {
       "type": "label",
-      "_rowNum": 83,
+      "_rowNum": 81,
       "param": "intubation1_begin"
     },
     {
       "type": "screen",
-      "_rowNum": 84,
+      "_rowNum": 82,
       "prompts": [
         {
           "type": "note",
           "label": "<a href=\"http://www.youtube.com/watch?v=6PjvTsxwX5k\">intubation1</a>",
-          "_rowNum": 85
+          "_rowNum": 83
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 88,
+      "_rowNum": 86,
       "param": "intubation1_end"
     },
     {
       "type": "note",
       "label": "<b>114</b>",
-      "_rowNum": 89
+      "_rowNum": 87
     },
     {
       "type": "label",
-      "_rowNum": 90,
+      "_rowNum": 88,
       "param": "procedure_video_end"
     },
     {
       "type": "note",
       "label": "<b>116</b>",
-      "_rowNum": 91
+      "_rowNum": 89
     },
     {
       "type": "label",
-      "_rowNum": 92,
+      "_rowNum": 90,
       "param": "procedures_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'calculators')",
-      "_rowNum": 94,
+      "_rowNum": 92,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 95,
+      "_rowNum": 93,
       "param": "calculators_end"
     },
     {
       "comments": "Calculator",
       "type": "label",
-      "_rowNum": 96,
+      "_rowNum": 94,
       "param": "calculators_begin"
     },
     {
@@ -500,60 +485,60 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 97,
+      "_rowNum": 95,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
-      "_rowNum": 98,
+      "_rowNum": 96,
       "prompts": [
         {
           "type": "decimal",
           "name": "weightPound",
           "label": "Enter weight in pounds:",
-          "_rowNum": 99
+          "_rowNum": 97
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
           "condition": "data('weightPound')",
-          "_rowNum": 100
+          "_rowNum": 98
         },
         {
           "type": "decimal",
           "name": "weightKilo",
           "label": "Enter weight in kilograms:",
-          "_rowNum": 101
+          "_rowNum": 99
         },
         {
           "type": "note",
           "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
           "condition": "data('weightKilo')",
-          "_rowNum": 102
+          "_rowNum": 100
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 104,
+      "_rowNum": 102,
       "param": "calculators_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 106,
+      "_rowNum": 104,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 107,
+      "_rowNum": 105,
       "param": "medications_end"
     },
     {
       "comments": "Medication",
       "type": "label",
-      "_rowNum": 108,
+      "_rowNum": 106,
       "param": "medications_begin"
     },
     {
@@ -561,30 +546,30 @@
       "name": "medications_menu",
       "label": "Medications",
       "appearance": "dropdown",
-      "_rowNum": 109,
+      "_rowNum": 107,
       "param": "medications_menu"
     },
     {
       "type": "label",
-      "_rowNum": 110,
+      "_rowNum": 108,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 112,
+      "_rowNum": 110,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 113,
+      "_rowNum": 111,
       "param": "nutritions_end"
     },
     {
       "comments": "Nutrition",
       "type": "label",
-      "_rowNum": 114,
+      "_rowNum": 112,
       "param": "nutritions_begin"
     },
     {
@@ -592,22 +577,22 @@
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 115,
+      "_rowNum": 113,
       "param": "nutritions_menu"
     },
     {
       "type": "note",
       "label": "Nutrition",
-      "_rowNum": 116
+      "_rowNum": 114
     },
     {
       "type": "label",
-      "_rowNum": 117,
+      "_rowNum": 115,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 120,
+      "_rowNum": 118,
       "param": "back_to_main"
     }
   ],
@@ -1467,12 +1452,6 @@
       "type": "string"
     },
     "diagnostic_menu": {
-      "type": "string"
-    },
-    "ballard_menu1": {
-      "type": "string"
-    },
-    "ballard_menu2": {
       "type": "string"
     },
     "posture_slider": {
