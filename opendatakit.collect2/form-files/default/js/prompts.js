@@ -858,6 +858,15 @@ promptTypes.select_one = promptTypes.select.extend({
         }
     }
 });
+promptTypes.clearBallardExam = promptTypes.base.extend({
+  events: {
+      "click .clear-ballard": "clearBallardExam",
+  },
+  clearBallardExam: function(evt) {
+    // Clear fields related to ballard exam
+    // Ballard exam: physical, nm
+  }
+});
 //*** Added below lines to implement auto forward on select one ***//
 promptTypes.menu = promptTypes.select_one.extend({
     postActivate: function(ctxt) {
@@ -870,7 +879,7 @@ promptTypes.menu = promptTypes.select_one.extend({
         }});
         that.renderContext.passiveError = null;
         that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
-        newctxt.success("menu success");
+        that.setValue(newctxt, null);
     },
     modification: function(evt) {
         var ctxt = controller.newContext(evt);
