@@ -808,34 +808,59 @@
       "param": "medications_begin"
     },
     {
-      "type": "menu",
-      "name": "medications_menu",
-      "label": "Medications",
-      "appearance": "dropdown",
+      "type": "screen",
       "_rowNum": 158,
-      "param": "medications_menu"
+      "prompts": [
+        {
+          "type": "select_one",
+          "name": "medications_menu",
+          "label": "Please select medication:",
+          "appearance": "dropdown",
+          "_rowNum": 159,
+          "param": "medications_menu"
+        },
+        {
+          "type": "note",
+          "name": "caffeine",
+          "condition": "selected(data('medications_menu'),'caffeine')",
+          "templatePath": "templates/caffeine.handlebars",
+          "_rowNum": 160
+        },
+        {
+          "type": "note",
+          "label": "Medication B selected",
+          "condition": "selected(data('medications_menu'),'medB')",
+          "_rowNum": 161
+        },
+        {
+          "type": "note",
+          "label": "Medication C selected",
+          "condition": "selected(data('medications_menu'),'medC')",
+          "_rowNum": 162
+        }
+      ]
     },
     {
       "type": "label",
-      "_rowNum": 159,
+      "_rowNum": 164,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'nutritions')",
-      "_rowNum": 161,
+      "_rowNum": 166,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'nutritions'))",
-      "_rowNum": 162,
+      "_rowNum": 167,
       "param": "nutritions_end"
     },
     {
       "comments": "Nutrition",
       "type": "label",
-      "_rowNum": 163,
+      "_rowNum": 168,
       "param": "nutritions_begin"
     },
     {
@@ -843,82 +868,82 @@
       "name": "calculators_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 164,
+      "_rowNum": 169,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'weight_converter')",
-      "_rowNum": 165,
+      "_rowNum": 170,
       "prompts": [
         {
           "type": "note",
           "label": "Weight Converter",
-          "_rowNum": 166
+          "_rowNum": 171
         },
         {
           "type": "select_one",
           "name": "conversion_type",
           "label": "Conversion type",
           "appearance": "dropdown",
-          "_rowNum": 167,
+          "_rowNum": 172,
           "param": "conversion_type"
         },
         {
           "type": "screen",
           "name": "defaultConversionType",
           "condition": "not(selected(data('conversion_type'),'kgToLb')) && not(selected(data('conversion_type'),'lbToKg'))",
-          "_rowNum": 168,
+          "_rowNum": 173,
           "prompts": [
             {
               "type": "decimal",
               "name": "default_weightKilo",
               "label": "Enter weight (kg):",
-              "_rowNum": 169
+              "_rowNum": 174
             },
             {
               "type": "note",
               "label": "<p>Baby weight is: {{calculates.default_convertToPound}} pounds</p>",
               "condition": "data('default_weightKilo')",
-              "_rowNum": 170
+              "_rowNum": 175
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'kgToLb')",
-          "_rowNum": 172,
+          "_rowNum": 177,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightKilo",
               "label": "Enter weight (kg):",
-              "_rowNum": 173
+              "_rowNum": 178
             },
             {
               "type": "note",
               "label": "<p>Baby weight is: {{calculates.convertToPound}} pounds</p>",
               "condition": "data('weightKilo')",
-              "_rowNum": 174
+              "_rowNum": 179
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'lbToKg')",
-          "_rowNum": 176,
+          "_rowNum": 181,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightPound",
               "label": "Enter weight (lbs):",
-              "_rowNum": 177
+              "_rowNum": 182
             },
             {
               "type": "note",
               "label": "<p>Baby weight is: {{calculates.convertToKilo}} kilograms</p>",
               "condition": "data('weightPound')",
-              "_rowNum": 178
+              "_rowNum": 183
             }
           ]
         }
@@ -927,83 +952,83 @@
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'weight_loss')",
-      "_rowNum": 181,
+      "_rowNum": 186,
       "prompts": [
         {
           "type": "note",
           "label": "Weight Loss Calculator",
-          "_rowNum": 182
+          "_rowNum": 187
         },
         {
           "type": "decimal",
           "name": "birthW",
           "label": "Enter birth weigh (g):",
-          "_rowNum": 183
+          "_rowNum": 188
         },
         {
           "type": "decimal",
           "name": "currW",
           "label": "Enter current weight (g):",
-          "_rowNum": 184
+          "_rowNum": 189
         },
         {
           "type": "note",
           "label": "<p>Baby Weight Lost:</p>",
           "condition": "data('birthW') && data('currW')",
-          "_rowNum": 185
+          "_rowNum": 190
         },
         {
           "type": "note",
           "label": "<p>{{calculates.weightLoss}} g</p>",
           "condition": "data('birthW') && data('currW')",
-          "_rowNum": 186
+          "_rowNum": 191
         },
         {
           "type": "note",
           "label": "<p>{{calculates.weightLossPerc}} %</p>",
           "condition": "data('birthW') && data('currW')",
-          "_rowNum": 187
+          "_rowNum": 192
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'glucose_cal')",
-      "_rowNum": 189,
+      "_rowNum": 194,
       "prompts": [
         {
           "type": "note",
           "label": "Glucose Infusion Rate Calculator",
-          "_rowNum": 190
+          "_rowNum": 195
         },
         {
           "type": "decimal",
           "name": "totalFluid",
           "label": "Total fluids (mL)",
-          "_rowNum": 191
+          "_rowNum": 196
         },
         {
           "type": "decimal",
           "name": "dextrosePerc",
           "label": "Dextrose percentage (%)",
-          "_rowNum": 192
+          "_rowNum": 197
         },
         {
           "type": "note",
           "label": "<p>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</p>",
           "condition": "data('totalFluid') && data('dextrosePerc')",
-          "_rowNum": 193
+          "_rowNum": 198
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 195,
+      "_rowNum": 200,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
-      "_rowNum": 198,
+      "_rowNum": 203,
       "param": "back_to_main"
     }
   ],
@@ -1230,20 +1255,20 @@
     "medications_menu": [
       {
         "list_name": "medications_menu",
-        "name": "medicine_a",
-        "label": "Medicine_A",
+        "name": "caffeine",
+        "label": "Caffeine",
         "_rowNum": 24
       },
       {
         "list_name": "medications_menu",
-        "name": "medicine_b",
-        "label": "Medicine_B",
+        "name": "medB",
+        "label": "medB",
         "_rowNum": 25
       },
       {
         "list_name": "medications_menu",
-        "name": "medicine_c",
-        "label": "Medicine_C",
+        "name": "medC",
+        "label": "medC",
         "_rowNum": 26
       }
     ],
