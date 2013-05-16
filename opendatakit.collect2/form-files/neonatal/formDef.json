@@ -1066,35 +1066,30 @@
       {
         "list_name": "diagnostic_menu",
         "name": "head",
-        "label": "Head UltraSound",
         "image": "img/diagnostic_icons/sagittal.jpg",
         "_rowNum": 13
       },
       {
         "list_name": "diagnostic_menu",
         "name": "placement",
-        "label": "Line Placement",
         "image": "img/diagnostic_icons/line.jpg",
         "_rowNum": 14
       },
       {
         "list_name": "diagnostic_menu",
         "name": "xray",
-        "label": "Chest & Abnormal Xray",
         "image": "img/diagnostic_icons/chest.jpg",
         "_rowNum": 15
       },
       {
         "list_name": "diagnostic_menu",
         "name": "ballardExam",
-        "label": "Ballard Exam",
         "image": "img/diagnostic_icons/ballard.jpg",
         "_rowNum": 16
       },
       {
         "list_name": "diagnostic_menu",
         "name": "head_cornal",
-        "label": "Head Coronal",
         "image": "img/diagnostic_icons/coronal.jpg",
         "_rowNum": 17
       },
