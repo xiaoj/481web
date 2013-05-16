@@ -2,11 +2,11 @@
   <div id='slider' class='swipe'>
     <div class='swipe-wrap'>
       {{#each choices}}
-      <div {{#ifEqaul appearance "select"}} class="slider-option" {{/if}} value="{{name}}"><img src="{{formDirectory}}{{localize image}}"></div>
+        <div {{#ifEqual ../appearance "select"}} class="slider-option" {{/ifEqual}} value="{{name}}"><img src="{{formDirectory}}{{localize image}}"></div>
       {{/each}}
     </div>
   </div>
-  {{#ifEqaul appearance "select"}} 
+  {{#ifEqual appearance "select"}}
   <a class="slider-confirm ui-disabled ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
    data-role="button" data-inline="true" data-corners="true" data-shadow="true"
    dta-iconshadow="true" data-wrapperels="span" data-theme="c">
@@ -16,14 +16,18 @@
       </span>
     </span>
   </a>
+  {{/ifEqual}}
   <a class="slider-cancel ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
    data-role="button" data-inline="true" data-corners="true" data-shadow="true"
    data-iconshadow="true" data-wrapperels="span" data-theme="c">
     <span class="ui-btn-inner ui-btn-corner-all">
       <span class="ui-btn-text">
+      {{#ifEqual appearance "select"}}
         cancel
+      {{else}}
+        back
+      {{/ifEqual}}
       </span>
     </span>
   </a>
-  {{/if}}
 </form>
