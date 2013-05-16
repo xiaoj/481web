@@ -68,6 +68,7 @@
       "name": "posture_menu",
       "label": "Choose Posture",
       "condition": "selected(data('ballard_menu'), 'posture')",
+      "appearance": "select",
       "_rowNum": 13,
       "param": "posture_menu"
     },
