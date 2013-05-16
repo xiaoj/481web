@@ -937,8 +937,20 @@ promptTypes.ballard = promptTypes.menu.extend({
     "click .clear-ballard": "clearBallardExam",
   },
   clearBallardExam: function(evt) {
-    // Clear fields related to ballard exam
-    // Ballard exam: physical, nm
+    var ctxt = controller.newContext(evt);
+    var that = this;
+    $.extend({}, ctxt, {
+        scores: ['posture', 'square', 'arm', 'popliteal', 'scarf', 'heel',
+          'skin', 'lanugo', 'plantar', 'breast', 'eye_ear', 'genitals'],
+        count: 0,
+        success: function() {
+          if (this.count < this.scores.length) {
+            database.setData(this, this.scores[this.count++] + '_menu', null);
+          } else {  // we have already cleared the last one so rerender
+            that._populateAndColorScores();
+          }
+        }
+    }).success();
   },
   postActivate: function(ctxt) {
       var that = this;
@@ -1002,12 +1014,17 @@ promptTypes.ballard = promptTypes.menu.extend({
   _populateAndColorScore: function(menu, score) {
     var score_li = this.$el.find('#' + menu + '_score');
     var button = this.$el.find('input#' + menu).parents('label');
+    if (button.length == 0) {  // During construction of the page the input element
+                               // gets moved around
+      button = this.$el.find('input#' + menu).siblings('label');
+    }
     if (score != null && !isNaN(score)) {
       score_li.html(score_li.html() + score);
       score_li.css('color', 'green');
       button.css('background', 'green');
     } else {
       score_li.css('color', 'red');
+      button.css('background', '');
     }
   }
 });
