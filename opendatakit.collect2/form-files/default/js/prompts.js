@@ -1012,18 +1012,19 @@ promptTypes.ballard = promptTypes.menu.extend({
     }
   },
   _populateAndColorScore: function(menu, score) {
-    var score_li = this.$el.find('#' + menu + '_score');
+    var score_row = this.$el.find('#' + menu + '_score');
     var button = this.$el.find('input#' + menu).parents('label');
     if (button.length == 0) {  // During construction of the page the input element
                                // gets moved around
       button = this.$el.find('input#' + menu).siblings('label');
     }
     if (score != null && !isNaN(score)) {
-      score_li.html(score_li.html() + score);
-      score_li.css('color', 'green');
+      score_row.find('.ballard-tbl-score').html(score);
+      score_row.css('color', 'green');
       button.css('background', 'green');
     } else {
-      score_li.css('color', 'red');
+      score_row.find('.ballard-tbl-score').html('');
+      score_row.css('color', 'red');
       button.css('background', '');
     }
   }

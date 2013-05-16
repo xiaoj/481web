@@ -21,3 +21,6 @@ Styling for swipe plugin
   width:100%;
   position: relative;
 }
+#total_score {
+  font-weight: bold;
+}

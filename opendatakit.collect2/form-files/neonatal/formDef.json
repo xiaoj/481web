@@ -1639,42 +1639,6 @@
         "name": "genitals4",
         "label": "male: testes pendulous, deep rugae\nfemale: majora cover clitoris & minora",
         "_rowNum": 120
-      },
-      {
-        "list_name": "genitals_menu",
-        "name": "genitals-1",
-        "label": "male: scrotum flat, smooth\nfemale: clitoris prominent & labia flat",
-        "_rowNum": 122
-      },
-      {
-        "list_name": "genitals_menu",
-        "name": "genitals0",
-        "label": "male: scrotum empty, faint rugae\nfemale: prominent clitoris & small labia minora",
-        "_rowNum": 123
-      },
-      {
-        "list_name": "genitals_menu",
-        "name": "genitals1",
-        "label": "male: testes in upper canal rare rugae\nfemale: prominent clitoris & enlarging minor",
-        "_rowNum": 124
-      },
-      {
-        "list_name": "genitals_menu",
-        "name": "genitals2",
-        "label": "male: testes descending, few rugae\nfemale: majora & minora equally prominent",
-        "_rowNum": 125
-      },
-      {
-        "list_name": "genitals_menu",
-        "name": "genitals3",
-        "label": "male: testes down, good rugae\nfemale: majora large, minora small",
-        "_rowNum": 126
-      },
-      {
-        "list_name": "genitals_menu",
-        "name": "genitals4",
-        "label": "male: testes pendulous, deep rugae\nfemale: majora cover clitoris & minora",
-        "_rowNum": 127
       }
     ],
     "procedure_video_menu": [
@@ -1682,40 +1646,40 @@
         "list_name": "procedure_video_menu",
         "name": "intubation1",
         "label": "Intubation Video 1",
-        "_rowNum": 129
+        "_rowNum": 122
       },
       {
         "list_name": "procedure_video_menu",
         "name": "intubation2",
         "label": "Intubation Video 2",
-        "_rowNum": 130
+        "_rowNum": 123
       }
     ],
     "headultra_slider": [
       {
         "list_name": "headultra_slider",
         "image": "img/Sagittal/1.png",
-        "_rowNum": 132
+        "_rowNum": 125
       },
       {
         "list_name": "headultra_slider",
         "image": "img/Sagittal/2.png",
-        "_rowNum": 133
+        "_rowNum": 126
       },
       {
         "list_name": "headultra_slider",
         "image": "img/Sagittal/3.png",
-        "_rowNum": 134
+        "_rowNum": 127
       },
       {
         "list_name": "headultra_slider",
         "image": "img/Sagittal/4.png",
-        "_rowNum": 135
+        "_rowNum": 128
       },
       {
         "list_name": "headultra_slider",
         "image": "img/Sagittal/5.png",
-        "_rowNum": 136
+        "_rowNum": 129
       }
     ]
   },
@@ -1745,6 +1709,13 @@
         "type": "string"
       },
       "_rowNum": 3
+    },
+    {
+      "name": "ballard",
+      "schema": {
+        "type": "string"
+      },
+      "_rowNum": 4
     }
   ],
   "model": {
@@ -1755,6 +1726,9 @@
       "type": "string"
     },
     "headultra_slider": {
+      "type": "string"
+    },
+    "ballard_menu": {
       "type": "string"
     },
     "posture_menu": {
