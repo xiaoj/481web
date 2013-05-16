@@ -77,6 +77,7 @@
       "name": "square_menu",
       "label": "Choose Square Window",
       "condition": "selected(data('ballard_menu'), 'square')",
+      "appearance": "select",
       "_rowNum": 14,
       "param": "square_menu"
     },
@@ -85,6 +86,7 @@
       "name": "arm_menu",
       "label": "Choose Arm Recoil",
       "condition": "selected(data('ballard_menu'), 'arm')",
+      "appearance": "select",
       "_rowNum": 15,
       "param": "arm_menu"
     },
@@ -93,6 +95,7 @@
       "name": "popliteal_menu",
       "label": "Choose Popliteal Angle",
       "condition": "selected(data('ballard_menu'), 'popliteal')",
+      "appearance": "select",
       "_rowNum": 16,
       "param": "popliteal_menu"
     },
@@ -101,6 +104,7 @@
       "name": "scarf_menu",
       "label": "Choose Scarf Sign",
       "condition": "selected(data('ballard_menu'), 'scarf')",
+      "appearance": "select",
       "_rowNum": 17,
       "param": "scarf_menu"
     },
@@ -109,6 +113,7 @@
       "name": "heel_menu",
       "label": "Choose Heel to Ear",
       "condition": "selected(data('ballard_menu'), 'heel')",
+      "appearance": "select",
       "_rowNum": 18,
       "param": "heel_menu"
     },
