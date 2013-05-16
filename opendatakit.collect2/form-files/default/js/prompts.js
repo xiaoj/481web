@@ -865,6 +865,28 @@ promptTypes.select_one = promptTypes.select.extend({
 });
 //*** Added below lines to implement auto forward on select one ***//
 promptTypes.menu = promptTypes.select_one.extend({
+    events: {
+        "change input": "modification",
+        "change select": "modification",
+        //Only needed for child views
+        "click .deselect": "deselect",
+        "click .grid-select-item": "selectGridItem",
+        //"click .ui-radio": "selectItem",
+        "taphold .ui-radio": "deselect"
+    },
+    selectItem: function(evt) {
+        var $target = $(evt.target).closest('.ui-radio');
+        var $input = $target.find('input');
+        $input.prop("checked", function(index, oldPropertyValue) {
+            if( oldPropertyValue ) {
+                $input.prop("checked", false);
+                $input.change();
+            } else {
+                $input.prop("checked", true);
+                $input.change();
+            }
+        });
+    },
     postActivate: function(ctxt) {
         var that = this;
         var newctxt = $.extend({}, ctxt, {success: function(outcome) {
@@ -875,7 +897,7 @@ promptTypes.menu = promptTypes.select_one.extend({
         }});
         that.renderContext.passiveError = null;
         that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
-        newctxt.success("menu success");
+        that.setValue(newctxt, null);
     },
     modification: function(evt) {
         var ctxt = controller.newContext(evt);
@@ -907,6 +929,109 @@ promptTypes.menu = promptTypes.select_one.extend({
             }
         }), this.generateSaveValue(formValue));
     }
+});
+promptTypes.ballard = promptTypes.menu.extend({
+  templatePath: "../neonatal/templates/ballard_exam.handlebars",
+  events: {
+    "change input": "modification",
+    "change select": "modification",
+    //Only needed for child views
+    "click .deselect": "deselect",
+    "click .grid-select-item": "selectGridItem",
+    "taphold .ui-radio": "deselect",
+    "click .clear-ballard": "clearBallardExam",
+  },
+  clearBallardExam: function(evt) {
+    var ctxt = controller.newContext(evt);
+    var that = this;
+    $.extend({}, ctxt, {
+        scores: ['posture', 'square', 'arm', 'popliteal', 'scarf', 'heel',
+          'skin', 'lanugo', 'plantar', 'breast', 'eye_ear', 'genitals'],
+        count: 0,
+        success: function() {
+          if (this.count < this.scores.length) {
+            database.setData(this, this.scores[this.count++] + '_menu', null);
+          } else {  // we have already cleared the last one so rerender
+            that._populateAndColorScores();
+          }
+        }
+    }).success();
+  },
+  postActivate: function(ctxt) {
+      var that = this;
+      var newctxt = $.extend({}, ctxt, {success: function(outcome) {
+        ctxt.append("prompts." + that.type + ".postActivate." + outcome,
+          "px: " + that.promptIdx);
+        that.updateRenderValue(false);  // call with false to 'forget' previous selection
+        ctxt.success({enableForwardNavigation: false, enableBackNavigation: true});
+      }});
+      that.renderContext.passiveError = null;
+      that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
+      that.setValue(newctxt, null);
+  },
+  afterRender: function() {
+    this._populateAndColorScores();
+  },
+  _populateAndColorScores: function() {
+    var posture_score = this._getScore('posture');
+    var square_score = this._getScore('square');
+    var arm_score = this._getScore('arm');
+    var popliteal_score = this._getScore('popliteal');
+    var scarf_score = this._getScore('scarf');
+    var heel_score = this._getScore('heel');
+
+    var nm_score = posture_score + square_score + arm_score + popliteal_score +
+      scarf_score + heel_score;  // okay if undefined
+
+    var skin_score = this._getScore('skin');
+    var lanugo_score = this._getScore('lanugo');
+    var plantar_score = this._getScore('plantar');
+    var breast_score = this._getScore('breast');
+    var eye_ear_score = this._getScore('eye_ear');
+    var genitals_score = this._getScore('genitals');
+
+    var physical_score = skin_score + lanugo_score + plantar_score + breast_score +
+      eye_ear_score + genitals_score;  // okay if undefined
+
+    this._populateAndColorScore('posture', posture_score);
+    this._populateAndColorScore('square', square_score);
+    this._populateAndColorScore('arm', arm_score);
+    this._populateAndColorScore('popliteal', popliteal_score);
+    this._populateAndColorScore('scarf', scarf_score);
+    this._populateAndColorScore('heel', heel_score);
+    this._populateAndColorScore('skin', skin_score);
+    this._populateAndColorScore('lanugo', lanugo_score);
+    this._populateAndColorScore('plantar', plantar_score);
+    this._populateAndColorScore('breast', breast_score);
+    this._populateAndColorScore('eye_ear', eye_ear_score);
+    this._populateAndColorScore('genitals', genitals_score);
+
+    this._populateAndColorScore('nm', nm_score);
+    this._populateAndColorScore('physical', physical_score);
+    this._populateAndColorScore('total', nm_score + physical_score);
+  },
+  _getScore: function(menu) {
+    var score = database.getDataValue(menu + '_menu');
+    if (score != null) {
+      return parseInt(score.split(menu)[1]);
+    }
+  },
+  _populateAndColorScore: function(menu, score) {
+    var score_li = this.$el.find('#' + menu + '_score');
+    var button = this.$el.find('input#' + menu).parents('label');
+    if (button.length == 0) {  // During construction of the page the input element
+                               // gets moved around
+      button = this.$el.find('input#' + menu).siblings('label');
+    }
+    if (score != null && !isNaN(score)) {
+      score_li.html(score_li.html() + score);
+      score_li.css('color', 'green');
+      button.css('background', 'green');
+    } else {
+      score_li.css('color', 'red');
+      button.css('background', '');
+    }
+  }
 });
 promptTypes.select_one_with_other = promptTypes.select_one.extend({
     withOther: true
