@@ -2,10 +2,11 @@
   <div id='slider' class='swipe'>
     <div class='swipe-wrap'>
       {{#each choices}}
-        <div class="slider-option" value="{{name}}"><img src="{{formDirectory}}{{localize image}}"></div>
+      <div {{#ifEqaul appearance "select"}} class="slider-option" {{/if}} value="{{name}}"><img src="{{formDirectory}}{{localize image}}"></div>
       {{/each}}
     </div>
   </div>
+  {{#ifEqaul appearance "select"}} 
   <a class="slider-confirm ui-disabled ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
    data-role="button" data-inline="true" data-corners="true" data-shadow="true"
    data-iconshadow="true" data-wrapperels="span" data-theme="c">
@@ -24,4 +25,5 @@
       </span>
     </span>
   </a>
+  {{/if}}
 </form>
