@@ -769,11 +769,6 @@ promptTypes.image_slider = promptTypes.select.extend({
   },
   postActivate: function(ctxt) {
       var that = this;
-      // If appearance is not set to "select" get rid of select functionality and dispaly a simple slider.
-      if (ctxt.appearance != 'select') {
-        $('.odk-prev-btn').removeClass('ui-disabled');  // enable the back button
-        $('.slider-option').removeClass('.slider-option');
-      }
       var newctxt = $.extend({}, ctxt, {success: function(outcome) {
         ctxt.append("prompts." + that.type + ".postActivate." + outcome,
           "px: " + that.promptIdx);
