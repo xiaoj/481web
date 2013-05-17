@@ -24,3 +24,6 @@ Styling for swipe plugin
 #total_score {
   font-weight: bold;
 }
+.ui-btn-text {
+  padding: 0px;
+}
