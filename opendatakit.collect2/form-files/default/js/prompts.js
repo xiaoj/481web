@@ -1020,12 +1020,12 @@ promptTypes.ballard = promptTypes.menu.extend({
     }
     if (score != null && !isNaN(score)) {
       score_row.find('.ballard-tbl-score').html(score);
-      score_row.css('color', 'green');
-      button.css('background', 'green');
+      score_row.addClass('txt-completed');
+      button.addClass('bg-completed');
     } else {
       score_row.find('.ballard-tbl-score').html('');
-      score_row.css('color', 'red');
-      button.css('background', '');
+      score_row.addClass('txt-uncompleted');
+      button.removeClass('bg-completed');
     }
   }
 });

@@ -27,3 +27,12 @@ Styling for swipe plugin
 .ui-btn-text {
   padding: 0px;
 }
+.bg-completed {
+  background: #95FF4F;
+}
+.txt-completed {
+  color: green;
+}
+.txt-uncompleted {
+  color: red;
+}
