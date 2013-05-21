@@ -55,6 +55,7 @@ return Backbone.View.extend({
         this.controller = this.options.controller;
         this.currentPageEl = $('[data-role=page]');
         console.assert(this.currentPageEl.length === 1);
+        $.event.special.swipe.horizontalDistanceThreshold = 120;
         var that = this;
     },
     cleanUpScreenManager: function(ctxt){
