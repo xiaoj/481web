@@ -234,7 +234,13 @@ function(controller,   opendatakit,   database,   $,        promptTypes,   formu
             settings: surveyJson.settings
         };
 
-        var prompts = ([{
+        var prompts = ([ {
+            "type": "goto",
+            "condition": function() {
+                return (opendatakit.getCurrentFormPath() == '../neonatal/');
+            },
+            "param": "_really_begin"
+        }, {
             "type": "goto",
             "condition": function() {
                 return (opendatakit.getCurrentInstanceId() != null);
@@ -254,10 +260,27 @@ function(controller,   opendatakit,   database,   $,        promptTypes,   formu
         }, {
             "type": "label",
             "param": "_begin"
-        }, {
+        } ,{
             type: "opening",
             name: "_opening",
             label: "opening page"
+        }, {
+            type: "goto",
+            param: "_survey_here"
+        }, {
+            type: "label",
+            param: "_really_begin"
+        }, {
+            "type": "goto",
+            "condition": function() {
+                return (opendatakit.getCurrentInstanceId() != null);
+            },
+            "param": "_survey_here"
+        }, {
+            type: "silent_create",
+        }, {
+            type: "label",
+            param: "_survey_here"
         }]).concat(surveyJson.survey).concat([{
             type: "finalize",
             name: "_finalize",

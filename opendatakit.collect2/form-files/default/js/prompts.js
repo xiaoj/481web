@@ -444,6 +444,19 @@ promptTypes.instances = promptTypes.base.extend({
         $(evt.target).attr('id'));
     }
 });
+promptTypes.silent_create = promptTypes.base.extend({
+    type:"silent_create",
+    hideInHierarchy: true,
+    valid: true,
+    templatePath: "templates/silent.handlebars",
+    events: {
+    },
+    postActivate: function(ctxt) {
+        var that = this;
+        ctxt.append("prompts." + this.type + ".createInstance", "px: " + this.promptIdx);
+        opendatakit.openNewInstanceId(ctxt, null);
+    }
+});
 promptTypes.hierarchy = promptTypes.base.extend({
     type:"hierarchy",
     hideInHierarchy: true,
