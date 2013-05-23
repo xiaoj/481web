@@ -746,39 +746,20 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
 // is selected
 promptTypes.image_slider = promptTypes.select.extend({
   events: {
-      "click .slider-confirm": "confirmSelect",
       "taphold .slider-option": "changeSliderOption",
       "dblclick .slider-option": "changeSliderOption",
-      "click .slider-cancel": "cancelBtn"
-  },
-  cancelBtn: function(evt) {
-      var ctxt = controller.newContext(evt);
-      ctxt.append("prompts." + this.type + ".cancelBtn", "px: " + this.promptIdx);
-      controller.gotoPreviousScreen(ctxt);
   },
   changeSliderOption: function(evt) {
-      this.activateConfirmBtn();
-      $(evt.currentTarget).siblings('.slider-option').removeClass('checked');
-      $(evt.currentTarget).addClass("checked");
-  },
-  activateConfirmBtn: function() {
-      var button = $(".slider-confirm");
-      button.find(".ui-btn-text").html("confirm");
-      button.removeClass("ui-disabled");
-  },
-  confirmSelect: function(evt) {
+      var checked = $(evt.currentTarget);
+      checked.siblings('.slider-option').removeClass('checked');
+      checked.addClass("checked");
       var ctxt = controller.newContext(evt);
-      ctxt.append("prompts." + this.type + ".confirmSelect", "px: " + this.promptIdx);
-      var checked = $(evt.currentTarget).parents('form').find(".checked");
-      if (checked != null) {
-        var that = this;
-        var name = checked.attr('value');
-        that.setValue($.extend({}, ctxt, {
-            success: function() {
-                controller.gotoPreviousScreen(ctxt);
-            }
-        }), name);
-      }
+      var name = checked.attr('value');
+      this.setValue($.extend({}, ctxt, {
+        success: function() {
+            //controller.gotoPreviousScreen(ctxt);
+        }
+      }), name);
   },
   postActivate: function(ctxt) {
       var that = this;
@@ -786,7 +767,7 @@ promptTypes.image_slider = promptTypes.select.extend({
         ctxt.append("prompts." + that.type + ".postActivate." + outcome,
           "px: " + that.promptIdx);
         //that.updateRenderValue(that.parseSaveValue(that.getValue()));
-        ctxt.success({enableForwardNavigation: false, enableBackNavigation: false});
+        ctxt.success({enableForwardNavigation: false});
       }});
       that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
       newctxt.success("image_slider success");
