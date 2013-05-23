@@ -36,3 +36,7 @@ Styling for swipe plugin
 .txt-uncompleted {
   color: red;
 }
+.headerNavBtns {
+  float: none;
+  margin-left: 5px;
+}
