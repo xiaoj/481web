@@ -36,3 +36,27 @@ Styling for swipe plugin
 .txt-uncompleted {
   color: red;
 }
+
+.ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
+
+ .odk-label {
+     font-size: larger;
+     text-align: center;
+ }
+
+
+.ui-block-a {
+   width:50%;
+}
+
+.ui-block-b {
+    width:50%;
+}
+
+.ui-block-c {
+    width:50%;
+}
+
+.ui-bar {
+    background: lightyellow;
+}
