@@ -1,8 +1,8 @@
 .slider-option.checked > img {
   border: 6px solid green;
 }
-#slider img {
-  width: 80%;
+.slider-option > img {
+  width: 90%;
   height: auto;
 }
 Styling for swipe plugin
@@ -37,6 +37,7 @@ Styling for swipe plugin
   color: red;
 }
 
+
 .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
 
  .odk-label {
@@ -59,4 +60,9 @@ Styling for swipe plugin
 
 .ui-bar {
     background: lightyellow;
+}
+
+.headerNavBtns {
+  float: none;
+  margin-left: 5px;
 }
