@@ -535,7 +535,7 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
         });
         if(this.appearance === "grid") {
             filteredChoices = _.map(filteredChoices, function(choice, idx) {
-                var columns = 3;
+                var columns = 2;
                 choice.colLetter = String.fromCharCode(97 + (idx % columns));
                 return choice;
             });

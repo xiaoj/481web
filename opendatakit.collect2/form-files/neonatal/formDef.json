@@ -90,7 +90,7 @@
       "prompts": [
         {
           "type": "note",
-          "label": "<h1>Umbilical Venous & Arterial Catheters</h1>",
+          "templatePath": "templates/umbilical.handlebars",
           "_rowNum": 19
         }
       ]
@@ -177,6 +177,7 @@
       "type": "note",
       "label": "Chest & Abdominal Xray",
       "condition": "selected(data('diagnostic_menu'),'xray')",
+      "templatePath": "templates/chest_abdomen.handlebars",
       "_rowNum": 34
     },
     {
@@ -1062,7 +1063,7 @@
       {
         "list_name": "diagnostic_menu",
         "name": "xray",
-        "image": "img/diagnostic_icons/chest.jpg",
+        "label": "Chest and Abdominal XRAY",
         "_rowNum": 18
       },
       {
