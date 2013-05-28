@@ -38,6 +38,14 @@ Styling for swipe plugin
   width: auto;
   float: left;
 }
+#total-score-title {
+  display: none;
+  font-size: 1.5em;
+}
+#complete-exam {
+  display: none;
+  font-size: 1.5em;
+}
 
 .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
 

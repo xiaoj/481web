@@ -997,6 +997,16 @@ promptTypes.ballard = promptTypes.menu.extend({
 
     this._populateAndColorScore('nm', nm_score);
     this._populateAndColorScore('physical', physical_score);
+    
+    var total_score = nm_score + physical_score;
+    this.$el.find('#total-score').html(total_score);
+    if (!isNaN(total_score)) {
+      this.$el.find('#complete-exam').hide();
+      this.$el.find('#total-score-title').show();
+    } else {
+      this.$el.find('#complete-exam').show();
+      this.$el.find('#total-score-title').hide();
+    }
     this._populateAndColorScore('total', nm_score + physical_score);
   },
   _getScore: function(menu) {
