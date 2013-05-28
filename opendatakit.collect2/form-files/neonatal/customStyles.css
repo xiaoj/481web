@@ -30,13 +30,9 @@ Styling for swipe plugin
 .bg-completed {
   background: #95FF4F;
 }
-.txt-completed {
-  color: green;
+.ballard_score {
+  float: right;
 }
-.txt-uncompleted {
-  color: red;
-}
-
 
 .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
 
