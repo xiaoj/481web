@@ -175,7 +175,6 @@
     },
     {
       "type": "note",
-      "label": "Chest & Abdominal Xray",
       "condition": "selected(data('diagnostic_menu'),'xray')",
       "templatePath": "templates/chest_abdomen.handlebars",
       "_rowNum": 34
