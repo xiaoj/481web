@@ -4,6 +4,7 @@
 .slider-option > img {
   width: 90%;
   height: auto;
+  border: 1px solid gray;
 }
 Styling for swipe plugin
 */
@@ -21,7 +22,7 @@ Styling for swipe plugin
   width:100%;
   position: relative;
 }
-#total_score {
+#total-score {
   font-weight: bold;
 }
 .ui-btn-text {
@@ -30,19 +31,15 @@ Styling for swipe plugin
 .bg-completed {
   background: #95FF4F;
 }
-.ballard_score {
-  width: auto;
-  float: right;
-}
-.ballard_name {
+.ballard-name {
   width: auto;
   float: left;
 }
-#total-score-title {
-  display: none;
-  font-size: 1.5em;
+.ballard-score {
+  width: auto;
+  float: right;
 }
-#complete-exam {
+.ballard-prompt {
   display: none;
   font-size: 1.5em;
 }

@@ -1022,10 +1022,10 @@ promptTypes.ballard = promptTypes.menu.extend({
       button = this.$el.find('input#' + menu).siblings('label');
     }
     if (score != null && !isNaN(score)) {
-      button.find('.ballard_score').html(score);
+      button.find('.ballard-score').html(score);
       button.addClass('bg-completed');
     } else {
-      button.find('.ballard_score').html('');
+      button.find('.ballard-score').html('');
       button.removeClass('bg-completed');
     }
   }

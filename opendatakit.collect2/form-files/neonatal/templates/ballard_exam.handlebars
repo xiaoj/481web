@@ -1,141 +1,143 @@
 <form>
-  <a class="clear-ballard ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
-    data-role="button" data-inline="true" data-corners="true" data-shadow="true"
-    data-iconshadow="true" data-wrapperels="span" data-theme="c">
-    <span class="ui-btn-inner ui-btn-corner-all">
-      <span class="ui-btn-text">
-							<span class="ballard_name">Clear Exam</span>
-							<span class="ballard_score"></span>
-						</span>
-    </span>
-  </a>
-  <span id="complete-exam">Please Complete Exam</span>
-  <span id="total-score-title">Total Score:
+  <div id="ballard-nav">
+    <a class="clear-ballard ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all ui-btn-inline"
+      data-role="button" data-inline="true" data-corners="true" data-shadow="true"
+      data-iconshadow="true" data-wrapperels="span" data-theme="c">
+      <span class="ui-btn-inner ui-btn-corner-all">
+        <span class="ui-btn-text">
+          <span class="ballard-name">Clear Exam</span>
+        </span>
+      </span>
+    </a>
+  <span id="complete-exam" class="ballard-prompt">Please Complete Exam</span>
+  <span id="total-score-title" class="ballard-prompt">Total Score:
     <span id="total-score"></span>
   </span>
-  <p class="odk-label">Neuromuscular
-  </p>
-  <fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical">
-    <div class="ui-controlgroup-controls">
-      <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-top ui-btn-up-d">
-        <span class="ui-btn-inner ui-corner-top">
-          <span class="ui-btn-text">
-							<span class="ballard_name">Posture</span>
-							<span class="ballard_score"></span>
-						</span>
+</div>
+<div style="clear:both;"></div>
+<p class="odk-label">Neuromuscular
+</p>
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical">
+  <div class="ui-controlgroup-controls">
+    <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-top ui-btn-up-d">
+      <span class="ui-btn-inner ui-corner-top">
+        <span class="ui-btn-text">
+          <span class="ballard-name">Posture</span>
+          <span class="ballard-score"></span>
         </span>
-        <input type="radio" name="ballard_menu" id="posture" value="posture">
-      </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Square Window</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="square" value="square">
-        </label>
-      </div>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Arm Recoil</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="arm" value="arm">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Popliteal Angle</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="popliteal" value="popliteal">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Scarf Sign</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="scarf" value="scarf">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last ui-btn-up-d">
-          <span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Heel to Ear</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="heel" value="heel">
-        </label>
-  </fieldset>
-  <div style="clear:both;">
+      </span>
+      <input type="radio" name="ballard_menu" id="posture" value="posture">
+    </label>
+    <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+      <span class="ui-btn-inner">
+        <span class="ui-btn-text">
+          <span class="ballard-name">Square Window</span>
+          <span class="ballard-score"></span>
+        </span>
+      </span>
+      <input type="radio" name="ballard_menu" id="square" value="square">
+    </label>
   </div>
-  <p class="odk-label">
-  Physical
-  </p>
-  <fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical">
-    <div class="ui-controlgroup-controls">
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-top ui-btn-up-d">
-          <span class="ui-btn-inner ui-corner-top">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Skin</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="skin" value="skin">
-        </label>
-      </div>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Lanugo</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="lanugo" value="lanugo">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Plantar Surface</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="plantar" value="plantar">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Breast</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="breast" value="breast">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
-          <span class="ui-btn-inner">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Eye/Ear</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="eye_ear" value="eye_ear">
-        </label>
-        <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last ui-btn-up-d">
-          <span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last">
-            <span class="ui-btn-text">
-							<span class="ballard_name">Genitals</span>
-							<span class="ballard_score"></span>
-						</span>
-          </span>
-          <input type="radio" name="ballard_menu" id="genitals" value="genitals">
-        </label>
-  </fieldset>
-  <div style="clear:both;">
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Arm Recoil</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="arm" value="arm">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Popliteal Angle</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="popliteal" value="popliteal">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Scarf Sign</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="scarf" value="scarf">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last ui-btn-up-d">
+    <span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Heel to Ear</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="heel" value="heel">
+  </label>
+</fieldset>
+<div style="clear:both;">
+</div>
+<p class="odk-label">
+Physical
+</p>
+<fieldset data-role="controlgroup" class="ui-corner-all ui-controlgroup ui-controlgroup-vertical">
+  <div class="ui-controlgroup-controls">
+    <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-top ui-btn-up-d">
+      <span class="ui-btn-inner ui-corner-top">
+        <span class="ui-btn-text">
+          <span class="ballard-name">Skin</span>
+          <span class="ballard-score"></span>
+        </span>
+      </span>
+      <input type="radio" name="ballard_menu" id="skin" value="skin">
+    </label>
   </div>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Lanugo</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="lanugo" value="lanugo">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Plantar Surface</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="plantar" value="plantar">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Breast</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="breast" value="breast">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-btn-up-d">
+    <span class="ui-btn-inner">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Eye/Ear</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="eye_ear" value="eye_ear">
+  </label>
+  <label data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-theme="d" class="ui-btn ui-btn-icon-left ui-radio-off ui-corner-bottom ui-controlgroup-last ui-btn-up-d">
+    <span class="ui-btn-inner ui-corner-bottom ui-controlgroup-last">
+      <span class="ui-btn-text">
+        <span class="ballard-name">Genitals</span>
+        <span class="ballard-score"></span>
+      </span>
+    </span>
+    <input type="radio" name="ballard_menu" id="genitals" value="genitals">
+  </label>
+</fieldset>
+<div style="clear:both;">
+</div>
 </form>
