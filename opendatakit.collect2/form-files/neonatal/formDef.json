@@ -1050,13 +1050,13 @@
       {
         "list_name": "diagnostic_menu",
         "name": "head",
-        "image": "img/diagnostic_icons/sagittal.jpg",
+        "label": "Head Sagital",
         "_rowNum": 16
       },
       {
         "list_name": "diagnostic_menu",
         "name": "placement",
-        "image": "img/diagnostic_icons/line.jpg",
+        "label": "Line Placement",
         "_rowNum": 17
       },
       {
