@@ -31,7 +31,12 @@ Styling for swipe plugin
   background: #95FF4F;
 }
 .ballard_score {
+  width: auto;
   float: right;
+}
+.ballard_name {
+  width: auto;
+  float: left;
 }
 
 .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
