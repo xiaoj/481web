@@ -21,8 +21,8 @@ Host on Heroku
 Files to Note
 ------
 * /app.js - This is a node.js app which redirects a user to the odk app.
-* /opendatakit.collect2/form-files/default - This directory contains the code for ODK. You can learn more about ODK [here](http://opendatakit.org/use/collect/)
-* /opendatakit.collect2/form-files/neonatal - This directory contains the code specific to our app. You can learn more about the architecture of our app from our paper.
+* /default - This directory contains the code for ODK. You can learn more about ODK [here](http://opendatakit.org/use/collect/)
+* /neonatal - This directory contains the code specific to our app. You can learn more about the architecture of our app from our paper.
 * /Presentation - Contains the final version and supporting files for our presentation.
-* /Paper - Contains the final version and supporting files for our paper.
+* /paper - Contains the final version and supporting files for our paper.
 
