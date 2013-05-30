@@ -64,11 +64,77 @@ Styling for swipe plugin
     width:50%;
 }
 
+
 .ui-bar {
-    background: lightyellow;
+  background: gray;
 }
+
 
 .headerNavBtns {
   float: none;
   margin-left: 5px;
 }
+
+.odk-header {
+  background: lightcoral;
+  background-image: url(../neonatal/img/nurse.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 50px,100px;
+}
+    
+.ui-body-d{
+  background-image: url(../neonatal/img/button_bg.png);
+  background-repeat:repeat;
+}
+
+
+    .ui-bar  {
+        
+        -moz-box-shadow: 0px 1px 0px 0px #1c1b18;
+        -webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
+        box-shadow: 0px 1px 0px 0px #1c1b18;
+        
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eae0c2), color-stop(1, #73562e));
+        background:-moz-linear-gradient(top, #eae0c2 5%, #73562e 100%);
+        background:-webkit-linear-gradient(top, #eae0c2 5%, #73562e 100%);
+        background:-o-linear-gradient(top, #eae0c2 5%, #73562e 100%);
+        background:-ms-linear-gradient(top, #eae0c2 5%, #73562e 100%);
+        background:linear-gradient(to bottom, #eae0c2 5%, #73562e 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eae0c2', endColorstr='#73562e',GradientType=0);
+        
+        background-color:#eae0c2;
+        
+        -moz-border-radius:15px;
+        -webkit-border-radius:15px;
+        border-radius:15px;
+        
+        border:2px solid #333029;
+        
+        display:inline-block;
+        color:#505739;
+        font-family:arial;
+        font-size:14px;
+        font-weight:bold;
+        padding:12px 16px;
+        text-decoration:none;
+        
+        text-shadow:0px 1px 0px #ffffff;
+        
+    }
+    .ui-bar :hover {
+        
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #73562e), color-stop(1, #eae0c2));
+        background:-moz-linear-gradient(top, #73562e 5%, #eae0c2 100%);
+        background:-webkit-linear-gradient(top, #73562e 5%, #eae0c2 100%);
+        background:-o-linear-gradient(top, #73562e 5%, #eae0c2 100%);
+        background:-ms-linear-gradient(top, #73562e 5%, #eae0c2 100%);
+        background:linear-gradient(to bottom, #73562e 5%, #eae0c2 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#73562e', endColorstr='#eae0c2',GradientType=0);
+        
+        background-color:#73562e;
+    }
+    .ui-bar :active {
+        position:relative;
+        top:1px;
+    }

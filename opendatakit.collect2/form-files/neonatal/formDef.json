@@ -977,26 +977,25 @@
       {
         "list_name": "menu",
         "name": "procedures",
-        "image": "img/procedure_icon.jpg",
+        "image": "img/PROCEDURES_ICON.png",
         "_rowNum": 2
       },
       {
         "list_name": "menu",
         "name": "tools",
-        "label": "Tools",
-        "image": "img/tool_icon.jpg",
+        "image": "img/TOOLS_ICON.png",
         "_rowNum": 3
       },
       {
         "list_name": "menu",
         "name": "medications",
-        "image": "img/med_icon.jpg",
+        "image": "img/MEDICINES_ICON.png",
         "_rowNum": 4
       },
       {
         "list_name": "menu",
         "name": "calculators",
-        "image": "img/calulators.jpg",
+        "image": "img/CALCULATORS_ICON.png",
         "_rowNum": 5
       }
     ],
