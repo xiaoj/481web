@@ -6,14 +6,23 @@ Host Locally
 ------
 1. Clone this project.
 2. Open a terminal and cd to the project root
-2. Run the following command ./node app.js
-3. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app data everytime the app changes.
+2. Run the following command: ./node app.js
+3. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app
+4. data everytime the app changes.
 
 
 Host on Heroku
 ------
 1. Clone this project.
 2. Open a terminal and cd to the project root.
-3. Run the following command
-code:
-        git push heroku
+3. Run the following command: git push <url of your heroku app>
+
+
+Files to Note
+------
+* /app.js - This is a node.js app which redirects a user to the odk app.
+* /opendatakit.collect2/form-files/default - This directory contains the code for ODK. You can learn more about ODK [here](http://opendatakit.org/use/collect/)
+* /opendatakit.collect2/form-files/neonatal - This directory contains the code specific to our app. You can learn more about the architecture of our app from our paper.
+* /Presentation - Contains the final version and supporting files for our presentation.
+* /Paper - Contains the final version and supporting files for our paper.
+
