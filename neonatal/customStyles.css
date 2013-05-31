@@ -43,8 +43,11 @@ Styling for swipe plugin
   display: none;
   font-size: 1.5em;
 }
-
-.ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
+.procedure {
+  color: beige;
+  text-shadow: none;
+}
+  .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
 
  .odk-label {
      font-size: 30px;
