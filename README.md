@@ -6,7 +6,7 @@ Host Locally
 ------
 1. Clone this project.
 2. Open a terminal and cd to the project root
-2. Run the following command: ./node app.js
+2. Run the following command: ./node app.js. Note: The terminal will not output anything, it will just display a flashing cursor.
 3. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app
 4. data everytime the app changes.
 
