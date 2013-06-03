@@ -26,3 +26,8 @@ Files to Note
 * /Presentation - Contains the final version and supporting files for our presentation.
 * /paper - Contains the final version and supporting files for our paper.
 
+Convert Spreadsheet to JSON
+------
+* cd into project root
+* run ./phantomjs convertPhantom neonatal/neonatal.xlsx > neonatal/formDef.json
+
