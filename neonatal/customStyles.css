@@ -44,8 +44,9 @@ Styling for swipe plugin
   font-size: 1.5em;
 }
 .procedure {
-  color: beige;
+  color: white;
   text-shadow: none;
+  font-size: 14px;
 }
   .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
 
@@ -67,12 +68,14 @@ Styling for swipe plugin
   background-position: 50%;
   background-size: 50px,100px;
 }
-    
+  
+ 
 .ui-body-d{
-  background-image: url(../neonatal/img/button_bg.png);
+  /*background-image: url(../neonatal/img/button_bg.png);*/
+  background: #40312E;
   background-repeat:repeat;
+  background-size: 100%
 }
-
 
 .ui-bar  {
     
@@ -128,5 +131,21 @@ Styling for swipe plugin
 
 .odk > odk_prompts{
 
+  text-shadow: none;
+}
+
+/*remove shadow that comes with the default css*/
+.ui-btn-hover-d .ui-btn-down-d .ui-bar-e .ui-overlay-e 
+.ui-btn-up-e .ui-btn-hover-e .ui-btn-down-e .ui-btn-active
+.ui-bar-a .ui-overlay-a .ui-btn-up-a .ui-btn-hover-a 
+.ui-btn-down-a .ui-bar-b .ui-overlay-b .ui-btn-up-b
+.ui-btn-hover-b .ui-btn-down-b .ui-bar-c .ui-overlay-c
+.ui-btn-up-c .ui-btn-hover-c .ui-btn-down-c .ui-bar-d
+.ui-overlay-d .ui-btn-up-d {
+  text-shadow: none;
+}
+
+.ui-body-d, .ui-overlay-d {
+  color: #2489ce;
   text-shadow: none;
 }

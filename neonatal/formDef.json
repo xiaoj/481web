@@ -58,64 +58,54 @@
           "type": "note",
           "video": "video/video.mp4",
           "_rowNum": 11
-        },
-        {
-          "type": "note",
-          "label": "<p><a href=\"http://www.youtube.com/watch?v=0VGiBwyfuNI\">Intubation Video 1</a></p>",
-          "_rowNum": 12
-        },
-        {
-          "type": "note",
-          "label": "<p><a href=\"http://www.youtube.com/watch?v=6PjvTsxwX5k\">Intubation Video 2</a></p>",
-          "_rowNum": 13
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'lumbar')",
-      "_rowNum": 15,
+      "_rowNum": 13,
       "prompts": [
         {
           "type": "note",
           "label": "<h1>Lumbar</h1>",
-          "_rowNum": 16
+          "_rowNum": 14
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('procedures_menu'), 'umbilicalV')",
-      "_rowNum": 18,
+      "_rowNum": 16,
       "prompts": [
         {
           "type": "note",
           "templatePath": "templates/umbilical.handlebars",
-          "_rowNum": 19
+          "_rowNum": 17
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 21,
+      "_rowNum": 19,
       "param": "procedures_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'tools')",
-      "_rowNum": 23,
+      "_rowNum": 21,
       "param": "tools_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'tools'))",
-      "_rowNum": 24,
+      "_rowNum": 22,
       "param": "tools_end"
     },
     {
       "comments": "TOOLS",
       "type": "label",
-      "_rowNum": 25,
+      "_rowNum": 23,
       "param": "tools_begin"
     },
     {
@@ -123,25 +113,25 @@
       "name": "tools_menu",
       "label": "Tools",
       "appearance": "grid",
-      "_rowNum": 26,
+      "_rowNum": 24,
       "param": "tools_menu"
     },
     {
       "comments": "Diagnostics",
       "type": "goto",
       "condition": "not(selected(data('tools_menu'), 'diagnostics'))",
-      "_rowNum": 27,
+      "_rowNum": 25,
       "param": "diagnostics_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('tools_menu'),'diagnostics')",
-      "_rowNum": 28,
+      "_rowNum": 26,
       "param": "diagnostics_begin"
     },
     {
       "type": "label",
-      "_rowNum": 29,
+      "_rowNum": 27,
       "param": "diagnostics_begin"
     },
     {
@@ -149,7 +139,7 @@
       "name": "diagnostic_menu",
       "label": "Diagnostics",
       "appearance": "grid",
-      "_rowNum": 30,
+      "_rowNum": 28,
       "param": "diagnostic_menu"
     },
     {
@@ -158,48 +148,48 @@
       "label": "Head Ultrasound Reference",
       "condition": "selected(data('diagnostic_menu'),'head')",
       "image": "img/head_ultrasound.jpeg",
-      "_rowNum": 31,
+      "_rowNum": 29,
       "param": "headultra_slider"
     },
     {
       "type": "note",
       "condition": "selected(data('diagnostic_menu'),'head_ref')",
       "templatePath": "templates/head_ref.handlebars",
-      "_rowNum": 32
+      "_rowNum": 30
     },
     {
       "type": "note",
       "label": "Line Placement",
       "condition": "selected(data('diagnostic_menu'),'placement')",
-      "_rowNum": 33
+      "_rowNum": 31
     },
     {
       "type": "note",
       "condition": "selected(data('diagnostic_menu'),'xray')",
       "templatePath": "templates/chest_abdomen.handlebars",
-      "_rowNum": 34
+      "_rowNum": 32
     },
     {
       "type": "label",
-      "_rowNum": 35,
+      "_rowNum": 33,
       "param": "diagnostics_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('tools_menu'), 'nutritions')",
-      "_rowNum": 37,
+      "_rowNum": 35,
       "param": "nutritions_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('tools_menu'),'nutritions'))",
-      "_rowNum": 38,
+      "_rowNum": 36,
       "param": "nutritions_end"
     },
     {
       "comments": "Nutrition",
       "type": "label",
-      "_rowNum": 39,
+      "_rowNum": 37,
       "param": "nutritions_begin"
     },
     {
@@ -207,61 +197,61 @@
       "name": "nutritions_menu",
       "label": "Nutritions",
       "appearance": "grid",
-      "_rowNum": 40,
+      "_rowNum": 38,
       "param": "nutritions_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('nutritions_menu'),'weight_converter')",
-      "_rowNum": 41,
+      "_rowNum": 39,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Converter</b>",
-          "_rowNum": 42
+          "_rowNum": 40
         },
         {
           "type": "select_one",
           "name": "conversion_type",
           "appearance": "dropdown",
-          "_rowNum": 43,
+          "_rowNum": 41,
           "param": "conversion_type"
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'kgToLb')",
-          "_rowNum": 44,
+          "_rowNum": 42,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightKilo",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 45
+              "_rowNum": 43
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToPound}} pounds</b></span>",
               "condition": "data('weightKilo')",
-              "_rowNum": 46
+              "_rowNum": 44
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'lbToKg')",
-          "_rowNum": 48,
+          "_rowNum": 46,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightPound",
               "label": "<p>Enter weight (lbs):</p>",
-              "_rowNum": 49
+              "_rowNum": 47
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToKilo}} kilograms</b></span>",
               "condition": "data('weightPound')",
-              "_rowNum": 50
+              "_rowNum": 48
             }
           ]
         }
@@ -270,84 +260,84 @@
     {
       "type": "screen",
       "condition": "selected(data('nutritions_menu'),'weight_loss')",
-      "_rowNum": 53,
+      "_rowNum": 51,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Loss Calculator</b>",
-          "_rowNum": 54
+          "_rowNum": 52
         },
         {
           "type": "decimal",
           "name": "birthW",
           "label": "<p>Enter birth weigh (g):</p>",
-          "_rowNum": 55
+          "_rowNum": 53
         },
         {
           "type": "decimal",
           "name": "currW",
           "label": "<p>Enter current weight (g):</p>",
-          "_rowNum": 56
+          "_rowNum": 54
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Baby Weight Lost: {{calculates.weightLoss}} g; {{calculates.weightLossPerc}} %</b></span>",
           "condition": "data('birthW') && data('currW')",
-          "_rowNum": 57
+          "_rowNum": 55
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('nutritions_menu'),'glucose_cal')",
-      "_rowNum": 59,
+      "_rowNum": 57,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Glucose Infusion Rate Calculator</b>",
-          "_rowNum": 60
+          "_rowNum": 58
         },
         {
           "type": "decimal",
           "name": "totalFluid",
           "label": "<p>Total fluids (mL)</p>",
-          "_rowNum": 61
+          "_rowNum": 59
         },
         {
           "type": "decimal",
           "name": "dextrosePerc",
           "label": "<p>Dextrose percentage (%)</p>",
-          "_rowNum": 62
+          "_rowNum": 60
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</b></span>",
           "condition": "data('totalFluid') && data('dextrosePerc')",
-          "_rowNum": 63
+          "_rowNum": 61
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 65,
+      "_rowNum": 63,
       "param": "nutritions_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('tools_menu'), 'labs')",
-      "_rowNum": 67,
+      "_rowNum": 65,
       "param": "labs_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('tools_menu'),'labs'))",
-      "_rowNum": 68,
+      "_rowNum": 66,
       "param": "labs_end"
     },
     {
       "comments": "Labs",
       "type": "label",
-      "_rowNum": 69,
+      "_rowNum": 67,
       "param": "labs_begin"
     },
     {
@@ -355,54 +345,54 @@
       "name": "labs_menu",
       "label": "Labs",
       "appearance": "grid",
-      "_rowNum": 70,
+      "_rowNum": 68,
       "param": "labs_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('labs_menu'),'electrolytes')",
-      "_rowNum": 71,
+      "_rowNum": 69,
       "prompts": [
         {
           "type": "note",
           "label": "Electrolytes",
-          "_rowNum": 72
+          "_rowNum": 70
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('labs_menu'),'bloodCount')",
-      "_rowNum": 74,
+      "_rowNum": 72,
       "prompts": [
         {
           "type": "note",
           "label": "Full Blood Count",
-          "_rowNum": 75
+          "_rowNum": 73
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 77,
+      "_rowNum": 75,
       "param": "labs_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('tools_menu'), 'newborn')",
-      "_rowNum": 79,
+      "_rowNum": 77,
       "param": "newborn_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('tools_menu'),'newborn'))",
-      "_rowNum": 80,
+      "_rowNum": 78,
       "param": "newborn_end"
     },
     {
       "comments": "Newborn",
       "type": "label",
-      "_rowNum": 81,
+      "_rowNum": 79,
       "param": "newborn_begin"
     },
     {
@@ -410,14 +400,14 @@
       "name": "newborn_menu",
       "label": "Newborn Assessment",
       "appearance": "grid",
-      "_rowNum": 82,
+      "_rowNum": 80,
       "param": "newborn_menu"
     },
     {
       "type": "ballard",
       "name": "ballard_menu",
       "condition": "selected(data('newborn_menu'),'ballardExam')",
-      "_rowNum": 83
+      "_rowNum": 81
     },
     {
       "type": "image_slider",
@@ -425,7 +415,7 @@
       "label": "Choose Posture",
       "condition": "selected(data('ballard_menu'), 'posture')",
       "appearance": "select",
-      "_rowNum": 84,
+      "_rowNum": 82,
       "param": "posture_menu"
     },
     {
@@ -434,7 +424,7 @@
       "label": "Choose Square Window",
       "condition": "selected(data('ballard_menu'), 'square')",
       "appearance": "select",
-      "_rowNum": 85,
+      "_rowNum": 83,
       "param": "square_menu"
     },
     {
@@ -443,7 +433,7 @@
       "label": "Choose Arm Recoil",
       "condition": "selected(data('ballard_menu'), 'arm')",
       "appearance": "select",
-      "_rowNum": 86,
+      "_rowNum": 84,
       "param": "arm_menu"
     },
     {
@@ -452,7 +442,7 @@
       "label": "Choose Popliteal Angle",
       "condition": "selected(data('ballard_menu'), 'popliteal')",
       "appearance": "select",
-      "_rowNum": 87,
+      "_rowNum": 85,
       "param": "popliteal_menu"
     },
     {
@@ -461,7 +451,7 @@
       "label": "Choose Scarf Sign",
       "condition": "selected(data('ballard_menu'), 'scarf')",
       "appearance": "select",
-      "_rowNum": 88,
+      "_rowNum": 86,
       "param": "scarf_menu"
     },
     {
@@ -470,7 +460,7 @@
       "label": "Choose Heel to Ear",
       "condition": "selected(data('ballard_menu'), 'heel')",
       "appearance": "select",
-      "_rowNum": 89,
+      "_rowNum": 87,
       "param": "heel_menu"
     },
     {
@@ -478,7 +468,7 @@
       "name": "skin_menu",
       "label": "Choose Skin Score",
       "condition": "selected(data('ballard_menu'), 'skin')",
-      "_rowNum": 90,
+      "_rowNum": 88,
       "param": "skin_menu"
     },
     {
@@ -486,7 +476,7 @@
       "name": "lanugo_menu",
       "label": "Choose Lanugo Score",
       "condition": "selected(data('ballard_menu'), 'lanugo')",
-      "_rowNum": 91,
+      "_rowNum": 89,
       "param": "lanugo_menu"
     },
     {
@@ -494,7 +484,7 @@
       "name": "plantar_menu",
       "label": "Choose Plantar Surface Score",
       "condition": "selected(data('ballard_menu'), 'plantar')",
-      "_rowNum": 92,
+      "_rowNum": 90,
       "param": "plantar_menu"
     },
     {
@@ -502,7 +492,7 @@
       "name": "breast_menu",
       "label": "Choose Breast Score",
       "condition": "selected(data('ballard_menu'), 'breast')",
-      "_rowNum": 93,
+      "_rowNum": 91,
       "param": "breast_menu"
     },
     {
@@ -510,7 +500,7 @@
       "name": "eye_ear_menu",
       "label": "Choose Eye/Ear Score",
       "condition": "selected(data('ballard_menu'), 'eye_ear')",
-      "_rowNum": 94,
+      "_rowNum": 92,
       "param": "eye_ear_menu"
     },
     {
@@ -518,61 +508,61 @@
       "name": "genitals_menu",
       "label": "Choose Genitals Score",
       "condition": "selected(data('ballard_menu'), 'genitals')",
-      "_rowNum": 95,
+      "_rowNum": 93,
       "param": "genitals_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('newborn_menu'),'weight_converter')",
-      "_rowNum": 102,
+      "_rowNum": 100,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Converter</b>",
-          "_rowNum": 103
+          "_rowNum": 101
         },
         {
           "type": "select_one",
           "name": "conversion_type",
           "appearance": "dropdown",
-          "_rowNum": 104,
+          "_rowNum": 102,
           "param": "conversion_type"
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'kgToLb')",
-          "_rowNum": 105,
+          "_rowNum": 103,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightKilo",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 106
+              "_rowNum": 104
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToPound}} pounds</b></span>",
               "condition": "data('weightKilo')",
-              "_rowNum": 107
+              "_rowNum": 105
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'lbToKg')",
-          "_rowNum": 109,
+          "_rowNum": 107,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightPound",
               "label": "<p>Enter weight (lbs):</p>",
-              "_rowNum": 110
+              "_rowNum": 108
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToKilo}} kilograms</b></span>",
               "condition": "data('weightPound')",
-              "_rowNum": 111
+              "_rowNum": 109
             }
           ]
         }
@@ -581,212 +571,212 @@
     {
       "type": "screen",
       "condition": "selected(data('newborn_menu'),'gestational_age')",
-      "_rowNum": 114,
+      "_rowNum": 112,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Gestational Age Calculator</b>",
-          "_rowNum": 115
+          "_rowNum": 113
         },
         {
           "type": "date",
           "name": "birthday",
           "label": "<p><b>Date of Birth</b></p>",
-          "_rowNum": 116
+          "_rowNum": 114
         },
         {
           "type": "note",
           "label": "<p><b>Gestational at birth</b></p>",
-          "_rowNum": 117
+          "_rowNum": 115
         },
         {
           "type": "integer",
           "name": "weeksBeforeBirth",
           "label": "<p>Weeks</p>",
-          "_rowNum": 118
+          "_rowNum": 116
         },
         {
           "type": "integer",
           "name": "daysBeforeBirth",
           "label": "<p>Days</p>",
-          "_rowNum": 119
+          "_rowNum": 117
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Chronological age is {{calculates.weeksAfterBirth}} weeks {{calculates.daysAfterBirth}} days</b></span>",
           "condition": "data('birthday')",
-          "_rowNum": 120
+          "_rowNum": 118
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Post-menstrual age is {{calculates.weeksOld}} weeks {{calculates.daysOld}} days</b></span>",
           "condition": "data('birthday') && data('weeksBeforeBirth') && data('daysBeforeBirth')",
-          "_rowNum": 121
+          "_rowNum": 119
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 123,
+      "_rowNum": 121,
       "param": "newborn_end"
     },
     {
       "type": "label",
-      "_rowNum": 124,
+      "_rowNum": 122,
       "param": "tools_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'medications')",
-      "_rowNum": 126,
+      "_rowNum": 124,
       "param": "medications_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'),'medications'))",
-      "_rowNum": 127,
+      "_rowNum": 125,
       "param": "medications_end"
     },
     {
       "comments": "MEDICATION",
       "type": "label",
-      "_rowNum": 128,
+      "_rowNum": 126,
       "param": "medications_begin"
     },
     {
       "type": "screen",
-      "_rowNum": 129,
+      "_rowNum": 127,
       "prompts": [
         {
           "type": "select_one",
           "name": "medications_menu",
           "appearance": "dropdown",
-          "_rowNum": 130,
+          "_rowNum": 128,
           "param": "medications_menu"
         },
         {
           "type": "screen",
           "condition": "selected(data('medications_menu'),'Caffeine')",
-          "_rowNum": 131,
+          "_rowNum": 129,
           "prompts": [
             {
               "type": "note",
               "label": "<h1>Caffeine</h1>",
-              "_rowNum": 132
+              "_rowNum": 130
             },
             {
               "type": "note",
               "label": "<h2>Dosage Calculator</h2>",
-              "_rowNum": 133
+              "_rowNum": 131
             },
             {
               "type": "decimal",
               "name": "weightKiloCaffeine",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 134
+              "_rowNum": 132
             },
             {
               "type": "note",
               "label": "<blockquote><span style=\"background-color: yellow\"><b>Loading dose</b>:</span> {{calculates.caffeineLoadDoseFrom}} - {{calculates.caffeineLoadDoseTo}} mg<br><span style=\"background-color: yellow\"><b>Maintainance dose</b>: </span>{{calculates.caffeineMainDoseFrom}} - {{calculates.caffeineMainDoseTo}} mg/day</blockquote>",
               "condition": "data('weightKiloCaffeine')",
-              "_rowNum": 135
+              "_rowNum": 133
             },
             {
               "type": "note",
               "name": "caffeine",
               "templatePath": "templates/caffeine.handlebars",
-              "_rowNum": 136
+              "_rowNum": 134
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('medications_menu'),'Chlorothiazide')",
-          "_rowNum": 138,
+          "_rowNum": 136,
           "prompts": [
             {
               "type": "note",
               "label": "<h1>Chlorothiazide (Brand Name: Diuril)</h1>",
-              "_rowNum": 139
+              "_rowNum": 137
             },
             {
               "type": "note",
               "label": "<h2>Dosage Calculator</h2>",
-              "_rowNum": 140
+              "_rowNum": 138
             },
             {
               "type": "decimal",
               "name": "weightKiloChlorothiazide",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 141
+              "_rowNum": 139
             },
             {
               "type": "note",
               "label": "<blockquote><span style=\"background-color: yellow\"><b>Edema, heart failure, bronchopulmonary dysplasia</b>:  <ul>\n <li>Oral: {{calculates.ChlorothiazideHeartOralDoseFrom}} - {{calculates.ChlorothiazideHeartOralDoseTo}}  mg/day in 2 divided doses</li>\n <li>I.V.: {{ChlorothiazideHeartIVDoseFrom}} - {{ChlorothiazideHeartIVDoseTo}} mg/day in 2 divided doses</li>\n </ul></span></blockquote>",
               "condition": "data('weightKiloChlorothiazide')",
-              "_rowNum": 142
+              "_rowNum": 140
             },
             {
               "type": "note",
               "label": "<blockquote><span style=\"background-color: yellow\"><b>Hyperinsulinemia hypoglycemia, congenital hyperinsulinism (adjunct therapy)</b>: <ul>\n <li>Oral: {{calculates.ChlorothiazideHyperOralDoseFrom}} - {{calculates.ChlorothiazideHyperOralDoseTo}}  mg/day in 2 divided doses</li> </ul></span></blockquote>",
               "condition": "data('weightKiloChlorothiazide')",
-              "_rowNum": 143
+              "_rowNum": 141
             },
             {
               "type": "note",
               "label": "<blockquote><span style=\"background-color: yellow\"><b>Diabetes insipidus (central)</b>: <ul>\n <li>Oral: {{calculates.ChlorothiazideDiabetesOralDoseFrom}} mg/day in 2 divided doses</li> </ul></span></blockquote>",
               "condition": "data('weightKiloChlorothiazide')",
-              "_rowNum": 144
+              "_rowNum": 142
             },
             {
               "type": "note",
               "name": "Chlorothiazide",
               "templatePath": "templates/chlorothiazide.handlebars",
-              "_rowNum": 145
+              "_rowNum": 143
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('medications_menu'),'Furosemide')",
-          "_rowNum": 147,
+          "_rowNum": 145,
           "prompts": [
             {
               "type": "note",
               "name": "Furosemide",
               "templatePath": "templates/furosemide.handlebars",
-              "_rowNum": 148
+              "_rowNum": 146
             }
           ]
         },
         {
           "type": "note",
           "label": "<p><sup>Source: Neofax</sup></p>",
-          "_rowNum": 150
+          "_rowNum": 148
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 152,
+      "_rowNum": 150,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'calculators')",
-      "_rowNum": 154,
+      "_rowNum": 152,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 155,
+      "_rowNum": 153,
       "param": "calculators_end"
     },
     {
       "comments": "CALCULATOR",
       "type": "label",
-      "_rowNum": 156,
+      "_rowNum": 154,
       "param": "calculators_begin"
     },
     {
@@ -794,61 +784,61 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 157,
+      "_rowNum": 155,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'weight_converter')",
-      "_rowNum": 158,
+      "_rowNum": 156,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Converter</b>",
-          "_rowNum": 159
+          "_rowNum": 157
         },
         {
           "type": "select_one",
           "name": "conversion_type",
           "appearance": "dropdown",
-          "_rowNum": 160,
+          "_rowNum": 158,
           "param": "conversion_type"
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'kgToLb')",
-          "_rowNum": 161,
+          "_rowNum": 159,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightKilo",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 162
+              "_rowNum": 160
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToPound}} pounds</b></span>",
               "condition": "data('weightKilo')",
-              "_rowNum": 163
+              "_rowNum": 161
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'lbToKg')",
-          "_rowNum": 165,
+          "_rowNum": 163,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightPound",
               "label": "<p>Enter weight (lbs):</p>",
-              "_rowNum": 166
+              "_rowNum": 164
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToKilo}} kilograms</b></span>",
               "condition": "data('weightPound')",
-              "_rowNum": 167
+              "_rowNum": 165
             }
           ]
         }
@@ -857,118 +847,118 @@
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'weight_loss')",
-      "_rowNum": 170,
+      "_rowNum": 168,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Loss Calculator</b>",
-          "_rowNum": 171
+          "_rowNum": 169
         },
         {
           "type": "decimal",
           "name": "birthW",
           "label": "<p>Enter birth weigh (g):</p>",
-          "_rowNum": 172
+          "_rowNum": 170
         },
         {
           "type": "decimal",
           "name": "currW",
           "label": "<p>Enter current weight (g):</p>",
-          "_rowNum": 173
+          "_rowNum": 171
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Baby Weight Lost: {{calculates.weightLoss}} g; {{calculates.weightLossPerc}} %</b></span>",
           "condition": "data('birthW') && data('currW')",
-          "_rowNum": 174
+          "_rowNum": 172
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'glucose_cal')",
-      "_rowNum": 176,
+      "_rowNum": 174,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Glucose Infusion Rate Calculator</b>",
-          "_rowNum": 177
+          "_rowNum": 175
         },
         {
           "type": "decimal",
           "name": "totalFluid",
           "label": "<p>Total fluids (mL)</p>",
-          "_rowNum": 178
+          "_rowNum": 176
         },
         {
           "type": "decimal",
           "name": "dextrosePerc",
           "label": "<p>Dextrose percentage (%)</p>",
-          "_rowNum": 179
+          "_rowNum": 177
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</b></span>",
           "condition": "data('totalFluid') && data('dextrosePerc')",
-          "_rowNum": 180
+          "_rowNum": 178
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'gestational_age')",
-      "_rowNum": 182,
+      "_rowNum": 180,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Gestational Age Calculator</b>",
-          "_rowNum": 183
+          "_rowNum": 181
         },
         {
           "type": "date",
           "name": "birthday",
           "label": "<p><b>Date of Birth</b></p>",
-          "_rowNum": 184
+          "_rowNum": 182
         },
         {
           "type": "note",
           "label": "<p><b>Gestational at birth</b></p>",
-          "_rowNum": 185
+          "_rowNum": 183
         },
         {
           "type": "integer",
           "name": "weeksBeforeBirth",
           "label": "<p>Weeks</p>",
-          "_rowNum": 186
+          "_rowNum": 184
         },
         {
           "type": "integer",
           "name": "daysBeforeBirth",
           "label": "<p>Days</p>",
-          "_rowNum": 187
+          "_rowNum": 185
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Chronological age is {{calculates.weeksAfterBirth}} weeks {{calculates.daysAfterBirth}} days</b></span>",
           "condition": "data('birthday')",
-          "_rowNum": 188
+          "_rowNum": 186
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Post-menstrual age is {{calculates.weeksOld}} weeks {{calculates.daysOld}} days</b></span>",
           "condition": "data('birthday') && data('weeksBeforeBirth') && data('daysBeforeBirth')",
-          "_rowNum": 189
+          "_rowNum": 187
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 191,
+      "_rowNum": 189,
       "param": "calculators_end"
     },
     {
       "type": "goto",
-      "_rowNum": 194,
+      "_rowNum": 192,
       "param": "back_to_main"
     }
   ],
