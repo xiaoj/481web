@@ -43,12 +43,8 @@ Styling for swipe plugin
   display: none;
   font-size: 1.5em;
 }
-.procedure {
-  color: white;
-  text-shadow: none;
-  font-size: 14px;
-}
-  .ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
+
+.ui-grid-b > :nth-child(n) { width: 50%; margin-right: -.5px; }
 
  .odk-label {
      font-size: 30px;
@@ -102,7 +98,7 @@ Styling for swipe plugin
     color:lightcoral;
     text-align: center;
     font-family:arial;
-    font-size:14px;
+    font-size:16px;
     font-weight:bold;
     padding:12px 16px;
     text-decoration:none;
@@ -146,6 +142,27 @@ Styling for swipe plugin
 }
 
 .ui-body-d, .ui-overlay-d {
-  color: #2489ce;
+  color: lightcoral;
   text-shadow: none;
 }
+
+/*change all the templates to have all the same color scheme*/
+.procedure, .ultrasound ,
+.umbilical, .caffeine, 
+.chest_abdom, .furosemide,
+.chlorothiazide{
+  color: white;
+  text-shadow: none;
+  font-size: 14px;
+}
+
+div h1 ,div h2{
+   color: lightcoral; 
+}
+
+div h1 {
+  background-color: gray;
+}
+
+
+
