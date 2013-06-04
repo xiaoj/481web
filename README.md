@@ -25,6 +25,7 @@ Files to Note
 * /neonatal - This directory contains the code specific to our app. You can learn more about the architecture of our app from our paper.
 * /Presentation - Contains the final version and supporting files for our presentation.
 * /paper - Contains the final version and supporting files for our paper.
+* convertPhantom - command line conversion from xlsx to json.
 
 Convert Spreadsheet to JSON
 ------
