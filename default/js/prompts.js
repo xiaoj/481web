@@ -746,7 +746,7 @@ promptTypes.select = promptTypes.select_multiple = promptTypes.base.extend({
 // is selected
 promptTypes.image_slider = promptTypes.select.extend({
   events: {
-      "taphold .slider-option": "changeSliderOption",
+      "tap .slider-option": "changeSliderOption",
       "dblclick .slider-option": "changeSliderOption",
   },
   changeSliderOption: function(evt) {
