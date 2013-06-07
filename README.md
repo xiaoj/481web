@@ -2,6 +2,20 @@
 ======
 This github repo contains everything you need to host our app either locally or on Heroku.
 
+Files to Grade
+------
+* neonatal/neonatal.xlsx - Our ODK spreadsheet.
+* neonatal/customPromptsTypes.js - This file contains our custom prompt
+  types which are menu, image slider, and ballard exam. We have
+documented these prompts with "class comments" which describe how to use
+them as well as with inline comments, so that future developers can debug
+and modify the code.
+* templates/ - This directory contains our HTML templates. 
+* default/ - This directory contains the ODK code, although we have made
+  some modifications. We have maintained a list of modifications and
+provided inline comments for them. You can find the list as an appendix
+to our paper.
+
 Host Locally
 ------
 1. Clone this project.
@@ -32,7 +46,3 @@ Convert Spreadsheet to JSON
 * run ./phantomjs convertPhantom neonatal/neonatal.xlsx > neonatal/formDef.json
 * Remember to clear browser chache and saved app data.
 
-Files to Grade
-------
-* neonatal/neonatal.xlsx - Our ODK spreadsheet.
-* neonatal/customPrompts.
