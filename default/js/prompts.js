@@ -442,29 +442,29 @@ define(['mdl','database','opendatakit','controller','backbone','handlebars','pro
           }
         }),
         $(evt.target).attr('id'));
-      }
-    });
-    promptTypes.silent_create = promptTypes.base.extend({
-      type:"silent_create",
-      hideInHierarchy: true,
-      valid: true,
-      templatePath: "templates/silent.handlebars",
-      events: {
-      },
-      postActivate: function(ctxt) {
+    }
+});
+promptTypes.silent_create = promptTypes.base.extend({
+    type:"silent_create",
+    hideInHierarchy: true,
+    valid: true,
+    templatePath: "templates/silent.handlebars",
+    events: {
+    },
+    postActivate: function(ctxt) {
         var that = this;
         ctxt.append("prompts." + this.type + ".createInstance", "px: " + this.promptIdx);
         opendatakit.openNewInstanceId(ctxt, null);
-      }
-    });
-    promptTypes.hierarchy = promptTypes.base.extend({
-      type:"hierarchy",
-      hideInHierarchy: true,
-      valid: true,
-      templatePath: 'templates/hierarchy.handlebars',
-      events: {
-      },
-      postActivate: function(ctxt) {
+    }
+});
+promptTypes.hierarchy = promptTypes.base.extend({
+    type:"hierarchy",
+    hideInHierarchy: true,
+    valid: true,
+    templatePath: 'templates/hierarchy.handlebars',
+    events: {
+    },
+    postActivate: function(ctxt) {
         this.renderContext.prompts = controller.prompts;
         ctxt.success({showHeader: true, showFooter: false});
       }
@@ -792,72 +792,6 @@ define(['mdl','database','opendatakit','controller','backbone','handlebars','pro
             "value": savedValue
           }];
         }
-      }
-    });
-    promptTypes.menu = promptTypes.select_one.extend({
-      events: {
-        "change input": "modification",
-        "change select": "modification",
-        //Only needed for child views
-        "click .deselect": "deselect",
-        "click .grid-select-item": "selectGridItem",
-        //"click .ui-radio": "selectItem",
-        "taphold .ui-radio": "deselect"
-      },
-      selectItem: function(evt) {
-        var $target = $(evt.target).closest('.ui-radio');
-        var $input = $target.find('input');
-        $input.prop("checked", function(index, oldPropertyValue) {
-          if( oldPropertyValue ) {
-            $input.prop("checked", false);
-            $input.change();
-          } else {
-            $input.prop("checked", true);
-            $input.change();
-          }
-        });
-      },
-      postActivate: function(ctxt) {
-        var that = this;
-        var newctxt = $.extend({}, ctxt, {success: function(outcome) {
-          ctxt.append("prompts." + that.type + ".postActivate." + outcome,
-          "px: " + that.promptIdx);
-          that.updateRenderValue(false);  // call with false to 'forget' previous selection
-          ctxt.success({enableForwardNavigation: false, enableBackNavigation: true});
-        }});
-        that.renderContext.passiveError = null;
-        that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
-        that.setValue(newctxt, null);
-      },
-      modification: function(evt) {
-        var ctxt = controller.newContext(evt);
-        ctxt.append("prompts." + this.type + ".modification", "px: " + this.promptIdx);
-        var that = this;
-        if(this.withOther) {
-          //This hack is needed to prevent rerendering
-          //causing the other input to loose focus when clicked.
-          if( $(evt.target).val() === 'other' &&
-          $(evt.target).prop('checked') &&
-          //The next two lines determine if the checkbox was already checked.
-          this.renderContext.other &&
-          this.renderContext.other.checked) {
-            return;
-          }
-        }
-        if(this.appearance === 'grid') {
-          //Make selection more reponsive by providing visual feedback before
-          //the template is re-rendered.
-          this.$('.grid-select-item.ui-bar-e').removeClass('ui-bar-e').addClass('ui-bar-c');
-          this.$('input:checked').closest('.grid-select-item').addClass('ui-bar-e');
-        }
-        var formValue = (this.$('form').serializeArray());
-        this.setValue($.extend({}, ctxt, {
-          success: function() {
-            that.updateRenderValue(formValue);
-            that.render();
-            controller.gotoNextScreen(ctxt);
-          }
-        }), this.generateSaveValue(formValue));
       }
     });
     //*** Added below lines to implement auto forward on select one ***//
