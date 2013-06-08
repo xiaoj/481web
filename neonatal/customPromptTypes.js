@@ -1,47 +1,46 @@
-//*** Added my own own image_slider ***//
-// This is currently a 'select_one', it is designed to select
-// one and only one image.
-// In order to test image_slider, go to chrome dev tools,
-// hit settings (in the lower right), hit overrides and click
-// "emulate touch events". Then refresh the app, keeping chrome dev tools OPEN.
-// You must do this each new chrome window you open.
-// the confirm button will always be disabled unless an image
-// is selected
+// Team Neonatal Assist
+// This file contains our custom prompt types, used in our app.
+// They extend prompt types that come with ODK Survey. For each prompt
+// type, we have included a class comment which describes the usage of
+// that prompt.
 define(['database', 'promptTypes','jquery','underscore', 'prompts'],
   function(database, promptTypes, $,       _) {
-    customs = {};
+    customs = {};  // Dictionary which is returned after it is filled
+                   // with custom types.
+    /* The image_slider prompt type defines a list of images which display
+     * on a single page vertically. One image at a time can be selected -- by
+     * a single tap -- and the name of the image which is selected is stored
+     * in the database under the name for the image_slider. By "name" we refer
+     * to the "name" column in an ODK data sheet. The images are set in the
+     * ODK spreadsheet as "choices", refer to documentation on the ODK provided
+     * select type.
+     */
     customs["image_slider"] = promptTypes.select.extend({
       events: {
         "tap .slider-option": "changeSliderOption",
-        "dblclick .slider-option": "changeSliderOption",
       },
+      // Handles database update when image is selected.
       changeSliderOption: function(evt) {
         var checked = $(evt.currentTarget);
-        checked.siblings('.slider-option').removeClass('checked');
-        checked.addClass("checked");
+        checked.siblings('.slider-option').removeClass('checked');  // Styling
+        checked.addClass("checked");  // Styling
         var ctxt = controller.newContext(evt);
-        var name = checked.attr('value');
-        this.setValue($.extend({}, ctxt, {
-          success: function() {
-            //controller.gotoPreviousScreen(ctxt);
-          }
-        }), name);
+        var name = checked.attr('value');  // Get name of image selected
+        this.setValue(ctxt, name);  // Update DB
       },
+      // Standard postactivate method
       postActivate: function(ctxt) {
         var that = this;
         var newctxt = $.extend({}, ctxt, {success: function(outcome) {
           ctxt.append("prompts." + that.type + ".postActivate." + outcome,
           "px: " + that.promptIdx);
-          //that.updateRenderValue(that.parseSaveValue(that.getValue()));
-          ctxt.success({enableForwardNavigation: false});
+          ctxt.success();
         }});
         that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
         newctxt.success("image_slider success");
       },
-      renderContext: {
-        "enableForwardNavigation": false,
-        "enableBackNavigation": false
-      },
+      // Check database to see if this slider has already been used and highlight
+      // previous selection.
       setSavedValue: function() {
         // get saved value from database
         // if not null highlight appropriate option
@@ -59,6 +58,14 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
       },
       templatePath: "templates/image_slider.handlebars"
     });
+    /* The menu prompt type provides a list of options, when an option is selected
+     * the user is brought to the "next" screen. The next screen is defined by ODK's
+     * navigation system, which searches the spreadsheet linearlly, beginning at the 
+     * current prompt until finding one whose condition column evaluates to true.
+     * To define the options, use the choices sheet, like a select prompt type.
+     * To ensure the use goes to the right page, set conditions on the pages
+     * which evaluate to true based on which menu item was selected.
+     */
     customs["menu"] = promptTypes.select_one.extend({
       events: {
         "change input": "modification",
@@ -69,6 +76,7 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         //"click .ui-radio": "selectItem",
         "taphold .ui-radio": "deselect"
       },
+      // Update menu items to reflect which has been selected.
       selectItem: function(evt) {
         var $target = $(evt.target).closest('.ui-radio');
         var $input = $target.find('input');
@@ -94,6 +102,7 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
         that.setValue(newctxt, null);
       },
+      // Updates database with which menu item has been selected.
       modification: function(evt) {
         var ctxt = controller.newContext(evt);
         ctxt.append("prompts." + this.type + ".modification", "px: " + this.promptIdx);
@@ -125,6 +134,14 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         }), this.generateSaveValue(formValue));
       }
     });
+    /* The ballard exam is very specific to our app. It consists of menu which 
+     * has special properties. Those properties are that the specific menu items
+     * are highlighted if they have been visited and completed previously. Also,
+     * the score corresponding to the image which the user selected is disaplayed 
+     * next to the menu item. There is a clear button which clears the databse of all
+     * data pertaining to the ballard exam. Finally, if the user completes the whole
+     * ballard exam a total score is displayed at the top of the page.
+     */
     customs["ballard"] = customs["menu"].extend({
       templatePath: "../neonatal/templates/ballard_exam.handlebars",
       events: {
@@ -136,17 +153,26 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         "taphold .ui-radio": "deselect",
         "click .clear-ballard": "clearBallardExam",
       },
+      // Clears scores from database and rerenders to give feedback to user.
       clearBallardExam: function(evt) {
         var ctxt = controller.newContext(evt);
-        var that = this;
+        var that = this;  // So we can reference the whole widget from within
+                          // deeper contexts
         $.extend({}, ctxt, {
           scores: ['posture', 'square', 'arm', 'popliteal', 'scarf', 'heel',
           'skin', 'lanugo', 'plantar', 'breast', 'eye_ear', 'genitals'],
           count: 0,
           success: function() {
-            if (this.count < this.scores.length) {
+            if (this.count < this.scores.length) {  // Recursive case.
+            // We lookup the count'th score and render the string as it appears in the database.
+            // e.g. this.scores[0] + '_menu' == "posture_menu", which is a row in our database.
+            // We set the value of that row to null. The recursion is not evident, it comes from the
+            // fact that once the database has finished its update it calls the success function of the
+            // ctxt passed into it. The success function happens to be the one we are currently defining.
+            // So this success function and databse.setData are mutually recursive, with success defining
+            // the base case.
               database.setData(this, this.scores[this.count++] + '_menu', null);
-            } else {  // we have already cleared the last one so rerender
+            } else {  // Base case: we have already cleared the last one so rerender
               that._populateAndColorScores();
             }
           }
@@ -167,6 +193,7 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
       afterRender: function() {
         this._populateAndColorScores();
       },
+      // Colors and inserts scores for the menu items if they have been completed.
       _populateAndColorScores: function() {
         var posture_score = this._getScore('posture');
         var square_score = this._getScore('square');
@@ -215,12 +242,14 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         }
         this._populateAndColorScore('total', nm_score + physical_score);
       },
+      // Gets score for menu item from database
       _getScore: function(menu) {
         var score = database.getDataValue(menu + '_menu');
         if (score != null) {
           return parseInt(score.split(menu)[1]);
         }
       },
+      // Adds score and color to a single menu item
       _populateAndColorScore: function(menu, score) {
         var button = this.$el.find('input#' + menu).parents('label');
         if (button.length == 0) {  // During construction of the page the input element
@@ -236,5 +265,5 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         }
       }
     });
-    return customs;
+    return customs;  // The dictionary we have built up.
   });
