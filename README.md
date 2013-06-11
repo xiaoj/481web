@@ -45,4 +45,3 @@ Convert Spreadsheet to JSON
 * cd into project root
 * run ./phantomjs convertPhantom neonatal/neonatal.xlsx > neonatal/formDef.json
 * Remember to clear browser chache and saved app data.
-
