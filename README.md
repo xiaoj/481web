@@ -20,8 +20,9 @@ Host Locally
 ------
 1. Clone this project.
 2. Open a terminal and cd to the project root
-2. Run the following command: ./node app.js.
-3. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app data everytime the app changes.
+3. If using Mac OSX, proceed to step 4. Otherwise download the appropriate version of [node.js](http://nodejs.org/download/).
+4. Run the following command: ./node app.js.
+5. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app data everytime the app changes.
 
 Host on Heroku
 ------
