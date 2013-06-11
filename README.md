@@ -39,6 +39,7 @@ Files to Note
 * /report - Contains our final report and appendices with helpful
   information on aspects of our app specifically and ODK in general.
 * convertPhantom - command line conversion from xlsx to json.
+* * neonatal/customStyles.css - This is simply the style for our app. There is nothing to grade but it may be of interest.
 
 Convert Spreadsheet to JSON
 ------
