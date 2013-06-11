@@ -5,6 +5,7 @@ This github repo contains everything you need to host our app either locally or 
 Files to Grade
 ------
 * neonatal/neonatal.xlsx - Our ODK spreadsheet.
+    To grade the comments of the spreadsheet please look at Apendix 2, where we describe the layout of the sheet.
 * neonatal/customPromptsTypes.js - This file contains our custom prompt
   types which are menu, image slider, and ballard exam. We have
 documented these prompts with "class comments" which describe how to use
