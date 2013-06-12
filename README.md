@@ -1,6 +1,7 @@
 481web
 ======
 This github repo contains everything you need to host our app either locally or on Heroku.
+Please refer to our [Wiki](https://github.com/xiaoj/481web/wiki) for realease notes.
 
 Files to Grade
 ------
