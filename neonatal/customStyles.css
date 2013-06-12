@@ -55,6 +55,7 @@ Styling for swipe plugin
 .headerNavBtns {
   float: none;
   margin-left: 5px;
+  min-height: 53px; 
 }
 
 .odk-header {

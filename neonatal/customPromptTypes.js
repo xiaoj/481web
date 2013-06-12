@@ -134,6 +134,20 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         }), this.generateSaveValue(formValue));
       }
     });
+    customs["main_menu"] = customs["menu"].extend({
+      postActivate: function(ctxt) {
+        var that = this;
+        var newctxt = $.extend({}, ctxt, {success: function(outcome) {
+          ctxt.append("prompts." + that.type + ".postActivate." + outcome,
+          "px: " + that.promptIdx);
+          that.updateRenderValue(false);  // call with false to 'forget' previous selection
+          ctxt.success({enableForwardNavigation: false, enableBackNavigation: false});
+        }});
+        that.renderContext.passiveError = null;
+        that.renderContext.choices = _.map(that.form.choices[that.param], _.clone);
+        that.setValue(newctxt, null);
+      },
+    });
     /* The ballard exam is very specific to our app. It consists of menu which 
      * has special properties. Those properties are that the specific menu items
      * are highlighted if they have been visited and completed previously. Also,
