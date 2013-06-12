@@ -829,28 +829,40 @@
             },
             {
               "type": "note",
-              "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToPound}} pounds</b></span>",
-              "condition": "data('weightKilo')",
+              "label": "Please enter positive weight.",
+              "condition": "data('weightKilo') <= 0",
               "_rowNum": 163
+            },
+            {
+              "type": "note",
+              "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToPound}} pounds</b></span>",
+              "condition": "data('weightKilo') > 0",
+              "_rowNum": 164
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'lbToKg')",
-          "_rowNum": 165,
+          "_rowNum": 166,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightPound",
               "label": "<p>Enter weight (lbs):</p>",
-              "_rowNum": 166
+              "_rowNum": 167
+            },
+            {
+              "type": "note",
+              "label": "Please enter positive weight.",
+              "condition": "data('weightPound') <= 0",
+              "_rowNum": 168
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToKilo}} kilograms</b></span>",
-              "condition": "data('weightPound')",
-              "_rowNum": 167
+              "condition": "data('weightPound') > 0",
+              "_rowNum": 169
             }
           ]
         }
@@ -859,132 +871,138 @@
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'weight_loss')",
-      "_rowNum": 170,
+      "_rowNum": 172,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Loss Calculator</b>",
-          "_rowNum": 171
+          "_rowNum": 173
         },
         {
           "type": "decimal",
           "name": "birthW",
           "label": "<p>Enter birth weigh (g):</p>",
-          "_rowNum": 172
+          "_rowNum": 174
         },
         {
           "type": "decimal",
           "name": "currW",
           "label": "<p>Enter current weight (g):</p>",
-          "_rowNum": 173
+          "_rowNum": 175
         },
         {
           "type": "note",
           "label": "Please enter a non-negative number for weight.",
           "condition": "data('birthW') < 0 || data('currW') <0",
           "constraint": "data('currW')>=0 && data('birthW') >=0",
-          "_rowNum": 174
+          "_rowNum": 176
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Baby Weight Gain:{{calculates.weightGain}}  g; {{calculates.weightGainPerc}} %</b></span>",
           "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')>=0&&data('currW')>=0&&data('birthW')>=0",
-          "_rowNum": 175
+          "_rowNum": 177
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Baby Weight Lost: {{calculates.weightLoss}} g; {{calculates.weightLossPerc}} %</b></span>",
           "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')<0&&data('currW')>=0&&data('birthW')>=0",
           "constraint": "data('currW')>=0 && data('birthW') >=0",
-          "_rowNum": 176
+          "_rowNum": 178
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'glucose_cal')",
-      "_rowNum": 178,
+      "_rowNum": 180,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Glucose Infusion Rate Calculator</b>",
-          "_rowNum": 179
+          "_rowNum": 181
         },
         {
           "type": "decimal",
           "name": "totalFluid",
           "label": "<p>Total fluids (mL)</p>",
-          "_rowNum": 180
+          "_rowNum": 182
         },
         {
           "type": "decimal",
           "name": "dextrosePerc",
           "label": "<p>Dextrose percentage (%)</p>",
-          "_rowNum": 181
+          "_rowNum": 183
+        },
+        {
+          "type": "note",
+          "label": "Please enter positive values for Total Fluids and Dextros Percentage.",
+          "condition": "data('totalFluid') <= 0 || data('dextrosePerc') <= 0",
+          "_rowNum": 184
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</b></span>",
-          "condition": "data('totalFluid') && data('dextrosePerc')",
-          "_rowNum": 182
+          "condition": "data('totalFluid') > 0 && data('dextrosePerc') > 0",
+          "_rowNum": 185
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'gestational_age')",
-      "_rowNum": 184,
+      "_rowNum": 187,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Gestational Age Calculator</b>",
-          "_rowNum": 185
+          "_rowNum": 188
         },
         {
           "type": "date",
           "name": "birthday",
           "label": "<p><b>Date of Birth</b></p>",
-          "_rowNum": 186
+          "_rowNum": 189
         },
         {
           "type": "note",
           "label": "<p><b>Gestational at birth</b></p>",
-          "_rowNum": 187
+          "_rowNum": 190
         },
         {
           "type": "integer",
           "name": "weeksBeforeBirth",
           "label": "<p>Weeks</p>",
-          "_rowNum": 188
+          "_rowNum": 191
         },
         {
           "type": "integer",
           "name": "daysBeforeBirth",
           "label": "<p>Days</p>",
-          "_rowNum": 189
+          "_rowNum": 192
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Chronological age is {{calculates.weeksAfterBirth}} weeks {{calculates.daysAfterBirth}} days</b></span>",
           "condition": "data('birthday')",
-          "_rowNum": 190
+          "_rowNum": 193
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Post-menstrual age is {{calculates.weeksOld}} weeks {{calculates.daysOld}} days</b></span>",
           "condition": "data('birthday') && data('weeksBeforeBirth') && data('daysBeforeBirth')",
-          "_rowNum": 191
+          "_rowNum": 194
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 193,
+      "_rowNum": 196,
       "param": "calculators_end"
     },
     {
       "type": "goto",
-      "_rowNum": 196,
+      "_rowNum": 199,
       "param": "back_to_main"
     }
   ],
