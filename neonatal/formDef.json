@@ -6,7 +6,7 @@
       "param": "back_to_main"
     },
     {
-      "type": "menu",
+      "type": "main_menu",
       "name": "menu",
       "label": "Main Menu",
       "appearance": "grid",
@@ -868,15 +868,25 @@
         },
         {
           "type": "note",
+<<<<<<< HEAD
           "label": "Please enter a non-negative number for weight.",
           "condition": "data('birthW') < 0 || data('currW') <0",
           "constraint": "data('currW')>=0 && data('birthW') >=0",
+=======
+          "label": "<span style=\"background-color: yellow\"><b>Baby Weight Gain:{{calculates.weightGain}}  g; {{calculates.weightGainPerc}} %</b></span>",
+          "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')>=0",
+>>>>>>> cbcd1b4d22969d6262a64b979d3917e9342ff2f7
           "_rowNum": 172
         },
         {
           "type": "note",
+<<<<<<< HEAD
           "label": "<span style=\"background-color: yellow\"><b>Baby Weight Gain:{{calculates.weightGain}}  g; {{calculates.weightGainPerc}} %</b></span>",
           "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')>=0&&data('currW')>=0&&data('birthW')>=0",
+=======
+          "label": "<span style=\"background-color: yellow\"><b>Baby Weight Lost: {{calculates.weightLoss}} g; {{calculates.weightLossPerc}} %</b></span>",
+          "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')<0",
+>>>>>>> cbcd1b4d22969d6262a64b979d3917e9342ff2f7
           "_rowNum": 173
         },
         {
@@ -1946,6 +1956,13 @@
         "type": "string"
       },
       "_rowNum": 4
+    },
+    {
+      "name": "main_menu",
+      "schema": {
+        "type": "string"
+      },
+      "_rowNum": 5
     }
   ],
   "model": {

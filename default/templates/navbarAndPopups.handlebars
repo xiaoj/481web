@@ -2,9 +2,9 @@
     {{#if showHeader}}
         <div class="odk-header" data-role="header" data-theme="c" data-position="fixed">
             <div class="headerNavBtns">
-                <a class="odk-prev-btn
-                {{#unless enableBackNavigation}}ui-disabled{{/unless}}"
-                data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true">back</a>     
+              {{#if enableBackNavigation}}
+                <a class="odk-prev-btn" data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true">back</a>     
+              {{/if}}
            </div>
         </div>
     {{/if}}

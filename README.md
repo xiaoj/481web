@@ -16,7 +16,7 @@ and modify the code.
   some modifications. We have maintained a list of modifications and
 provided inline comments for them. You can find the list as an appendix
 to our paper.
-*neonatal/customStyles.css - This file contain custom css style to button, background etc.
+* neonatal/customStyles.css - This file contain custom css style to button, background etc.
 
 Host Locally
 ------
@@ -42,7 +42,6 @@ Files to Note
 * /report - Contains our final report and appendices with helpful
   information on aspects of our app specifically and ODK in general.
 * convertPhantom - command line conversion from xlsx to json.
-* * neonatal/customStyles.css - This is simply the style for our app. There is nothing to grade but it may be of interest.
 
 Convert Spreadsheet to JSON
 ------
