@@ -868,97 +868,103 @@
         },
         {
           "type": "note",
-          "label": "<span style=\"background-color: yellow\"><b>Baby Weight Lost: {{calculates.weightLoss}} g; {{calculates.weightLossPerc}} %</b></span>",
-          "condition": "data('birthW') && data('currW')",
+          "label": "<span style=\"background-color: yellow\"><b>Baby Weight Gain:{{calculates.weightGain}}  g/ {{calculates.weightGainPerc}} %</b></span>",
+          "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')>=0",
           "_rowNum": 172
+        },
+        {
+          "type": "note",
+          "label": "<span style=\"background-color: yellow\"><b>Baby Weight Lost: {{calculates.weightLoss}} g/ {{calculates.weightLossPerc}} %</b></span>",
+          "condition": "data('birthW') && data('currW')&&data('currW')-data('birthW')<0",
+          "_rowNum": 173
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'glucose_cal')",
-      "_rowNum": 174,
+      "_rowNum": 175,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Glucose Infusion Rate Calculator</b>",
-          "_rowNum": 175
+          "_rowNum": 176
         },
         {
           "type": "decimal",
           "name": "totalFluid",
           "label": "<p>Total fluids (mL)</p>",
-          "_rowNum": 176
+          "_rowNum": 177
         },
         {
           "type": "decimal",
           "name": "dextrosePerc",
           "label": "<p>Dextrose percentage (%)</p>",
-          "_rowNum": 177
+          "_rowNum": 178
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</b></span>",
           "condition": "data('totalFluid') && data('dextrosePerc')",
-          "_rowNum": 178
+          "_rowNum": 179
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'gestational_age')",
-      "_rowNum": 180,
+      "_rowNum": 181,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Gestational Age Calculator</b>",
-          "_rowNum": 181
+          "_rowNum": 182
         },
         {
           "type": "date",
           "name": "birthday",
           "label": "<p><b>Date of Birth</b></p>",
-          "_rowNum": 182
+          "_rowNum": 183
         },
         {
           "type": "note",
           "label": "<p><b>Gestational at birth</b></p>",
-          "_rowNum": 183
+          "_rowNum": 184
         },
         {
           "type": "integer",
           "name": "weeksBeforeBirth",
           "label": "<p>Weeks</p>",
-          "_rowNum": 184
+          "_rowNum": 185
         },
         {
           "type": "integer",
           "name": "daysBeforeBirth",
           "label": "<p>Days</p>",
-          "_rowNum": 185
+          "_rowNum": 186
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Chronological age is {{calculates.weeksAfterBirth}} weeks {{calculates.daysAfterBirth}} days</b></span>",
           "condition": "data('birthday')",
-          "_rowNum": 186
+          "_rowNum": 187
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Post-menstrual age is {{calculates.weeksOld}} weeks {{calculates.daysOld}} days</b></span>",
           "condition": "data('birthday') && data('weeksBeforeBirth') && data('daysBeforeBirth')",
-          "_rowNum": 187
+          "_rowNum": 188
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 189,
+      "_rowNum": 190,
       "param": "calculators_end"
     },
     {
       "type": "goto",
-      "_rowNum": 192,
+      "_rowNum": 193,
       "param": "back_to_main"
     }
   ],
@@ -1709,179 +1715,189 @@
       "_rowNum": 3
     },
     {
+      "name": "weightGainPerc",
+      "calculation": "(calculates.weightGain()*100.0/data('birthW')).toFixed(2)",
+      "_rowNum": 4
+    },
+    {
+      "name": "weightGain",
+      "calculation": "data('currW')-data('birthW')",
+      "_rowNum": 5
+    },
+    {
       "name": "weightLoss",
       "calculation": "data('birthW') - data('currW')",
-      "_rowNum": 4
+      "_rowNum": 6
     },
     {
       "name": "weightLossPerc",
       "calculation": "(calculates.weightLoss()*100.0/data('birthW')).toFixed(2)",
-      "_rowNum": 5
+      "_rowNum": 7
     },
     {
       "name": "glucoseCal",
       "calculation": "(data('totalFluid')*(data('dextrosePerc')/100)/144).toFixed(2)",
-      "_rowNum": 6
+      "_rowNum": 8
     },
     {
       "name": "postureScore",
       "calculation": "(function() {\n  switch (data('posture_slider')) { \n    case('posture0'):\n      return 0;\n    case('posture1'):\n      return 1;\n    case('posture2'):\n      return 2;\n    case('posture3'):\n      return 3;\n   case('posture4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 8
+      "_rowNum": 10
     },
     {
       "name": "squareScore",
       "calculation": "(function() {\n  switch (data('square_slider')) { \n    case('square_window-1'):\n      return -1;\n    case('square_window0'):\n      return 0;\n    case('square_window1'):\n      return 1;\n    case('square_window2'):\n      return 2;\n    case('square_window3'):\n      return 3;\n   case('square_window4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 9
+      "_rowNum": 11
     },
     {
       "name": "armScore",
       "calculation": "(function() {\n  switch (data('arm_slider')) { \n    case('arm_recoil0'):\n      return 0;\n    case('arm_recoil1'):\n      return 1;\n    case('arm_recoil2'):\n      return 2;\n    case('arm_recoil3'):\n      return 3;\n   case('arm_recoil4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 10
+      "_rowNum": 12
     },
     {
       "name": "poplitealScore",
       "calculation": "(function() {\n  switch (data('popliteal_slider')) { \n    case('popliteal-1'):\n      return -1;\n    case('popliteal0'):\n      return 0;\n    case('popliteal1'):\n      return 1;\n    case('popliteal2'):\n      return 2;\n    case('popliteal3'):\n      return 3;\n   case('popliteal4'):\n      return 4;  \n   case('popliteal5'):\n      return 5;  \n  }\n}())",
-      "_rowNum": 11
+      "_rowNum": 13
     },
     {
       "name": "scarfScore",
       "calculation": "(function() {\n  switch (data('scarf_slider')) { \n    case('scarf_sign-1'):\n      return -1;\n    case('scarf_sign0'):\n      return 0;\n    case('scarf_sign1'):\n      return 1;\n    case('scarf_sign2'):\n      return 2;\n    case('scarf_sign3'):\n      return 3;\n   case('scarf_sign4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 12
+      "_rowNum": 14
     },
     {
       "name": "heelScore",
       "calculation": "(function() {\n  switch (data('heel_slider')) { \n    case('heel_to_ear-1'):\n      return -1;\n    case('heel_to_ear0'):\n      return 0;\n    case('heel_to_ear1'):\n      return 1;\n    case('heel_to_ear2'):\n      return 2;\n    case('heel_to_ear3'):\n      return 3;\n   case('heel_to_ear4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 13
+      "_rowNum": 15
     },
     {
       "name": "totalNMScore",
       "calculation": "calculates.postureScore() + calculates.squareScore() + calculates.armScore() + calculates.poplitealScore() + calculates.scarfScore() + calculates.heelScore()",
-      "_rowNum": 14
+      "_rowNum": 16
     },
     {
       "name": "skinScore",
       "calculation": "(function() {\n  switch (data('skin_menu')) { \n    case('skin-1'):\n      return -1;\n    case('skin0'):\n      return 0;\n    case('skin1'):\n      return 1;\n    case('skin2'):\n      return 2;\n    case('skin3'):\n      return 3;\n   case('skin4'):\n      return 4;  \n   case('skin5'):\n      return 5;  \n  }\n}())",
-      "_rowNum": 15
+      "_rowNum": 17
     },
     {
       "name": "lanugoScore",
       "calculation": "(function() {\n  switch (data('lanugo_menu')) { \n    case('lanugo-1'):\n      return -1;\n    case('lanugo0'):\n      return 0;\n    case('lanugo1'):\n      return 1;\n    case('lanugo2'):\n      return 2;\n    case('lanugo3'):\n      return 3;\n   case('lanugo4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 16
+      "_rowNum": 18
     },
     {
       "name": "plantarScore",
       "calculation": "(function() {\n  switch (data('plantar_menu')) { \n    case('plantar-2'):\n      return -2;\n    case('plantar-1'):\n      return -1;\n    case('plantar0'):\n      return 0;\n    case('plantar1'):\n      return 1;\n    case('plantar2'):\n      return 2;\n    case('plantar3'):\n      return 3;\n   case('plantar4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 17
+      "_rowNum": 19
     },
     {
       "name": "breastScore",
       "calculation": "(function() {\n  switch (data('breast_menu')) { \n    case('breast-1'):\n      return -1;\n    case('breast0'):\n      return 0;\n    case('breast1'):\n      return 1;\n    case('breast2'):\n      return 2;\n    case('breast3'):\n      return 3;\n   case('breast4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 18
+      "_rowNum": 20
     },
     {
       "name": "earEyeScore",
       "calculation": "(function() {\n  switch (data('ear_eye_menu')) { \n   case('ear_eye-2'):\n      return -2;  \n    case('ear_eye-1'):\n      return -1;\n    case('ear_eye0'):\n      return 0;\n    case('ear_eye1'):\n      return 1;\n    case('ear_eye2'):\n      return 2;\n    case('ear_eye3'):\n      return 3;\n   case('ear_eye4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 19
+      "_rowNum": 21
     },
     {
       "name": "genitalsScore",
       "calculation": "(function() {\n  switch (data('genitals_menu')) { \n    case('genitals-1'):\n      return -1;\n    case('genitals0'):\n      return 0;\n    case('genitals1'):\n      return 1;\n    case('genitals2'):\n      return 2;\n    case('genitals3'):\n      return 3;\n   case('genitals4'):\n      return 4;  \n  }\n}())",
-      "_rowNum": 20
+      "_rowNum": 22
     },
     {
       "name": "totalPhysicalScore",
       "calculation": "calculates.skinScore() + calculates.lanugoScore() + calculates.plantarScore() + calculates.breastScore() + calculates.earEyeScore() + calculates.genitalsScore()",
-      "_rowNum": 21
+      "_rowNum": 23
     },
     {
       "name": "totalBallardScore",
       "calculation": "calculates.totalNMScore() + calculates.totalPhysicalScore()",
-      "_rowNum": 22
+      "_rowNum": 24
     },
     {
       "name": "totalDaysAfterBirth",
       "calculation": "Math.ceil((now().getTime() - new Date(data('birthday')).getTime()) / (1000 * 60 * 60 * 24))",
-      "_rowNum": 24
+      "_rowNum": 26
     },
     {
       "name": "weeksAfterBirth",
       "calculation": "Math.floor(calculates.totalDaysAfterBirth()/7)",
-      "_rowNum": 25
+      "_rowNum": 27
     },
     {
       "name": "daysAfterBirth",
       "calculation": "calculates.totalDaysAfterBirth() - (calculates.weeksAfterBirth()*7)",
-      "_rowNum": 26
+      "_rowNum": 28
     },
     {
       "name": "totalDaysOld",
       "calculation": "calculates.totalDaysAfterBirth() + (data('weeksBeforeBirth')*7) + data('daysBeforeBirth')",
-      "_rowNum": 27
+      "_rowNum": 29
     },
     {
       "name": "weeksOld",
       "calculation": "Math.floor(calculates.totalDaysOld()/7)",
-      "_rowNum": 28
+      "_rowNum": 30
     },
     {
       "name": "daysOld",
       "calculation": "calculates.totalDaysOld() - (calculates.weeksOld()*7)",
-      "_rowNum": 29
+      "_rowNum": 31
     },
     {
       "name": "caffeineLoadDoseFrom",
       "calculation": "data('weightKiloCaffeine')*20",
-      "_rowNum": 31
+      "_rowNum": 33
     },
     {
       "name": "caffeineLoadDoseTo",
       "calculation": "data('weightKiloCaffeine')*80",
-      "_rowNum": 32
+      "_rowNum": 34
     },
     {
       "name": "caffeineMainDoseFrom",
       "calculation": "data('weightKiloCaffeine')*5",
-      "_rowNum": 33
+      "_rowNum": 35
     },
     {
       "name": "caffeineMainDoseTo",
       "calculation": "data('weightKiloCaffeine')*10",
-      "_rowNum": 34
+      "_rowNum": 36
     },
     {
       "name": "ChlorothiazideHeartOralDoseFrom",
       "calculation": "data('weightKiloChlorothiazide')*20",
-      "_rowNum": 36
+      "_rowNum": 38
     },
     {
       "name": "ChlorothiazideHeartOralDoseTo",
       "calculation": "data('weightKiloChlorothiazide')*40",
-      "_rowNum": 37
+      "_rowNum": 39
     },
     {
       "name": "ChlorothiazideHeartIVDoseFrom",
       "calculation": "data('weightKiloChlorothiazide')*5",
-      "_rowNum": 38
+      "_rowNum": 40
     },
     {
       "name": "ChlorothiazideHeartIVDoseTo",
       "calculation": "data('weightKiloChlorothiazide')*10",
-      "_rowNum": 39
+      "_rowNum": 41
     },
     {
       "name": "ChlorothiazideHyperOralDoseFrom",
       "calculation": "data('weightKiloChlorothiazide')*7",
-      "_rowNum": 40
+      "_rowNum": 42
     },
     {
       "name": "ChlorothiazideHyperOralDoseTo",
       "calculation": "data('weightKiloChlorothiazide')*10",
-      "_rowNum": 41
+      "_rowNum": 43
     },
     {
       "name": "ChlorothiazideDiabetesOralDoseFrom",
       "calculation": "data('weightKiloChlorothiazide')*10",
-      "_rowNum": 42
+      "_rowNum": 44
     }
   ],
   "settings": [
