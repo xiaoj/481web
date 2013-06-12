@@ -6,7 +6,7 @@
       "param": "back_to_main"
     },
     {
-      "type": "menu",
+      "type": "main_menu",
       "name": "menu",
       "label": "Main Menu",
       "appearance": "grid",
@@ -677,106 +677,118 @@
             },
             {
               "type": "note",
-              "label": "<blockquote><span style=\"background-color: yellow\"><b>Loading dose</b>:</span> {{calculates.caffeineLoadDoseFrom}} - {{calculates.caffeineLoadDoseTo}} mg<br><span style=\"background-color: yellow\"><b>Maintainance dose</b>: </span>{{calculates.caffeineMainDoseFrom}} - {{calculates.caffeineMainDoseTo}} mg/day</blockquote>",
-              "condition": "data('weightKiloCaffeine')",
+              "label": "Please enter a positive weight.",
+              "condition": "data('weightKiloCaffeine') <= 0",
               "_rowNum": 133
+            },
+            {
+              "type": "note",
+              "label": "<blockquote><span style=\"background-color: yellow\"><b>Loading dose</b>:</span> {{calculates.caffeineLoadDoseFrom}} - {{calculates.caffeineLoadDoseTo}} mg<br><span style=\"background-color: yellow\"><b>Maintainance dose</b>: </span>{{calculates.caffeineMainDoseFrom}} - {{calculates.caffeineMainDoseTo}} mg/day</blockquote>",
+              "condition": "data('weightKiloCaffeine') && (data('weightKiloCaffeine') > 0)",
+              "_rowNum": 134
             },
             {
               "type": "note",
               "name": "caffeine",
               "templatePath": "templates/caffeine.handlebars",
-              "_rowNum": 134
+              "_rowNum": 135
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('medications_menu'),'Chlorothiazide')",
-          "_rowNum": 136,
+          "_rowNum": 137,
           "prompts": [
             {
               "type": "note",
               "label": "<h1>Chlorothiazide (Brand Name: Diuril)</h1>",
-              "_rowNum": 137
+              "_rowNum": 138
             },
             {
               "type": "note",
               "label": "<h2>Dosage Calculator</h2>",
-              "_rowNum": 138
+              "_rowNum": 139
             },
             {
               "type": "decimal",
               "name": "weightKiloChlorothiazide",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 139
-            },
-            {
-              "type": "note",
-              "label": "<blockquote><span style=\"background-color: yellow\"><b>Edema, heart failure, bronchopulmonary dysplasia</b>:  <ul>\n <li>Oral: {{calculates.ChlorothiazideHeartOralDoseFrom}} - {{calculates.ChlorothiazideHeartOralDoseTo}}  mg/day in 2 divided doses</li>\n <li>I.V.: {{ChlorothiazideHeartIVDoseFrom}} - {{ChlorothiazideHeartIVDoseTo}} mg/day in 2 divided doses</li>\n </ul></span></blockquote>",
-              "condition": "data('weightKiloChlorothiazide')",
               "_rowNum": 140
             },
             {
               "type": "note",
-              "label": "<blockquote><span style=\"background-color: yellow\"><b>Hyperinsulinemia hypoglycemia, congenital hyperinsulinism (adjunct therapy)</b>: <ul>\n <li>Oral: {{calculates.ChlorothiazideHyperOralDoseFrom}} - {{calculates.ChlorothiazideHyperOralDoseTo}}  mg/day in 2 divided doses</li> </ul></span></blockquote>",
-              "condition": "data('weightKiloChlorothiazide')",
+              "label": "Please enter a positive weight.",
+              "condition": "data('weightKiloChlorothiazide') <= 0",
               "_rowNum": 141
             },
             {
               "type": "note",
-              "label": "<blockquote><span style=\"background-color: yellow\"><b>Diabetes insipidus (central)</b>: <ul>\n <li>Oral: {{calculates.ChlorothiazideDiabetesOralDoseFrom}} mg/day in 2 divided doses</li> </ul></span></blockquote>",
-              "condition": "data('weightKiloChlorothiazide')",
+              "label": "<blockquote><span style=\"background-color: yellow\"><b>Edema, heart failure, bronchopulmonary dysplasia</b>:  <ul>\n <li>Oral: {{calculates.ChlorothiazideHeartOralDoseFrom}} - {{calculates.ChlorothiazideHeartOralDoseTo}}  mg/day in 2 divided doses</li>\n <li>I.V.: {{ChlorothiazideHeartIVDoseFrom}} - {{ChlorothiazideHeartIVDoseTo}} mg/day in 2 divided doses</li>\n </ul></span></blockquote>",
+              "condition": "data('weightKiloChlorothiazide') && (data('weightKiloChlorothiazide') > 0)",
               "_rowNum": 142
+            },
+            {
+              "type": "note",
+              "label": "<blockquote><span style=\"background-color: yellow\"><b>Hyperinsulinemia hypoglycemia, congenital hyperinsulinism (adjunct therapy)</b>: <ul>\n <li>Oral: {{calculates.ChlorothiazideHyperOralDoseFrom}} - {{calculates.ChlorothiazideHyperOralDoseTo}}  mg/day in 2 divided doses</li> </ul></span></blockquote>",
+              "condition": "data('weightKiloChlorothiazide') && (data('weightKiloChlorothiazide') > 0)",
+              "_rowNum": 143
+            },
+            {
+              "type": "note",
+              "label": "<blockquote><span style=\"background-color: yellow\"><b>Diabetes insipidus (central)</b>: <ul>\n <li>Oral: {{calculates.ChlorothiazideDiabetesOralDoseFrom}} mg/day in 2 divided doses</li> </ul></span></blockquote>",
+              "condition": "data('weightKiloChlorothiazide') && (data('weightKiloChlorothiazide') > 0)",
+              "_rowNum": 144
             },
             {
               "type": "note",
               "name": "Chlorothiazide",
               "templatePath": "templates/chlorothiazide.handlebars",
-              "_rowNum": 143
+              "_rowNum": 145
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('medications_menu'),'Furosemide')",
-          "_rowNum": 145,
+          "_rowNum": 147,
           "prompts": [
             {
               "type": "note",
               "name": "Furosemide",
               "templatePath": "templates/furosemide.handlebars",
-              "_rowNum": 146
+              "_rowNum": 148
             }
           ]
         },
         {
           "type": "note",
           "label": "<p><sup>Source: Neofax</sup></p>",
-          "_rowNum": 148
+          "_rowNum": 150
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 150,
+      "_rowNum": 152,
       "param": "medications_end"
     },
     {
       "type": "goto",
       "condition": "selected(data('menu'), 'calculators')",
-      "_rowNum": 152,
+      "_rowNum": 154,
       "param": "calculators_begin"
     },
     {
       "type": "goto",
       "condition": "not(selected(data('menu'), 'calculators'))",
-      "_rowNum": 153,
+      "_rowNum": 155,
       "param": "calculators_end"
     },
     {
       "comments": "CALCULATOR",
       "type": "label",
-      "_rowNum": 154,
+      "_rowNum": 156,
       "param": "calculators_begin"
     },
     {
@@ -784,73 +796,60 @@
       "name": "calculators_menu",
       "label": "Calculators",
       "appearance": "grid",
-      "_rowNum": 155,
+      "_rowNum": 157,
       "param": "calculators_menu"
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'weight_converter')",
-      "_rowNum": 156,
+      "_rowNum": 158,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Weight Converter</b>",
-          "_rowNum": 157
+          "_rowNum": 159
         },
         {
           "type": "select_one",
           "name": "conversion_type",
           "appearance": "dropdown",
-          "_rowNum": 158,
+          "_rowNum": 160,
           "param": "conversion_type"
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'kgToLb')",
-          "_rowNum": 159,
+          "_rowNum": 161,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightKilo",
               "label": "<p>Enter weight (kg):</p>",
-              "_rowNum": 160
-            },
-            {
-              "type": "note",
-              "label": "Please enter a non-negative weight.",
-              "condition": "data('weightKilo')<0",
-              "_rowNum": 161
+              "_rowNum": 162
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToPound}} pounds</b></span>",
-              "condition": "data('weightKilo')>0 ||data('weightKilo')==0",
-              "_rowNum": 162
+              "condition": "data('weightKilo')",
+              "_rowNum": 163
             }
           ]
         },
         {
           "type": "screen",
           "condition": "selected(data('conversion_type'),'lbToKg')",
-          "_rowNum": 164,
+          "_rowNum": 165,
           "prompts": [
             {
               "type": "decimal",
               "name": "weightPound",
               "label": "<p>Enter weight (lbs):</p>",
-              "_rowNum": 165
-            },
-            {
-              "type": "note",
-              "label": "Please enter a non-negative number for weight.",
-              "condition": "data('weightPound')<0",
-              "constraint": "data('weightPound')>=0",
               "_rowNum": 166
             },
             {
               "type": "note",
               "label": "<span style=\"background-color: yellow\"><b>Baby weight is: {{calculates.convertToKilo}} kilograms</b></span>",
-              "condition": "data('weightPound') >0 || data('weightPound')==0",
+              "condition": "data('weightPound')",
               "_rowNum": 167
             }
           ]
@@ -925,74 +924,67 @@
         },
         {
           "type": "note",
-          "label": "Please enter a non-negative number for total fluid and dextrose percentage",
-          "condition": "data('totalFluid') < 0 || data('dextrosePerc') <0",
-          "constraint": "data('totalFluid') >= 0 && data('dextrosePerc') >=0",
-          "_rowNum": 182
-        },
-        {
-          "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Glucose Infusion Rate: {{calculates.glucoseCal}} g/kg/min</b></span>",
-          "condition": "data('totalFluid')>=0 && data('dextrosePerc')>=0",
-          "_rowNum": 183
+          "condition": "data('totalFluid') && data('dextrosePerc')",
+          "_rowNum": 182
         }
       ]
     },
     {
       "type": "screen",
       "condition": "selected(data('calculators_menu'),'gestational_age')",
-      "_rowNum": 185,
+      "_rowNum": 184,
       "prompts": [
         {
           "type": "note",
           "label": "<b>Gestational Age Calculator</b>",
-          "_rowNum": 186
+          "_rowNum": 185
         },
         {
           "type": "date",
           "name": "birthday",
           "label": "<p><b>Date of Birth</b></p>",
-          "_rowNum": 187
+          "_rowNum": 186
         },
         {
           "type": "note",
           "label": "<p><b>Gestational at birth</b></p>",
-          "_rowNum": 188
+          "_rowNum": 187
         },
         {
           "type": "integer",
           "name": "weeksBeforeBirth",
           "label": "<p>Weeks</p>",
-          "_rowNum": 189
+          "_rowNum": 188
         },
         {
           "type": "integer",
           "name": "daysBeforeBirth",
           "label": "<p>Days</p>",
-          "_rowNum": 190
+          "_rowNum": 189
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Chronological age is {{calculates.weeksAfterBirth}} weeks {{calculates.daysAfterBirth}} days</b></span>",
           "condition": "data('birthday')",
-          "_rowNum": 191
+          "_rowNum": 190
         },
         {
           "type": "note",
           "label": "<span style=\"background-color: yellow\"><b>Post-menstrual age is {{calculates.weeksOld}} weeks {{calculates.daysOld}} days</b></span>",
           "condition": "data('birthday') && data('weeksBeforeBirth') && data('daysBeforeBirth')",
-          "_rowNum": 192
+          "_rowNum": 191
         }
       ]
     },
     {
       "type": "label",
-      "_rowNum": 194,
+      "_rowNum": 193,
       "param": "calculators_end"
     },
     {
       "type": "goto",
-      "_rowNum": 197,
+      "_rowNum": 196,
       "param": "back_to_main"
     }
   ],
@@ -1966,6 +1958,13 @@
         "type": "string"
       },
       "_rowNum": 4
+    },
+    {
+      "name": "main_menu",
+      "schema": {
+        "type": "string"
+      },
+      "_rowNum": 5
     }
   ],
   "model": {
