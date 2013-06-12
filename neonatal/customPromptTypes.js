@@ -134,6 +134,8 @@ define(['database', 'promptTypes','jquery','underscore', 'prompts'],
         }), this.generateSaveValue(formValue));
       }
     });
+    /* Just like menu except no back button is emmited on nav bar
+     */
     customs["main_menu"] = customs["menu"].extend({
       postActivate: function(ctxt) {
         var that = this;
