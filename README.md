@@ -5,6 +5,7 @@ This github repo contains everything you need to host our app either locally or 
 Files to Grade
 ------
 * neonatal/neonatal.xlsx - Our ODK spreadsheet.
+    To grade the comments of the spreadsheet please look at Apendix 2, where we describe the layout of the sheet.
 * neonatal/customPromptsTypes.js - This file contains our custom prompt
   types which are menu, image slider, and ballard exam. We have
 documented these prompts with "class comments" which describe how to use
@@ -20,8 +21,9 @@ Host Locally
 ------
 1. Clone this project.
 2. Open a terminal and cd to the project root
-2. Run the following command: ./node app.js.
-3. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app data everytime the app changes.
+3. If using Mac OSX, proceed to step 4. Otherwise download the appropriate version of [node.js](http://nodejs.org/download/).
+4. Run the following command: ./node app.js.
+5. Open browser and navigate to localhost:8888. Note: you must clear your browser's cache and saved app data everytime the app changes.
 
 Host on Heroku
 ------
